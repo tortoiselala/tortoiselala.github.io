@@ -105,7 +105,7 @@
 <meta property="og:description" content="Java-NIO什么是IOIO即输入输出，是计算机与设备进行资源交换的出入口。在Java中，传统的IO以流的方式处理IO，所有的IO都被视作单个字节的移动，通过stream对象一次移动一个字节。流IO负责把对象转换为字节，然后再将字节转换为对象。 什么是NIONIO即new IO，这个库是在JDK1.4中引入的。它在标准Java代码中提供了高速的面向块的IO操作。NIO与IO具有相同的作用和目的，">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://tortoiselala.github.com/2019/03/17/Java-NIO/java.nio.src/image/v2-07952bbba1ff33a30b213a4941b4242e_hd.png">
-<meta property="og:updated_time" content="2019-03-17T13:11:12.679Z">
+<meta property="og:updated_time" content="2019-03-17T13:15:23.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java NIO">
 <meta name="twitter:description" content="Java-NIO什么是IOIO即输入输出，是计算机与设备进行资源交换的出入口。在Java中，传统的IO以流的方式处理IO，所有的IO都被视作单个字节的移动，通过stream对象一次移动一个字节。流IO负责把对象转换为字节，然后再将字节转换为对象。 什么是NIONIO即new IO，这个库是在JDK1.4中引入的。它在标准Java代码中提供了高速的面向块的IO操作。NIO与IO具有相同的作用和目的，">
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-03-17 21:09:36 / Modified: 21:11:12" itemprop="dateCreated datePublished" datetime="2019-03-17T21:09:36+08:00">2019-03-17</time>
+              <time title="Created: 2019-03-17 21:09:36 / Modified: 21:15:23" itemprop="dateCreated datePublished" datetime="2019-03-17T21:09:36+08:00">2019-03-17</time>
             
 
             
@@ -431,6 +431,7 @@
 <li>标准输入输出NIO</li>
 <li>网络编程NIO</li>
 </ul>
+<a id="more"></a>
 <h2 id="流和块的比较"><a href="#流和块的比较" class="headerlink" title="流和块的比较"></a>流和块的比较</h2><p>NIO和IO的最大区别是数据打包和传输方式。IO是以流的方式处理数据，而NIO是以块的方式处理数据。</p>
 <h3 id="面向流的IO"><a href="#面向流的IO" class="headerlink" title="面向流的IO"></a>面向流的IO</h3><p>面向流的IO一次处理一个字节的处理数据，一个输入流产生一个字节，一个输出流就消费一个字节。为流式数据创建过滤器就变得非常容易，链接几个过滤器，以便对数据进行处理非常方便而简单，但是面向流的IO通常处理的很慢。</p>
 <h3 id="面向块的NIO"><a href="#面向块的NIO" class="headerlink" title="面向块的NIO"></a>面向块的NIO</h3><p>面向块的NIO以块的形式处理数据。每一个操作都在一步中产生或消费一个数据块。按块要比按流快的多，但面向块的IO缺少了面向流IO所具有的优雅性和简单性。</p>
@@ -569,10 +570,6 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/17/test/" rel="prev" title="test">
-                test <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -641,7 +638,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
