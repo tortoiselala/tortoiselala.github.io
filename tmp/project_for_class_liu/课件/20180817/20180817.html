@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="第三章 - welcome to my">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tortoiselala">
+<meta property="og:url" content="http://tortoiselala.github.com/tmp/project_for_class_liu/课件/20180817/20180817.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="第三章 - welcome to my">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="e:/刘云飞/课件/20180817/390px-Depth-first-tree.svg.png">
+<meta property="og:updated_time" content="2018-08-30T18:26:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tortoiselala">
+<meta name="twitter:description" content="第三章 - welcome to my">
+<meta name="twitter:image" content="e:/刘云飞/课件/20180817/390px-Depth-first-tree.svg.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/tmp/project_for_class_liu/课件/20180817/20180817.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"><a href="https://github.com/tortoiselala/blog-srctmp/project_for_class_liu/课件/20180817/20180817.html" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180817</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/课件/20180817.html/">20180817.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="第三章暴力枚举在C语言中有一种数据类型，为枚举
+123enum DAY&amp;#123;    MON=1, TUE, WED, THU, FRI, SAT, SUN&amp;#125;;
+C语言上的枚举类型是将所有的取值都列出来。
+类比在算法上的枚举算法：将所有可能的取值都列举出来，通过筛选等后续处理，以得到期">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="tortoiselala">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="第三章">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="welcome to my site">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>第三章 - welcome to my site</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about/index.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags/index.html">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories/index.html">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Java">
+                    Java
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        
+            <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+            <section class="main">
+                
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/new/20180817/20180817.html">
+                第三章
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-08-17</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h2><p>在C语言中有一种数据类型，为<strong>枚举</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> DAY&#123;</span><br><span class="line">    MON=<span class="number">1</span>, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>C语言上的枚举类型是将所有的取值都列出来。</p>
+<p>类比在算法上的<strong>枚举算法</strong>：将所有可能的取值都列举出来，通过筛选等后续处理，以得到期望的结果。</p>
+<p><strong>算法思想：</strong>“有序的去尝试每一种可能”</p>
+<p>$eg:$找到<strong>&diams;</strong>的所有合理取值，使得等式<strong>&diams;3&times;6528=3&diams;&times;8265</strong>成立</p>
+<p>简单的枚举解法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">9</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>((i * <span class="number">10</span> + <span class="number">3</span>) * <span class="number">6528</span> == (<span class="number">30</span> + i) * <span class="number">8256</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\t"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="炸弹人"><a href="#炸弹人" class="headerlink" title="炸弹人"></a>炸弹人</h2><h2 id="火柴棍等式"><a href="#火柴棍等式" class="headerlink" title="火柴棍等式"></a>火柴棍等式</h2><h2 id="数的全排列"><a href="#数的全排列" class="headerlink" title="数的全排列"></a>数的全排列</h2><h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="深度优先搜索（Depth-First-Search-DFS）"><a href="#深度优先搜索（Depth-First-Search-DFS）" class="headerlink" title="深度优先搜索（Depth-First-Search DFS）"></a>深度优先搜索（Depth-First-Search DFS）</h2><p>深度优先搜索算法是一种用于搜索<strong>树</strong>或<strong>图</strong>的算法。</p>
+<p><strong>沿着树的深度遍历树的节点，</strong><strong>尽可能深的搜索树的分支</strong><strong>。当节点v所在的边都被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。</strong></p>
+<p>__深度优先搜索</p>
+<p>深度优先搜索算法</p>
+<p>枚举</p>
+<p>枚举算法</p>
+<p>广度优先搜索</p>
+<p>广度优先搜索算法__(BFS)</p>
+<p><img src="E:\刘云飞\课件\20180817\390px-Depth-first-tree.svg.png" alt="90px-Depth-first-tree.sv"></p>
+<p>书上的例题：排列组合思想   图表演示：target file</p>
+<h2 id="迷宫问题"><a href="#迷宫问题" class="headerlink" title="迷宫问题"></a>迷宫问题</h2><p>落谷 P1605</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> sum;</span><br><span class="line"><span class="keyword">int</span> N,M,T;</span><br><span class="line"><span class="keyword">int</span> Sx,Sy,Fx,Fy;</span><br><span class="line"><span class="keyword">int</span> Zx[<span class="number">25</span>],Zy[<span class="number">25</span>];</span><br><span class="line"><span class="keyword">int</span> book[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isZ</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=T;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (a==Zx[i] &amp;&amp; b==Zy[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	book[x][y]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==Fx &amp;&amp; y==Fy)</span><br><span class="line">	&#123;</span><br><span class="line">		sum++;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x<span class="number">-1</span>,y)==<span class="number">0</span> &amp;&amp; x<span class="number">-1</span>!=<span class="number">0</span> &amp;&amp; book[x<span class="number">-1</span>][y]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x<span class="number">-1</span>,y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x,y<span class="number">-1</span>)==<span class="number">0</span> &amp;&amp; y<span class="number">-1</span>!=<span class="number">0</span> &amp;&amp; book[x][y<span class="number">-1</span>]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x,y<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x+<span class="number">1</span>,y)==<span class="number">0</span> &amp;&amp; x+<span class="number">1</span>&lt;=N &amp;&amp; book[x+<span class="number">1</span>][y]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x+<span class="number">1</span>,y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x,y+<span class="number">1</span>)==<span class="number">0</span> &amp;&amp; y+<span class="number">1</span>&lt;=M &amp;&amp; book[x][y+<span class="number">1</span>]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x,y+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	book[x][y]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;N,&amp;M,&amp;T);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;Sx,&amp;Sy,&amp;Fx,&amp;Fy);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=T;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;Zx[i],&amp;Zy[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sum=<span class="number">0</span>;</span><br><span class="line">	dfs1(Sx,Sy);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,sum);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">递推和递归</span></span><br><span class="line"><span class="comment">深度优先搜索和深度优先搜索算法</span></span><br><span class="line"><span class="comment">第一需要考虑的问题</span></span><br><span class="line"><span class="comment">1.何时结束</span></span><br><span class="line"><span class="comment">2.怎么递归/递推/深度搜索</span></span><br><span class="line"><span class="comment">3.起始条件/函数入口参数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	book[x][y]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==Fx &amp;&amp; y==Fy)</span><br><span class="line">	&#123;</span><br><span class="line">		sum++;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x<span class="number">-1</span>,y)==<span class="number">0</span> &amp;&amp; x<span class="number">-1</span>!=<span class="number">0</span> &amp;&amp; book[x<span class="number">-1</span>][y]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x<span class="number">-1</span>,y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x,y<span class="number">-1</span>)==<span class="number">0</span> &amp;&amp; y<span class="number">-1</span>!=<span class="number">0</span> &amp;&amp; book[x][y<span class="number">-1</span>]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x,y<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x+<span class="number">1</span>,y)==<span class="number">0</span> &amp;&amp; x+<span class="number">1</span>&lt;=N &amp;&amp; book[x+<span class="number">1</span>][y]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x+<span class="number">1</span>,y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (isZ(x,y+<span class="number">1</span>)==<span class="number">0</span> &amp;&amp; y+<span class="number">1</span>&lt;=M &amp;&amp; book[x][y+<span class="number">1</span>]==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs1(x,y+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	book[x][y]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h2><p>题：luogu.org P1443 马的遍历</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+            </section>
+        
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Yangming Wu<br><br>Majored in Computer Science and Technology(Fake CS).<br>CS1601, Compouter Science & Technonlgy School, Huazhong University of Science and Technology(HUST).<br>QQ: 1546191727
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/30/浮点数的机器级表示-IEEE-754/">浮点数的机器级表示(IEEE 754)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/29/Welcome to My Site/">Welcome</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/tortoiselala" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?tortoiselala?s=09" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:tortoiselala@gmail.com" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    copyright@tortoiselala. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180817</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/tmp/project_for_class_liu/课件/20180817.html/">20180817.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+            
+                第三章
+            
+        </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章"><span class="nav-number">2.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#暴力枚举"><span class="nav-number">2.1.</span> <span class="nav-text">暴力枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#炸弹人"><span class="nav-number">2.2.</span> <span class="nav-text">炸弹人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#火柴棍等式"><span class="nav-number">2.3.</span> <span class="nav-text">火柴棍等式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数的全排列"><span class="nav-number">2.4.</span> <span class="nav-text">数的全排列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章"><span class="nav-number">3.</span> <span class="nav-text">第四章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先搜索（Depth-First-Search-DFS）"><span class="nav-number">3.1.</span> <span class="nav-text">深度优先搜索（Depth-First-Search DFS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迷宫问题"><span class="nav-number">3.2.</span> <span class="nav-text">迷宫问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先搜索"><span class="nav-number">3.3.</span> <span class="nav-text">广度优先搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">Recent Posts</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+</body>
+</html>
