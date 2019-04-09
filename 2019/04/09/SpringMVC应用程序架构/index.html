@@ -96,20 +96,26 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tortoiselala">
-<meta property="og:url" content="http://tortoiselala.github.com/tags/database/index.html">
+  <meta name="description" content="Spring MVC 应用程序架构概览Spring MVC应用程序可以细分为一系列的层（layer）。层的划分是依据应用程序内对功能关注点的差异性而划分的离散的、正交的区域。层是应用程序内部的抽象，接口可以为这些层提供互相作用的约定（在我的理解下，这个层的划分便是AOP的一个实现？这是目前的理解）。 层在概念上是有约定的边界但未必是物理层上的隔离。通常，对一个web应用程序来说，所有层部署在一个虚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC应用程序架构">
+<meta property="og:url" content="http://tortoiselala.github.com/2019/04/09/SpringMVC应用程序架构/index.html">
 <meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="Spring MVC 应用程序架构概览Spring MVC应用程序可以细分为一系列的层（layer）。层的划分是依据应用程序内对功能关注点的差异性而划分的离散的、正交的区域。层是应用程序内部的抽象，接口可以为这些层提供互相作用的约定（在我的理解下，这个层的划分便是AOP的一个实现？这是目前的理解）。 层在概念上是有约定的边界但未必是物理层上的隔离。通常，对一个web应用程序来说，所有层部署在一个虚">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://tortoiselala.github.com/home/tortoiselala/projects/blog/source/_posts/SpringMVC%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/201904090918.png">
+<meta property="og:updated_time" content="2019-04-09T01:50:47.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tortoiselala">
+<meta name="twitter:title" content="SpringMVC应用程序架构">
+<meta name="twitter:description" content="Spring MVC 应用程序架构概览Spring MVC应用程序可以细分为一系列的层（layer）。层的划分是依据应用程序内对功能关注点的差异性而划分的离散的、正交的区域。层是应用程序内部的抽象，接口可以为这些层提供互相作用的约定（在我的理解下，这个层的划分便是AOP的一个实现？这是目前的理解）。 层在概念上是有约定的边界但未必是物理层上的隔离。通常，对一个web应用程序来说，所有层部署在一个虚">
+<meta name="twitter:image" content="http://tortoiselala.github.com/home/tortoiselala/projects/blog/source/_posts/SpringMVC%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/201904090918.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://tortoiselala.github.com/tags/database/"/>
+  <link rel="canonical" href="http://tortoiselala.github.com/2019/04/09/SpringMVC应用程序架构/"/>
 
 
 
@@ -119,7 +125,7 @@
   };
 </script>
 
-  <title>Tag: database | tortoiselala</title>
+  <title>SpringMVC应用程序架构 | tortoiselala</title>
   
 
 
@@ -167,7 +173,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,7 +245,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -295,28 +301,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -341,58 +325,192 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>database<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/04/09/SpringMVC应用程序架构/"/>
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tortoiselala"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tortoiselala"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2018/09/19/数据库笔记/" itemprop="url">
-            
-              <span itemprop="name">database</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">SpringMVC应用程序架构<a href="https://github.com/tortoiselala/blog-src_posts/SpringMVC应用程序架构.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-19T07:41:09+08:00"
-              content="2018-09-19">
-          09-19
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-09 09:49:52 / Modified: 09:50:47" itemprop="dateCreated datePublished" datetime="2019-04-09T09:49:52+08:00">2019-04-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring-MVC-应用程序架构概览"><a href="#Spring-MVC-应用程序架构概览" class="headerlink" title="Spring MVC 应用程序架构概览"></a>Spring MVC 应用程序架构概览</h1><p>Spring MVC应用程序可以细分为一系列的层（layer）。层的划分是依据应用程序内对功能关注点的差异性而划分的离散的、正交的区域。层是应用程序内部的抽象，接口可以为这些层提供互相作用的约定（在我的理解下，这个层的划分便是AOP的一个实现？这是目前的理解）。</p>
+<p>层在概念上是有约定的边界但未必是物理层上的隔离。通常，对一个web应用程序来说，所有层部署在一个虚拟机上。</p>
+<p>对于web应用程序来说，通常有以下三个高度抽象的层：</p>
+<ul>
+<li>高层（用户界面，web）</li>
+<li>中层（服务，领域模型）</li>
+<li>底层（持久）<a id="more"></a>
+进一步来说，Spring MVC应用程序至少有5个抽象层：</li>
+<li>用户界面</li>
+<li>web</li>
+<li>服务</li>
+<li>领域对象模型</li>
+<li>持久</li>
+</ul>
+<p>对于以上抽象层次划分，是不包含安全或事务管理的，在Spring框架中，安全被看作一个透明的方面，而不是一个层。</p>
+<p><img src="/home/tortoiselala/projects/blog/source/_posts/SpringMVC%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/201904090918.png" alt=""></p>
+<center>Spring MVC应用程序层</center>
+
+<p>上图展示了不同层的相对位置。</p>
+<h1 id="约定层级接口"><a href="#约定层级接口" class="headerlink" title="约定层级接口"></a>约定层级接口</h1><p>Java 接口是能够使用层构建应用程序的关键，接口就是层的约定。</p>
+<h1 id="Spring-MVC应用程序中的层"><a href="#Spring-MVC应用程序中的层" class="headerlink" title="Spring MVC应用程序中的层"></a>Spring MVC应用程序中的层</h1><p>在<a href="#Spring MVC应用程序架构概览">Spring MVC应用程序架构概览</a>中对应用程序架构做了抽象层划分，下面是SpringMVC中具体的划分。</p>
+<h2 id="用户界面层"><a href="#用户界面层" class="headerlink" title="用户界面层"></a>用户界面层</h2><p>用户界面层负责架构应用程序呈现给最终用户。该层将由Web层生成的响应呈现到客户端请求的表单。</p>
+<p>用户界面层一般是最上层。理论上，这意味着这是字节发送给客户端之前过程链的最后一层。至此，已经执行完了所有的业务逻辑，提交了所有的事务并释放了资源。</p>
+<p>这一层单独划分出来另外一个主要原因是：视图可以由多种实现，例如常见的有jsp，excel，pdf等。</p>
+<h2 id="Web层"><a href="#Web层" class="headerlink" title="Web层"></a>Web层</h2><p>导航逻辑是由Web层处理的两个重要功能之一，它负责按照正确的次序引导用户到达正确的页面视图。它可以由一个</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/05/vr-information/" rel="next" title="vr_information">
+                <i class="fa fa-chevron-left"></i> vr_information
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -413,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -509,6 +636,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-MVC-应用程序架构概览"><span class="nav-number">1.</span> <span class="nav-text">Spring MVC 应用程序架构概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#约定层级接口"><span class="nav-number">2.</span> <span class="nav-text">约定层级接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-MVC应用程序中的层"><span class="nav-number">3.</span> <span class="nav-text">Spring MVC应用程序中的层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户界面层"><span class="nav-number">3.1.</span> <span class="nav-text">用户界面层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web层"><span class="nav-number">3.2.</span> <span class="nav-text">Web层</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -652,6 +796,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -662,6 +810,8 @@
 
   
 
+
+  
 
 
   
