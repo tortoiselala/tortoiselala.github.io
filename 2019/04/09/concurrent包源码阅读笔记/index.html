@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="What Can You See Here?课程开始之前的准备click here Schedule    时间 链接 上课时间 小计 内容概要 备注     2018年11月21日 link 23:00-00:30 1hour 复杂度分析基础，高精度计算，java控制台输入与输出 comlete   2018年11月23日 link 22:00-00:00 2hour 简单的排序算法 comle">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tony page">
-<meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tony/index.html">
+  <meta name="description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
+<meta property="og:type" content="article">
+<meta property="og:title" content="concurrent包源码阅读笔记">
+<meta property="og:url" content="http://tortoiselala.github.com/2019/04/09/concurrent包源码阅读笔记/index.html">
 <meta property="og:site_name" content="tortoiselala">
-<meta property="og:description" content="What Can You See Here?课程开始之前的准备click here Schedule    时间 链接 上课时间 小计 内容概要 备注     2018年11月21日 link 23:00-00:30 1hour 复杂度分析基础，高精度计算，java控制台输入与输出 comlete   2018年11月23日 link 22:00-00:00 2hour 简单的排序算法 comle">
+<meta property="og:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-29T20:53:52.000Z">
+<meta property="og:updated_time" content="2019-04-09T08:36:06.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tony page">
-<meta name="twitter:description" content="What Can You See Here?课程开始之前的准备click here Schedule    时间 链接 上课时间 小计 内容概要 备注     2018年11月21日 link 23:00-00:30 1hour 复杂度分析基础，高精度计算，java控制台输入与输出 comlete   2018年11月23日 link 22:00-00:00 2hour 简单的排序算法 comle">
+<meta name="twitter:title" content="concurrent包源码阅读笔记">
+<meta name="twitter:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
 
 
 
 
 
 
-  <link rel="canonical" href="http://tortoiselala.github.com/algorithm-course/tony/"/>
+  <link rel="canonical" href="http://tortoiselala.github.com/2019/04/09/concurrent包源码阅读笔记/"/>
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>tony page | tortoiselala</title>
+  <title>concurrent包源码阅读笔记 | tortoiselala</title>
   
 
 
@@ -299,28 +299,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -347,237 +325,212 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/04/09/concurrent包源码阅读笔记/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tortoiselala"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tortoiselala"/>
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tony page<a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tony/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-  
-  
-  <ul class="breadcrumb">
-    
-      
-      
         
+        
+          <h1 class="post-title" itemprop="name headline">concurrent包源码阅读笔记<a href="https://github.com/tortoiselala/blog-src_posts/concurrent包源码阅读笔记.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-09 16:35:35 / Modified: 16:36:06" itemprop="dateCreated datePublished" datetime="2019-04-09T16:35:35+08:00">2019-04-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
           
             
+            
           
-          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
-        
-      
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-      
-      
-        
-          <li>TONY</li>
-        
-      
+
     
-      
-      
     
-  </ul>
-
-
-</div>
-
-</header>
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
+
       
-      <div class="post-body">
-        
-        
-          <h1 id="What-Can-You-See-Here"><a href="#What-Can-You-See-Here" class="headerlink" title="What Can You See Here?"></a>What Can You See Here?</h1><p><strong>课程开始之前的准备<a href="https://tortoiselala.github.io/algorithm-course/tony/foreword/index.html" target="_blank" rel="noopener">click here</a></strong></p>
-<h1 id="Schedule"><a href="#Schedule" class="headerlink" title="Schedule"></a>Schedule</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>时间</th>
-<th>链接</th>
-<th>上课时间</th>
-<th>小计</th>
-<th>内容概要</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2018年11月21日</td>
-<td><a href="https://tortoiselala.github.io/algorithm-course/tony/20181121/index.html" target="_blank" rel="noopener">link</a></td>
-<td>23:00-00:30</td>
-<td>1hour</td>
-<td>复杂度分析基础，高精度计算，java控制台输入与输出</td>
-<td>comlete</td>
-</tr>
-<tr>
-<td>2018年11月23日</td>
-<td><a href="https://tortoiselala.github.io/algorithm-course/tony/20181123/index.html" target="_blank" rel="noopener">link</a></td>
-<td>22:00-00:00</td>
-<td>2hour</td>
-<td>简单的排序算法</td>
-<td>comlete</td>
-</tr>
-<tr>
-<td>2018年11月25日</td>
-<td><a href="https://tortoiselala.github.io/algorithm-course/tony/20181125/index.html" target="_blank" rel="noopener">link</a></td>
-<td>22:00-0:00</td>
-<td>2hour</td>
-<td>快速排序，归并排序，分治策略</td>
-<td>comlete</td>
-</tr>
-<tr>
-<td>2018年11月27日</td>
-<td><a href="https://tortoiselala.github.io/algorithm-course/tony/20181127/index.html" target="_blank" rel="noopener">link</a></td>
-<td>22:00-0:00</td>
-<td>2hour</td>
-<td>贪心策略，动态规划</td>
-<td>complete</td>
-</tr>
-<tr>
-<td>2018年11月29日</td>
-<td><a href="https://tortoiselala.github.io/algorithm-course/tony/20181129/index.html" target="_blank" rel="noopener">link</a></td>
-<td>待更新</td>
-<td>待更新</td>
-<td>深度优先搜索与广度优先搜索，单源最短路径问题，多源最短路径问题，最小生成树</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>其中课表知识展开为：</p>
+        <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p><code>java.util.concurrent</code> oracle文档中对该包的描述是：</p>
+<blockquote>
+<p>Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. </p>
+</blockquote>
+<p>在这个目录中包含了许多在并发编程中通常会用到的实用类。这个包包含了一些小的标准可扩展的框架以及一些有用的类和其他繁琐难以实现的类。</p>
+<h2 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h2><ul>
+<li><strong>Interfaces</strong>.<ul>
+<li><code>Excetor</code>是一个简单的标准化接口，用于自定义线程类自定义子任务，包括线程池，异步IO和轻量级任务框架。不同的Executor类对任务执行过程有不同的实现，例如：在新创建的线程，现有线程或调用executor中的线程去执行任务，并且可以同时执行或顺序执行。</li>
+<li><code>ExecutorService</code>提供了一个更为复杂的异步任务执行框架，<code>ExecutorService</code>管理任务的排队和调度，并且允许主动关闭。</li>
+<li><code>ScheduledExecutorService</code>子接口和关联接口添加了对延时和定时任务的支持。<code>ExecutorServices</code>提供了<code>Callable</code>函数式的任务执行方法。</li>
+<li><code>Future</code>执行会返回函数的结果，并且允许确定任务是否执行完毕，以及提供了取消执行的方法。</li>
+<li><code>RunnableFuture</code>是能够执行<code>run</code>方法的<code>Future</code>。</li>
+</ul>
+</li>
+<li><code>Implementations</code><ul>
+<li><code>ThreadPoolExecutor</code>和<code>ScheduledThreadPool</code>类提供了可灵活调用的线程池。</li>
+<li><code>Executors</code>类提供了<code>Executors</code>多种线程池的实现，以及一些工具类。</li>
+<li>其他基于<code>Executors</code>的实用工具包括提供了<code>FutureTask</code>和<code>ExecutorCompletionService</code>的常见可扩展具体类，用于协助异步任务组的处理。</li>
+<li><code>ForkJoinPool</code>提供了处理<code>ForkJoinTask</code>及其子类的执行方法。这些类采用了一种工作窃取调度程序，可以获得符合计算密集型并行处理中常常存在的限制的任务的高吞吐量。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><ul>
+<li><code>ConcurrentLinkedQueue</code>类提供了高效可扩展的线程安全非阻塞FIFO队列。</li>
+<li><code>ConcurrentLikedDeque</code>类与<code>ConncurrentLinkedQueue</code>类似，但是实现了<code>Deque</code>接口。</li>
+<li><code>LinkedBlockingQueue</code>, <code>ArrayBlockingQueue</code>, <code>SychronousQueue</code>, <code>PriporityBlockingQueue</code>和<code>DelayQueue</code>是<code>BlockingQueue</code>接口实现，定义了阻塞式的<code>put</code>和<code>take</code>。不同的类涵盖了生产者 - 消费者，消息传递，并行任务和相关并发设计的最常见使用上下文。</li>
+<li>扩展接口<code>TransferQueue</code>和实现<code>LinkedTransferQueue</code>引入了同步传输方法（以及相关功能），其中生产者可以选择阻止等待其消费者。</li>
+<li><code>BlockingDeque</code>接口扩展了<code>BlockingQueue</code>提供对FIFO和LIFO（stack-based）操作的支持。<code>LinkedBlockingDeque</code>类是一个实现。</li>
+</ul>
+<h2 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h2><p><code>TimeUnit</code>类提供多个粒度（包括纳秒），用于指定和控制基于超时的操作。除了无限期等待之外，程序包中的大多数类都包含基于超时的操作。在使用超时的所有情况下，超时指定方法在指示超时之前应等待的最短时间。实施工作可以“尽最大努力”在发生超时后尽快检测到超时。然而，在检测到超时和在超时之后再次实际执行的线程之间可能经过不确定的时间量。所有接受超时参数的方法都会将值小于或等于零，以表示根本不等待。要等待“永远”，您可以使用<code>Long.MAX_VALUE</code>值。</p>
+<h2 id="Sychronizers"><a href="#Sychronizers" class="headerlink" title="Sychronizers"></a>Sychronizers</h2><ul>
+<li><code>Semaphore</code></li>
+<li><code>CountDownLatch</code>是一个非常简单但非常常见的实用程序，用于阻塞，直到给定数量的信号，事件或条件成立。</li>
+<li><code>CycleBarrier</code>是一种可重置的多路同步点，在某些并行编程风格中很有用。</li>
+<li><code>Phaser</code>提供了更灵活的屏障形式，可用于控制多个线程之间的分阶段计算</li>
+<li><code>Exchager</code>允许两个线程在集合点交换对象，并且在多个管道设计中很有用</li>
+</ul>
+<h2 id="Concurrent-Collections"><a href="#Concurrent-Collections" class="headerlink" title="Concurrent Collections"></a>Concurrent Collections</h2><p>除了队列，该包中还提供了在多线程中能够使用的集合实现：</p>
 <ul>
-<li>剩余的排序算法<ul>
-<li>归并排序</li>
-<li>快速排序</li>
+<li><code>ConcurrentHashMap</code></li>
+<li><code>ConcurrentSkipListMap</code></li>
+<li><code>ConcurrentSkipListSet</code></li>
+<li><code>CopyOnWriteArrayList</code></li>
+<li><code>CopyOnWriteSet</code></li>
 </ul>
-</li>
-<li>分治策略</li>
-<li><p>DFS与BFS</p>
-</li>
-<li><p>贪心算法</p>
-<ul>
-<li>活动选择问题</li>
-<li>贪心算法原理</li>
-<li>哈夫曼编码</li>
-</ul>
-</li>
-<li>动态规划（4问题选讲）<ul>
-<li>钢条切割问题</li>
-<li>矩阵链乘法问题</li>
-<li>动态规划原理</li>
-<li>最长公共子序列问题</li>
-<li>最优二叉搜索树</li>
-</ul>
-</li>
-<li>单源最短路径问题<ul>
-<li>Bellman-Ford</li>
-<li>Dijkstra</li>
-</ul>
-</li>
-<li>多源最短路径问题<ul>
-<li>Floyd-Warshall</li>
-</ul>
-</li>
-<li>最小生成树<ul>
-<li>Kruskal</li>
-<li>Prim</li>
-</ul>
-</li>
-</ul>
-<p><strong>省略的内容：</strong></p>
-<ul>
-<li>堆基础<ul>
-<li>堆排序</li>
-<li>堆的衍生知识</li>
-<li>优先队列</li>
-</ul>
-</li>
-<li>栈<ul>
-<li>栈基础</li>
-</ul>
-</li>
-<li>队列<ul>
-<li>队列基础</li>
-</ul>
-</li>
-<li>哈希表</li>
-<li><p>树</p>
-<ul>
-<li>树基础</li>
-<li>二叉搜索树</li>
-<li>平衡二叉树</li>
-<li>红黑树</li>
-</ul>
-</li>
-<li><p>图</p>
-<ul>
-<li>图基础</li>
-<li>适用于稀疏图的Johnson算法</li>
-<li>拓扑排序与关键路径</li>
-</ul>
-</li>
-<li>并查集</li>
-<li><p>数论</p>
-<ul>
-<li>基础数论</li>
-<li>最大公约数</li>
-<li>模运算</li>
-<li>求解模线性方程</li>
-<li>中国余数定理</li>
-</ul>
-</li>
-<li>字符串算法</li>
+<p>当期望许多线程访问给定集合时，<code>ConcurrentHashMap</code>通常优于同步<code>HashMap</code>，并且<code>ConcurrentSkipListMap</code>通常优于同步<code>TreeMap</code>。当预期的读取和遍历次数远远超过列表的更新次数时，<code>CopyOnWriteArrayList</code>优于同步的<code>ArrayList</code>。</p>
+<blockquote>
+<p>The “Concurrent” prefix used with some classes in this package is a shorthand indicating several differences from similar “synchronized” classes. For example java.util.Hashtable and Collections.synchronizedMap(new HashMap()) are synchronized. But ConcurrentHashMap is “concurrent”. A concurrent collection is thread-safe, but not governed by a single exclusion lock. In the particular case of ConcurrentHashMap, it safely permits any number of concurrent reads as well as a tunable number of concurrent writes. “Synchronized” classes can be useful when you need to prevent all access to a collection via a single lock, at the expense of poorer scalability. In other cases in which multiple threads are expected to access a common collection, “concurrent” versions are normally preferable. And unsynchronized collections are preferable when either collections are unshared, or are accessible only when holding other locks.</p>
+</blockquote>
+<p>大多数的同步集合实现（包括大多数的队列实现）与<code>java.util</code>是不同的,<code>Iterator</code>和<code>Spliterators</code>提供了弱一致性而不是<code>fast-fail</code>.</p>
+<h2 id="Memory-Consistency-Properties"><a href="#Memory-Consistency-Properties" class="headerlink" title="Memory Consistency Properties"></a>Memory Consistency Properties</h2><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h3><ul>
+<li><code>Executor</code></li>
+<li><code>ExecutorService</code></li>
+<li><code>Future</code></li>
+<li></li>
 </ul>
 
-        
-      </div>
-      
-      
       
     </div>
+
     
 
+    
+    
+    
 
-  
-  
-  <ul class="breadcrumb">
+    
+
     
       
+    
+    
+
+    
+
+    <footer class="post-footer">
       
-        
-          
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          
-          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
-        
+              <a href="/2019/04/09/SpringMVC应用程序架构/" rel="next" title="SpringMVC应用程序架构">
+                <i class="fa fa-chevron-left"></i> SpringMVC应用程序架构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-    
+
       
       
-        
-          <li>TONY</li>
-        
-      
-    
-      
-      
-    
-  </ul>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-    
-    
-    
   </div>
 
 
@@ -723,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-Can-You-See-Here"><span class="nav-number">1.</span> <span class="nav-text">What Can You See Here?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Schedule"><span class="nav-number">2.</span> <span class="nav-text">Schedule</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-number">1.1.</span> <span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">1.2.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timing"><span class="nav-number">1.3.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronizers"><span class="nav-number">1.4.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">1.5.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Consistency-Properties"><span class="nav-number">1.6.</span> <span class="nav-text">Memory Consistency Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包结构"><span class="nav-number">2.</span> <span class="nav-text">包结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">2.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executor"><span class="nav-number">2.1.1.</span> <span class="nav-text">Executor</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
