@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="tortoiselala">
 <meta property="og:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-09T08:36:06.760Z">
+<meta property="og:updated_time" content="2019-05-03T02:55:24.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="concurrent包源码阅读笔记">
 <meta name="twitter:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
@@ -382,12 +382,24 @@
                 
               
 
-              <time title="Created: 2019-04-09 16:35:35 / Modified: 16:36:06" itemprop="dateCreated datePublished" datetime="2019-04-09T16:35:35+08:00">2019-04-09</time>
+              <time title="Created: 2019-04-09 16:35:35" itemprop="dateCreated datePublished" datetime="2019-04-09T16:35:35+08:00">2019-04-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-03 10:55:24" itemprop="dateModified" datetime="2019-05-03T10:55:24+08:00">2019-05-03</time>
               
             
           </span>
@@ -426,6 +438,7 @@
 <p>Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. </p>
 </blockquote>
 <p>在这个目录中包含了许多在并发编程中通常会用到的实用类。这个包包含了一些小的标准可扩展的框架以及一些有用的类和其他繁琐难以实现的类。</p>
+<a id="more"></a>
 <h2 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h2><ul>
 <li><strong>Interfaces</strong>.<ul>
 <li><code>Excetor</code>是一个简单的标准化接口，用于自定义线程类自定义子任务，包括线程池，异步IO和轻量级任务框架。不同的Executor类对任务执行过程有不同的实现，例如：在新创建的线程，现有线程或调用executor中的线程去执行任务，并且可以同时执行或顺序执行。</li>
