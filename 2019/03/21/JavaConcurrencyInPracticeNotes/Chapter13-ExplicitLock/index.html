@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。 Lock与ReentrantLockLockLock接口，Lock接口提供了一种无条件的、可轮询的、定时的以及可中断的">
+  <meta name="description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chapter13-ExplicitLock">
 <meta property="og:url" content="http://tortoiselala.github.com/2019/03/21/JavaConcurrencyInPracticeNotes/Chapter13-ExplicitLock/index.html">
 <meta property="og:site_name" content="tortoiselala">
-<meta property="og:description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。 Lock与ReentrantLockLockLock接口，Lock接口提供了一种无条件的、可轮询的、定时的以及可中断的">
+<meta property="og:description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-21T11:27:07.526Z">
+<meta property="og:updated_time" content="2019-05-03T02:53:06.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter13-ExplicitLock">
-<meta name="twitter:description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。 Lock与ReentrantLockLockLock接口，Lock接口提供了一种无条件的、可轮询的、定时的以及可中断的">
+<meta name="twitter:description" content="在Java 5.0之前，在协调对共享对象的访问时使用的机制只有synchronized和volatile。Java 5.0增加了一种新的机制：ReentrantLock。ReentrantLock并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。">
 
 
 
@@ -382,12 +382,24 @@
                 
               
 
-              <time title="Created: 2019-03-21 18:16:09 / Modified: 19:27:07" itemprop="dateCreated datePublished" datetime="2019-03-21T18:16:09+08:00">2019-03-21</time>
+              <time title="Created: 2019-03-21 18:16:09" itemprop="dateCreated datePublished" datetime="2019-03-21T18:16:09+08:00">2019-03-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-03 10:53:06" itemprop="dateModified" datetime="2019-05-03T10:53:06+08:00">2019-05-03</time>
               
             
           </span>
@@ -422,6 +434,7 @@
 
       
         <p>在Java 5.0之前，在协调对共享对象的访问时使用的机制只有<code>synchronized</code>和<code>volatile</code>。Java 5.0增加了一种新的机制：<code>ReentrantLock</code>。<code>ReentrantLock</code>并不是一种代替内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。</p>
+<a id="more"></a>
 <h1 id="Lock与ReentrantLock"><a href="#Lock与ReentrantLock" class="headerlink" title="Lock与ReentrantLock"></a><code>Lock</code>与<code>ReentrantLock</code></h1><h2 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a><code>Lock</code></h2><p><code>Lock</code>接口，<code>Lock</code>接口提供了一种无条件的、可轮询的、定时的以及可中断的锁获取操作，所有加锁与解锁的方法都是显式的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util.concurrent.locks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Lock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> var1, TimeUnit var3)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Condition <span class="title">newCondition</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
