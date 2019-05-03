@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Bellman-Ford--解决负权边">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tortoiselala">
+<meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180823/Bellman-Ford.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="Bellman-Ford--解决负权边">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/6407482f919e956e1d22eb304c73a841e395e436">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d81aded51fae699d4f659fee1faa684233ab581">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ddcffc28643ac01a14dd0fb32c3157859e365a7">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/93b30ae8ec84ab14193f0b6a384c39e796c80545">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2095550-ebfe9b80a493f27d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/414">
+<meta property="og:updated_time" content="2018-08-30T18:26:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tortoiselala">
+<meta name="twitter:description" content="Bellman-Ford--解决负权边">
+<meta name="twitter:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/6407482f919e956e1d22eb304c73a841e395e436">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180823/Bellman-Ford.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"><a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180823/Bellman-Ford.html" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180823</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/Bellman-Ford.html/">BELLMAN-FORD.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="之前学的弗洛伊德算法和迪杰斯塔拉算法处理的图均是正权值的图，那么如何取求取拥有负权的图的最短路径呢。
+Bellman-Ford算法
+
+
+分类
+单源最短路径问题（针对带权有向图）
+
+
+
+
+数据结构
+图
+
+
+最坏时间复杂度
+![O(\
+V\
+\
+E\
+)](https://wikimedia.org/a">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="tortoiselala">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Bellman-Ford--解决负权边">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="welcome to my site">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Bellman-Ford--解决负权边 - welcome to my site</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about/index.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags/index.html">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories/index.html">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Java">
+                    Java
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        
+            <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+            <section class="main">
+                
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/new/20180823/Bellman-Ford.html">
+                Bellman-Ford--解决负权边
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-08-23</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>之前学的弗洛伊德算法和迪杰斯塔拉算法处理的图均是正权值的图，那么如何取求取拥有负权的图的最短路径呢。</p>
+<h2 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h2><table>
+<thead>
+<tr>
+<th>分类</th>
+<th><a href="https://zh.wikipedia.org/w/index.php?title=%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">单源最短路径问题</a>（针对带权有向图）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据结构</td>
+<td><a href="https://zh.wikipedia.org/wiki/%E5%9B%BE" target="_blank" rel="noopener">图</a></td>
+</tr>
+<tr>
+<td>最坏时间复杂度</td>
+<td>![O(\</td>
+<td>V\</td>
+<td>\</td>
+<td>E\</td>
+<td>)](<a href="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d81aded51fae699d4f659fee1faa684233ab581" target="_blank" rel="noopener">https://wikimedia.org/api/rest_v1/media/math/render/svg/2d81aded51fae699d4f659fee1faa684233ab581</a>)</td>
+</tr>
+<tr>
+<td>最坏空间复杂度</td>
+<td>![O(\</td>
+<td>V\</td>
+<td>)](<a href="https://wikimedia.org/api/rest_v1/media/math/render/svg/3486d00c2ed0f7eb1db550af8f239ad68241a6c5" target="_blank" rel="noopener">https://wikimedia.org/api/rest_v1/media/math/render/svg/3486d00c2ed0f7eb1db550af8f239ad68241a6c5</a>)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86" target="_blank" rel="noopener">图</a>与<a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86" target="_blank" rel="noopener">树 搜索算法</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/%CE%91-%CE%B2%E5%89%AA%E6%9E%9D" target="_blank" rel="noopener">α–β</a> <a href="https://zh.wikipedia.org/wiki/A*%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">A*</a> <a href="https://zh.wikipedia.org/w/index.php?title=B*%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">B*</a> <a href="https://zh.wikipedia.org/wiki/%E5%9B%9E%E6%BA%AF%E6%B3%95" target="_blank" rel="noopener">回溯</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E9%9B%86%E6%9D%9F%E6%90%9C%E7%B4%A2&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">集束</a> 贝尔曼-福特 <a href="https://zh.wikipedia.org/w/index.php?title=%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">最佳优先</a> <a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E5%90%91%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">双向</a> <a href="https://zh.wikipedia.org/w/index.php?title=Bor%C5%AFvka%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Borůvka</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">分支限界</a> <a href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">BFS</a> <a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A4%A8%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">大英博物馆</a> <a href="https://zh.wikipedia.org/w/index.php?title=D*%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">D*</a> <a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">DFS</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E6%B7%B1%E5%BA%A6%E9%99%90%E5%88%B6%E6%90%9C%E7%B4%A2&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">深度限制</a> <a href="https://zh.wikipedia.org/wiki/%E6%88%B4%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">戴克斯特拉</a> <a href="https://zh.wikipedia.org/w/index.php?title=Edmonds%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Edmonds</a> <a href="https://zh.wikipedia.org/wiki/Floyd-Warshall%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">弗洛伊德</a> <a href="https://zh.wikipedia.org/wiki/%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B" target="_blank" rel="noopener">边缘搜索</a> <a href="https://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">爬山</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E8%BF%AD%E4%BB%A3%E5%8A%A0%E6%B7%B1A*%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">IDA*</a> <a href="https://zh.wikipedia.org/wiki/%E8%BF%AD%E4%BB%A3%E6%B7%B1%E5%8C%96%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">迭代加深</a> <a href="https://zh.wikipedia.org/w/index.php?title=Johnson%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Johnson</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E8%B7%B3%E7%82%B9%E6%90%9C%E7%B4%A2&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">跳点</a> <a href="https://zh.wikipedia.org/wiki/%E5%85%8B%E9%B2%81%E6%96%AF%E5%85%8B%E5%B0%94%E6%BC%94%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">克鲁斯克尔</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%8D%E5%85%B8%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">词典BFS</a> <a href="https://zh.wikipedia.org/w/index.php?title=LPA*%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">LPA*</a> <a href="https://zh.wikipedia.org/wiki/%E6%99%AE%E9%87%8C%E5%A7%86%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">普里姆</a> <a href="https://zh.wikipedia.org/w/index.php?title=SMA*%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">SMA*</a></td>
+</tr>
+<tr>
+<td>分类</td>
+</tr>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/Category:%E5%9B%BE%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">图算法</a> <a href="https://zh.wikipedia.org/wiki/Category:%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">搜索算法</a> <a href="https://zh.wikipedia.org/w/index.php?title=%E7%AE%97%E6%B3%95%E5%88%97%E8%A1%A8&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">算法列表</a></td>
+</tr>
+<tr>
+<td>相关主题</td>
+</tr>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" target="_blank" rel="noopener">动态规划</a> <a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86" target="_blank" rel="noopener">图的遍历</a> <a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86" target="_blank" rel="noopener">树的遍历</a></td>
+</tr>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/Template:%E5%9B%BE%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">查</a><a href="https://zh.wikipedia.org/w/index.php?title=Template_talk:%E5%9B%BE%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">论</a><a href="https://zh.wikipedia.org/w/index.php?title=Template:%E5%9B%BE%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95&amp;action=edit" target="_blank" rel="noopener">编</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>贝尔曼-福特算法</strong>（英语：Bellman–Ford algorithm），求解单源<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84" target="_blank" rel="noopener">最短路径</a>问题的一种<a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">算法</a>，由<a href="https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E8%B2%9D%E7%88%BE%E6%9B%BC" target="_blank" rel="noopener">理查德·贝尔曼</a>（Richard Bellman） 和 <a href="https://zh.wikipedia.org/w/index.php?title=%E8%90%8A%E6%96%AF%E7%89%B9%C2%B7%E7%A6%8F%E7%89%B9&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">莱斯特·福特</a> 创立的。有时候这种算法也被称为 Moore-Bellman-Ford 算法，因为 <a href="https://zh.wikipedia.org/w/index.php?title=Edward_F._Moore&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Edward F. Moore</a>也为这个算法的发展做出了贡献。它的原理是对图进行<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6407482f919e956e1d22eb304c73a841e395e436" alt="{\displaystyle |V|-1}">次松弛操作，得到所有可能的最短路径。其优于<a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E7%A7%91%E6%96%AF%E5%BD%BB%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">迪科斯彻算法</a>的方面是边的权值可以为负数、实现简单，缺点是时间复杂度过高，高达<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d81aded51fae699d4f659fee1faa684233ab581" alt="O(|V||E|)">。但算法可以进行若干种优化，提高了效率。</p>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><p>贝尔曼-福特算法与<a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E7%A7%91%E6%96%AF%E5%BD%BB%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">迪科斯彻算法</a>类似，都以松弛操作为基础，即估计的最短路径值渐渐地被更加准确的值替代，直至得到最优解。在两个算法中，计算时每个边之间的估计距离值都比真实值大或等于，并且被新找到路径的最小长度替代。 然而，迪科斯彻算法以<a href="https://zh.wikipedia.org/wiki/%E8%B4%AA%E5%BF%83%E6%B3%95" target="_blank" rel="noopener">贪心法</a>选取未被处理的具有最小权值的节点，然后对其的出边进行松弛操作；而贝尔曼-福特算法简单地对所有边进行松弛操作，共次，其中<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ddcffc28643ac01a14dd0fb32c3157859e365a7" alt="{\displaystyle |V|}">是图的点的数量。在重复地计算中，已计算得到正确的距离的边的数量不断增加，直到所有边都计算得到了正确的路径。这样的策略使得贝尔曼-福特算法比迪科斯彻算法适用于更多种类的输入。</p>
+<p>贝尔曼-福特算法的最多运行<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/93b30ae8ec84ab14193f0b6a384c39e796c80545" alt="{\displaystyle O(|V|\cdot |E|)}">（<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7O%E7%AC%A6%E5%8F%B7" target="_blank" rel="noopener">大O符号</a>）次，和分别是节点和边的数量）。</p>
+<p>$ G(V,E) $</p>
+<p>记得我们在讲迪杰斯特拉算法时，使用广度优先搜索寻找所有可以松弛的边，使用贪心算法寻找参考点</p>
+<p>首先介绍一个概念：<strong>负权回路</strong></p>
+<p>回路有两类：正权回路和负权回路，如下图演示</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2095550-ebfe9b80a493f27d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/414" alt="img"></p>
+<p>顶点c到顶点d的回路为一个正权回路，顶点e到顶点f的回路为负权回路</p>
+<p>对于一个图$G(V,E)$来说，使用贝尔曼算法会判断是否能够得到这样一条最短路径（如果不存在，什么情况下不存在：负权回路）。</p>
+<p>那么对于图的任意一条最短路径来说，是不能包含负权回路的（为什么不能包含负权回路呢，如果走一次回路的路径为-2，那么走两次最短路径是不是减少到-4了呢，，无穷走下去，最短路径不是收敛的，最短路径就是负无穷大），也不能包含正权回路（走的多余了）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n<span class="number">-1</span>; i++)&#123;<span class="comment">//n是顶点数目</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;<span class="comment">//m是边的数目</span></span><br><span class="line">        <span class="keyword">if</span>(dis[v[j]] &gt; dis[u[j]] + w[j])&#123;</span><br><span class="line">            dis[v[j]] = dis[u[j]] + w[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外循环进行了n-1次，我们的目标即是寻找某个顶点到其他剩余顶点的最短路径</p>
+<p>内循环进行了m次，通过枚举每一条边</p>
+<p>dis数组与迪杰斯特拉算法一样，用于记录每一个顶点到源点的最短距离。</p>
+<p>使用贝尔曼算法依然会得到一个最短路径树</p>
+<p><strong>$[ppt]$</strong>$Bellman-Ford$算法演示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">u</th>
+<th style="text-align:center">v</th>
+<th style="text-align:center">w</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Bellman-Ford的队列优化"><a href="#Bellman-Ford的队列优化" class="headerlink" title="Bellman-Ford的队列优化"></a>Bellman-Ford的队列优化</h2><p>如果想要知道哪些顶点在上次松弛过程中发生了变化，那么只需要一个队列来存储就行了，每次仅对发生了变化的顶点的出边进行松弛操作。</p>
+<p>值得注意的是，我们在访问每一条边时，有可能会将相同的节点加入多次，而加入多次显然是不必要的，所以需要对顶点去重。</p>
+<p>详细看一下书上的结论和代码</p>
+<p>通过队列优化的Bellman-Ford算法时间复杂度最快的情况为O(NM)（即每一次所有节点都需要进行优化，想一想我们刚刚写的双重循环）</p>
+<p>如何去判断一个节点存在负权环呢？当一个点进入队列的次数超过n次的时候，那么这个图就存在负权环，想一想为什么</p>
+<h2 id="最短路径算法对比分析"><a href="#最短路径算法对比分析" class="headerlink" title="最短路径算法对比分析"></a>最短路径算法对比分析</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Floyed</th>
+<th style="text-align:center">Dijkstra</th>
+<th style="text-align:center">Bellman-Ford</th>
+<th style="text-align:center">队列优化的Bellman-Ford</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空间复杂度</td>
+<td style="text-align:center">$ O(N^2) $</td>
+<td style="text-align:center">$ O(M) $</td>
+<td style="text-align:center">$ O(M) $</td>
+<td style="text-align:center">$ O(M) $</td>
+</tr>
+<tr>
+<td style="text-align:center">时间复杂度</td>
+<td style="text-align:center">$  O(N^3)  $</td>
+<td style="text-align:center">$  O((M+N)logN)  $</td>
+<td style="text-align:center">$ O(MN) $</td>
+<td style="text-align:center">最坏是  $ O(MN)  $</td>
+</tr>
+<tr>
+<td style="text-align:center">适用情况</td>
+<td style="text-align:center">稠密图和顶点关系密切</td>
+<td style="text-align:center">稠密图和顶点关系密切</td>
+<td style="text-align:center">稀疏图和边关系密切</td>
+<td style="text-align:center">稀疏图和边关系密切</td>
+</tr>
+<tr>
+<td style="text-align:center">负权</td>
+<td style="text-align:center">可以解决负边</td>
+<td style="text-align:center">不能解决负边</td>
+<td style="text-align:center">可以解决负边</td>
+<td style="text-align:center">可以解决负边</td>
+</tr>
+<tr>
+<td style="text-align:center">有负权边</td>
+<td style="text-align:center">可以处理</td>
+<td style="text-align:center">不能处理</td>
+<td style="text-align:center">可以处理</td>
+<td style="text-align:center">可以处理</td>
+</tr>
+<tr>
+<td style="text-align:center">判断是否一定存在回路</td>
+<td style="text-align:center">不能</td>
+<td style="text-align:center">不能</td>
+<td style="text-align:center">可以判定</td>
+<td style="text-align:center">可以判定</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+            </section>
+        
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Yangming Wu<br><br>Majored in Computer Science and Technology(Fake CS).<br>CS1601, Compouter Science & Technonlgy School, Huazhong University of Science and Technology(HUST).<br>QQ: 1546191727
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/30/浮点数的机器级表示-IEEE-754/">浮点数的机器级表示(IEEE 754)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/29/Welcome to My Site/">Welcome</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/tortoiselala" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?tortoiselala?s=09" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:tortoiselala@gmail.com" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    copyright@tortoiselala. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180823</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/Bellman-Ford.html/">BELLMAN-FORD.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+            
+                Bellman-Ford--解决负权边
+            
+        </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bellman-Ford算法"><span class="nav-number">1.1.</span> <span class="nav-text">Bellman-Ford算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bellman-Ford的队列优化"><span class="nav-number">1.2.</span> <span class="nav-text">Bellman-Ford的队列优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最短路径算法对比分析"><span class="nav-number">1.3.</span> <span class="nav-text">最短路径算法对比分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">Recent Posts</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+</body>
+</html>

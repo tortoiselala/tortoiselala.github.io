@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="图的割边、割点 - welcome to">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tortoiselala">
+<meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180830/图的割边割点.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="图的割边、割点 - welcome to">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://e.hiphotos.baidu.com/baike/s%3D220/sign=c43409a9943df8dca23d8893fd1072bf/72f082025aafa40fff00c983a064034f79f019ad.jpg">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Simple_cycle_graph.svg/120px-Simple_cycle_graph.svg.png">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/91209371ae92542b91f5f5f4e00aee8687de33d1">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd253103f0876afc68ebead27a5aa9867d927467">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0c7306e3d2218bb0ba6dd28c7db7c235df8a5d6">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/ea38a8a7e78b6a954f8fce25fbd3bff09cf51181">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/a61120ace0a074cda96e733010ee6cbd2030313a">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/21c60f2fe1dc8f89a5bbac656cc839ef1c65192d">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a">
+<meta property="og:image" content="http://e.hiphotos.baidu.com/baike/s%3D220/sign=c43409a9943df8dca23d8893fd1072bf/72f082025aafa40fff00c983a064034f79f019ad.jpg">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/644a8d85ee410b6159ca2bdb5dcb9097e2c8f182">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/72300edf312fbd1b5ce21d2ab40b59027a7c61ff">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bc0b98e98b9111a77c95e1424c9a6576fc5689c">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/4232c9de2ee3eec0a9c0a19b15ab92daa6223f9b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/00a7c3e72e2ea6bb526b3ffac8e75aae4f16fb44">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/48418f8f0e560d8d114bd49037b360fbb97b51b5">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2538988-a2f599eb20e839aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/439/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2538988-8cea6ab8385077a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/322/format/webp">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/ae98b94e039c8eafabf6fe6a0128d232ed7d21f6">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b04f5c5cfea38f43406d9442387ad28555e2609">
+<meta property="og:updated_time" content="2018-08-30T18:26:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tortoiselala">
+<meta name="twitter:description" content="图的割边、割点 - welcome to">
+<meta name="twitter:image" content="http://e.hiphotos.baidu.com/baike/s%3D220/sign=c43409a9943df8dca23d8893fd1072bf/72f082025aafa40fff00c983a064034f79f019ad.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180830/图的割边割点.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"><a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180830/图的割边割点.html" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180830</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/图的割边割点.html/">图的割边割点.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="图的割点在一个无向图连通图中，如果删除某个顶点后该图不再连通，那么称该点为割点
+
+邻接表
+这是一个无向循环图，可以用下面几个表来描述：{a,b}, {a,c}, {b,c}。
+在图论和计算机科学中，邻接表是表示了图)中与每一个顶点相邻的边集的集合)，这里的集合指的是无序集。
+如果是无向图，那么每条边">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="tortoiselala">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="图的割边、割点">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="welcome to my site">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>图的割边、割点 - welcome to my site</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about/index.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags/index.html">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories/index.html">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Java">
+                    Java
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        
+            <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+            <section class="main">
+                
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/new/20180830/图的割边割点.html">
+                图的割边、割点
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-08-30</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="图的割点"><a href="#图的割点" class="headerlink" title="图的割点"></a>图的割点</h2><p>在一个无向图连通图中，如果删除某个顶点后该图不再连通，那么称该点为割点</p>
+<p><img src="http://e.hiphotos.baidu.com/baike/s%3D220/sign=c43409a9943df8dca23d8893fd1072bf/72f082025aafa40fff00c983a064034f79f019ad.jpg" alt="图1"></p>
+<h2 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h2><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Simple_cycle_graph.svg/120px-Simple_cycle_graph.svg.png" alt="img"></p>
+<p>这是一个无向循环图，可以用下面几个表来描述：{a,b}, {a,c}, {b,c}。</p>
+<p>在<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA" target="_blank" rel="noopener">图论</a>和<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" target="_blank" rel="noopener">计算机科学</a>中，<strong>邻接表</strong>是表示了<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6" target="_blank" rel="noopener">图</a>)中与每一个顶点相邻的边集的<a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E5%90%88_(%E6%95%B0%E5%AD%A6" target="_blank" rel="noopener">集合</a>)，这里的集合指的是无序集。</p>
+<p>如果是无向图，那么每条边由两个结点组成，分别代表边的两个端点；如果是有向图，那么每条边是一个<a href="https://zh.wikipedia.org/w/index.php?title=%E7%BB%93%E7%82%B9%E5%AF%B9&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">结点对</a>，分别代表边的始点和终点。</p>
+<p>在C语言中邻接表一般是使用链表实现的，也可以使用矩阵实现，不过对于空间分配的掌握不是很准确。</p>
+<h4 id="邻接表和邻接矩阵的选择权衡"><a href="#邻接表和邻接矩阵的选择权衡" class="headerlink" title="邻接表和邻接矩阵的选择权衡"></a>邻接表和邻接矩阵的选择权衡</h4><p>可用于替代邻接表的主要有<a href="https://zh.wikipedia.org/wiki/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">邻接矩阵</a>。用<a href="https://zh.wikipedia.org/wiki/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" target="_blank" rel="noopener">稀疏</a>邻接矩阵表示邻接表时，将占用更少的空间。这是因为它能避免为不存在的边分配任何空间。在一台32位计算机上，如果使用原始的<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%BB%84" target="_blank" rel="noopener">数组</a>结构实现邻接表，那么对于一个无向图来说，它大约需要占用<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91209371ae92542b91f5f5f4e00aee8687de33d1" alt="{\displaystyle 8e}">字节的存储空间，其中<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd253103f0876afc68ebead27a5aa9867d927467" alt="e">表示边的个数。每条边都将会在两个邻接表中重复出现，并分别占用4字节空间。</p>
+<p>相反地，由于邻接矩阵中的每个元素仅占用一位（bit），故可以以非常紧密的方式来存储，仅占用<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0c7306e3d2218bb0ba6dd28c7db7c235df8a5d6" alt="{\displaystyle n^{2}/8}">个字节，其中<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" alt="n">代表顶点个数。除了节省空间外，这种紧密存储也发扬了<a href="https://zh.wikipedia.org/w/index.php?title=Locality_of_reference&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">locality of reference</a>。</p>
+<p>注意到一个图至多能有<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" alt="{\displaystyle n^{2}}">条边（允许循环）。令<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ea38a8a7e78b6a954f8fce25fbd3bff09cf51181" alt="{\displaystyle d=e/n^{2}}">表示图的<em>致密度</em>，则由<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a61120ace0a074cda96e733010ee6cbd2030313a" alt="{\displaystyle 8e&gt;n^{2}/8}">，可知邻接表将占用更多的空间，准确地说，仅当<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/21c60f2fe1dc8f89a5bbac656cc839ef1c65192d" alt="{\displaystyle d&gt;1/64}">‘以说只有当图比较稀疏的时候，才有可能以较少的空间来存储邻接表。不过，以上分析只有当我们仅考虑边的<a href="https://zh.wikipedia.org/w/index.php?title=%E8%BF%9E%E6%8E%A5%E6%80%A7&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">连接性</a>，而不考虑关于边的任何数值信息时才有效。</p>
+<p>除了空间方面的考虑外，不同的数据结构也使得不同的操作变得更容易。在一个邻接表中，给定一个顶点，我们能很容易地找出它的所有邻边，因为只需要读取它的邻接表就可以了。在一个邻接矩阵中，相同的操作则需要扫描一行，花费大约<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" alt="{\displaystyle O(n)}">（<a href="https://zh.wikipedia.org/w/index.php?title=%E5%A4%A7O%E6%A0%87%E8%AE%B0&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">大O标记</a>）时间。而如果你想知道给定的两个顶点间是否存在有边，在邻接矩阵里可以立刻查到，在邻接表中则需要花费以边的最小关联度成比例的时间。</p>
+<h2 id="图的割边"><a href="#图的割边" class="headerlink" title="图的割边"></a>图的割边</h2><p>在一个无向图连通图中，如果删除某条边后该图不再连通，那么称该点为割边（或桥）。</p>
+<p><img src="http://e.hiphotos.baidu.com/baike/s%3D220/sign=c43409a9943df8dca23d8893fd1072bf/72f082025aafa40fff00c983a064034f79f019ad.jpg" alt="图1"></p>
+<h4 id="如何求割边？"><a href="#如何求割边？" class="headerlink" title="如何求割边？"></a>如何求割边？</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">access_order[] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;</span><br><span class="line">back_access_order[] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line">access_order[point_father] &lt;= back_access_order[point_child]</span><br></pre></td></tr></table></figure>
+<p>我们只需要将上面的第三条语句改为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">access_order[point_father] &lt; back_access_order[point_child]</span><br></pre></td></tr></table></figure>
+<p>上面的第三条语句表示不可能通过父节点而直接回到祖先节点，但是可以通过其他边到达父节点，如果连父节点都不能到达了呢？就修改成了上面的一条语句。如果连父节点都不能到达了那么也就表示没有一条边能够回到父节点，那么这条边就是割边（父节点和子节点之间的边）</p>
+<h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p><strong>二分图</strong>又称<strong>双分图</strong>、<strong>二部图</strong>、<strong>偶图</strong>，指顶点可以分成两个不相交的<a href="https://zh.wikipedia.org/wiki/%E9%9B%86" target="_blank" rel="noopener">集</a><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U">和<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V"><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U"> and <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V"> 皆为<a href="https://zh.wikipedia.org/w/index.php?title=%E7%8B%AC%E7%AB%8B%E9%9B%86&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">独立集</a>（independent sets），使得在同一个集内的顶点不相邻（没有共同边）的<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE" target="_blank" rel="noopener">图</a>。</p>
+<p>二分图又称作二部图，是图论中的一种特殊模型。 设 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/644a8d85ee410b6159ca2bdb5dcb9097e2c8f182" alt="G=(V,E)"> 是一个无向图，如果顶点V可分割为两个互不相交的子集<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/72300edf312fbd1b5ce21d2ab40b59027a7c61ff" alt="{\displaystyle (U,V)}">，并且图中的每条边 所关联的两个顶点 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" alt="i"> 和<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" alt="j">分别属于这两个不同的顶点集 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" alt="i"> in <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U">,<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" alt="j"> in <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V">)，则称图<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 为一个二分图。</p>
+<p>无向图<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 为二分图的充分必要条件是，<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 至少有两个顶点，且其所有回路的长度均为偶数。</p>
+<p>可以将 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U"> 和 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V"> 当做 <a href="https://zh.wikipedia.org/w/index.php?title=%E7%9D%80%E8%89%B2%E5%9B%BE&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">着色图</a>：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U"> 中所有节点为蓝色，<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V"> 中所有节点着绿色，每条边的两个端点的颜色不同，符合<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">图着色问题</a>的要求<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E5%9B%BE#cite_note-adh98-7-1" target="_blank" rel="noopener">[1]</a><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E5%9B%BE#cite_note-s12-2" target="_blank" rel="noopener">[2]</a>。相反，用这样的着色方式对非二分图是行不通的，根据<a href="https://zh.wikipedia.org/w/index.php?title=Gallery_of_named_graphs&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">triangle</a>：其中一个顶点着蓝色并且另一个着绿色后，三角形的第三个顶点与上述具有两个颜色的顶点相连，无法再对其着蓝色或绿色。</p>
+<p>二分图的一种描述方式为：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bc0b98e98b9111a77c95e1424c9a6576fc5689c" alt="G=(U,V,E)">，表示有独立顶点集 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" alt="U"> 和 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" alt="V">，以及边 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4232c9de2ee3eec0a9c0a19b15ab92daa6223f9b" alt="E"> 组成的图。假如一个二分图不是<a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E9%80%9A%E5%9B%BE" target="_blank" rel="noopener">连通图</a>，其可能包含多个二分图；<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E5%9B%BE#cite_note-3" target="_blank" rel="noopener">[3]</a>这种情况下，<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/00a7c3e72e2ea6bb526b3ffac8e75aae4f16fb44" alt="(U,V,E)"> 有利于指定应用中一个特定的二分图。如果<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/48418f8f0e560d8d114bd49037b360fbb97b51b5" alt="|U|=|V|">（这两个子集有相同的<a href="https://zh.wikipedia.org/wiki/%E5%8A%BF%E7%9A%84%E6%AF%94%E8%BE%83" target="_blank" rel="noopener">势</a>），那么 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 称为平衡二分图。<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E5%9B%BE#cite_note-adh98-7-1" target="_blank" rel="noopener">[1]</a>如果二分图同一侧的顶点有相同的 <a href="https://zh.wikipedia.org/w/index.php?title=Degree_(graph_theory" target="_blank" rel="noopener">degree</a>&amp;action=edit&amp;redlink=1)，那么<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 是一个<a href="https://zh.wikipedia.org/w/index.php?title=Biregular_graph&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">biregular</a>。</p>
+<p>给定一个二分图 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G">，在 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b" alt="G"> 的一个子图 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd" alt="M"> 中，<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd" alt="M"> 的边集中的任意两条边都不依附于同一个顶点，则称 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd" alt="M"> 是一个匹配。</p>
+<h4 id="二分图的最大匹配"><a href="#二分图的最大匹配" class="headerlink" title="二分图的最大匹配"></a>二分图的最大匹配</h4><p>边指向一个点成为匹配。已匹配的点不能够再次匹配。<br>如图，基数为2的匹配</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2538988-a2f599eb20e839aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/439/format/webp" alt="img"></p>
+<p>匹配</p>
+<p>最大匹配</p>
+<p>最大基数的匹配。</p>
+<p>上面图中最大匹配为：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2538988-8cea6ab8385077a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/322/format/webp" alt="img"></p>
+<p>最大匹配</p>
+<p><strong>完美匹配</strong><br>两个集合中的点，两两匹配。点都是匹配点，但是边不一定是匹配边</p>
+<h4 id="判断是否是二分图"><a href="#判断是否是二分图" class="headerlink" title="判断是否是二分图"></a>判断是否是二分图</h4><p>使用深度优先搜索，从任意一点开始遍历，对一点进行染色，其相邻如果为染色则染为不同的颜色，如果存在已染色且染色和相邻节点相同，那么表示存在环路（因为环路所以才被染色），且环路边数为奇数（因为相同颜色），那么不是二分图。</p>
+<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">寻找二分图的最大匹配</span><br></pre></td></tr></table></figure>
+<p><strong>匈牙利算法</strong>是一种在<a href="https://zh.wikipedia.org/wiki/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6" target="_blank" rel="noopener">多项式时间</a>内求解<a href="https://zh.wikipedia.org/wiki/%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">任务分配问题</a>的<a href="https://zh.wikipedia.org/wiki/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96" target="_blank" rel="noopener">组合优化</a><a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">算法</a>，并推动了后来的<a href="https://zh.wikipedia.org/w/index.php?title=%E5%8E%9F%E5%A7%8B%E5%AF%B9%E5%81%B6%E6%96%B9%E6%B3%95&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">原始对偶方法</a>。美国数学家<a href="https://zh.wikipedia.org/w/index.php?title=%E5%93%88%E7%BD%97%E5%BE%B7%C2%B7%E5%BA%93%E6%81%A9&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">哈罗德·库恩</a>于1955年提出该算法。此算法之所以被称作匈牙利算法，是因为算法很大一部分是基于以前<a href="https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9" target="_blank" rel="noopener">匈牙利</a>数学家Dénes Kőnig和Jenő Egerváry的工作之上创建起来的。<a href="https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95#cite_note-kuhn1955-1" target="_blank" rel="noopener">[1]</a><a href="https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95#cite_note-kuhn1956-2" target="_blank" rel="noopener">[2]</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E8%A9%B9%E5%A7%86%E5%A3%AB%C2%B7%E9%9B%B7%E8%92%99%C2%B7%E8%8A%92%E5%85%8B%E5%8B%92%E6%96%AF" target="_blank" rel="noopener">詹姆士·芒克勒斯</a>在1957年回顾了该算法，并发现<a href="https://zh.wikipedia.org/wiki/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6" target="_blank" rel="noopener">（强）多项式时间</a>的。<a href="https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95#cite_note-munkres-3" target="_blank" rel="noopener">[3]</a> 此后该算法被称为<strong>Kuhn–Munkres算法</strong>或<strong>Munkres分配算法</strong>。原始算法的<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%9C%E6%80%A7%E7%90%86%E8%AB%96" target="_blank" rel="noopener">时间复杂度</a>为<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ae98b94e039c8eafabf6fe6a0128d232ed7d21f6" alt="O(n^4)">，但<a href="https://zh.wikipedia.org/w/index.php?title=Jack_Edmonds&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Edmonds</a>与<a href="https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E5%8D%A1%E6%99%AE" target="_blank" rel="noopener">卡普</a>发现可以修改算法达到<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b04f5c5cfea38f43406d9442387ad28555e2609" alt="O(n^{3})">运行时间，富泽也独立发现了这一点。<a href="https://zh.wikipedia.org/w/index.php?title=L._R._Ford,_Jr.&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Ford</a>和<a href="https://zh.wikipedia.org/w/index.php?title=D._R._Fulkerson&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">Fulkerson</a>将该方法推广到了一般运输问题。2006年发现<a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%C2%B7%E9%9B%85%E5%8F%AF%E6%AF%94" target="_blank" rel="noopener">卡尔·雅可比</a>在19世纪就解决了指派问题，该解法在他死后在1890年以拉丁文发表。<a href="https://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95#cite_note-4" target="_blank" rel="noopener">[4]</a></p>
+<p><strong>假设</strong></p>
+<ol>
+<li>二分图中所有的节点都在一个环上，或者一条通路上。<br>那么我们只要找到这条最长的路径即可算出最大匹配。<br>比如最长路径为4，那么最大匹配为2</li>
+<li>假设二分图是完美匹配<br>这样我们需要遍历每一个点，然后对已经匹配过的点进行标记。就自然的获得总点数/2的最大匹配</li>
+</ol>
+<p>但实际中二分图中并不是单纯的一个环或者是完美匹配。二是两者结合，比如存在几对点的完美匹配，和几个环，或者几个通路。而且通路和环又相互叠加。</p>
+<p>解决方法也是上面两种假设的解决方法的叠加:寻找最长通路（路径）和遍历。</p>
+<p>在二分图中找到的路径总是在两个集合中跳：类似于，左-&gt;右-&gt;左-&gt;右….<br> 因为匹配的概念是左右两个集合中的点一一对应。所以这条路径中的边一定也是匹配边和非匹配边相互交叉。<br> 如果<code>左-&gt;右</code>是一条匹配边，那么<code>右-&gt;左</code>就是非匹配边。<br> 这种路径叫做<strong>增广路径</strong>。</p>
+<p>在匈牙利算法中，我们一边寻找最长增广路径，一边去遍历那些可能的一一匹配的点。</p>
+<p>首先从任意一个为配对的点$u$开始，从点$u$的边中任意选择一条边(假设这条边是$u-&gt;v$)开始配对。如果此时点$v$还没有被配对，则配对成功，此时便找到了一条增广路。如果此时点$v$已经被配对了，那么就就要尝试继续下次匹配。如果尝试成功，则找到一条增广路，此时需要更新原来配对的关系。这要用一个数组match来记录配对关系，比如点v和u配对了，就记做$match[v] = u$。配对成功之后，配对数要加1.配对过程使用深度或广度优先搜索完成。</p>
+<p>如果刚$u$所选的边配对失败，要从点$u$的边中重新再选一条，进行尝试。直到点$u$配对成功，或者点$u$尝试过所有的边。</p>
+<p>对所有没有被配对的点进行一一配对，直到所有的点都尝试完毕，找不到新的增广路为止。</p>
+<p>最终得到配对数字。</p>
+<p>一个比书上更好理解的例子：某工厂内有很多机器，该工厂生产多种产品，机器可以生产一种或多种产品（每次只能生产一种产品），某一批订单包括了多种产品，哪一台机器生产何种产品，才能够使得效益最大化（时间最短？）</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+            </section>
+        
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Yangming Wu<br><br>Majored in Computer Science and Technology(Fake CS).<br>CS1601, Compouter Science & Technonlgy School, Huazhong University of Science and Technology(HUST).<br>QQ: 1546191727
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/30/浮点数的机器级表示-IEEE-754/">浮点数的机器级表示(IEEE 754)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/29/Welcome to My Site/">Welcome</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/tortoiselala" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?tortoiselala?s=09" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:tortoiselala@gmail.com" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    copyright@tortoiselala. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/">TMP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/">PROJECT_FOR_CLASS_LIU</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/">课件</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20180830</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/tmp/project_for_class_liu/课件/图的割边割点.html/">图的割边割点.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+            
+                图的割边、割点
+            
+        </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图的割点"><span class="nav-number">1.1.</span> <span class="nav-text">图的割点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邻接表"><span class="nav-number">1.2.</span> <span class="nav-text">邻接表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接表和邻接矩阵的选择权衡"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">邻接表和邻接矩阵的选择权衡</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图的割边"><span class="nav-number">1.3.</span> <span class="nav-text">图的割边</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何求割边？"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">如何求割边？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二分图"><span class="nav-number">1.4.</span> <span class="nav-text">二分图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二分图的最大匹配"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">二分图的最大匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否是二分图"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">判断是否是二分图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匈牙利算法"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">匈牙利算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">Recent Posts</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+</body>
+</html>

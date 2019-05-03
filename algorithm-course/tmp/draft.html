@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="各位同学，下午好 我们是来自华中科技大学的宣讲团队，下面由我来给大家分别从各个方面介绍一下华中科技大学。 华中科技大学位于湖北省武汉市光谷腹地，又被称为1037号森林大学，学校总占地面积达7000多亩，绿化覆盖率达72%。 华中科技大学位于有“九省通衢”之称的武汉，交通发达的武汉为我们的出行提供了强有力的保障，上学方式多种多样，学校特有特价机票2折起售。同时武汉也有黄鹤楼等名胜古迹，户部巷等美食街">
+<meta property="og:type" content="website">
+<meta property="og:title" content="draft">
+<meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tmp/draft.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="各位同学，下午好 我们是来自华中科技大学的宣讲团队，下面由我来给大家分别从各个方面介绍一下华中科技大学。 华中科技大学位于湖北省武汉市光谷腹地，又被称为1037号森林大学，学校总占地面积达7000多亩，绿化覆盖率达72%。 华中科技大学位于有“九省通衢”之称的武汉，交通发达的武汉为我们的出行提供了强有力的保障，上学方式多种多样，学校特有特价机票2折起售。同时武汉也有黄鹤楼等名胜古迹，户部巷等美食街">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-24T14:14:48.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="draft">
+<meta name="twitter:description" content="各位同学，下午好 我们是来自华中科技大学的宣讲团队，下面由我来给大家分别从各个方面介绍一下华中科技大学。 华中科技大学位于湖北省武汉市光谷腹地，又被称为1037号森林大学，学校总占地面积达7000多亩，绿化覆盖率达72%。 华中科技大学位于有“九省通衢”之称的武汉，交通发达的武汉为我们的出行提供了强有力的保障，上学方式多种多样，学校特有特价机票2折起售。同时武汉也有黄鹤楼等名胜古迹，户部巷等美食街">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/algorithm-course/tmp/draft.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>draft | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">draft<a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/draft.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          <li>TMP</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/draft.html/">DRAFT.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>各位同学，下午好</p>
+<p>我们是来自华中科技大学的宣讲团队，下面由我来给大家分别从各个方面介绍一下华中科技大学。</p>
+<p>华中科技大学位于湖北省武汉市光谷腹地，又被称为1037号森林大学，学校总占地面积达7000多亩，绿化覆盖率达72%。</p>
+<p>华中科技大学位于有“九省通衢”之称的武汉，交通发达的武汉为我们的出行提供了强有力的保障，上学方式多种多样，学校特有特价机票2折起售。同时武汉也有黄鹤楼等名胜古迹，户部巷等美食街，光谷世界城等金融商贸中心。</p>
+<p>华中科技大学于2000年合并组建</p>
+<p>且是国家首批“双一流”建设高校，是国家“985“”211“工程重点建设高校。华中科技大学设立的学科遍及理，工，文，管，医五个领域，其中有四个学科是A+学科。</p>
+<p>我们使用一些数据来展现华中科技大学的软实力，如下分别是2019年世界大学排名华科排内地第9名，2019年世界大学工科排名华科排内地第5名，2019年计算机科学世界排名华科仅次于清华排内地第二</p>
+<p>值得一提的是，不仅仅今年计算机科学排名是这样，据我所知近3年内，华科的计算机科学排名，都是仅次于清华，而且实际上在华科开设的某些计算机课程，清华甚至要略逊色一点。</p>
+<p>下面分别是世界大学学术排名和世界大学排名</p>
+<p>下面是人才培养质量排名和毕业生就业竞争力排名</p>
+<p>//删减湖北招生情况</p>
+<p>下图是2018年国家自然科学基金获批项目及经费情况，华中科技大学全国排名第7</p>
+<p>下面是国家科学技术奖与SCI收录论文数目排行榜，如果你有兴趣成为华中科技大学的一员，可能这些项目或论文中就有你的名字。</p>
+<p>下图是华科进入ESI的学科状况，2018年我们拥有15个处于ESI前1%和个处于ESI前千分之一的学科了。</p>
+<p>并且2012年学科评估结果显示，华科拥有如此多出色的学科。</p>
+<p>以下是华科2017年学科评估结果，相比于第三次学科评估有更多的学科排名考前。</p>
+<p>我们拥有25个国家特色专业，如果这里面有你心仪的学科，相信华科会是你非常好的一个选择。</p>
+<p>华科的学科软实力是非常强的。</p>
+<p>//以下分点讲述话可的学科软实力有点多，删除16-21</p>
+<p>华科不仅学科软实力强劲，硬实力也是不弱，以下是华科的科研基地，而且华科拥有三个全国独一无二的科研基础设施：武汉光电国家研究中心，国家脉冲强磁场实验装置，精密重力测量研究设施。</p>
+<p>//不讲三张名片，删除第17页</p>
+<p>下面是华科本科四年内的大致人才培养流程，学校在转专业方面实行”转出无门槛，转入有要求“的机制。这个流程包含了你们很多人所关心的实验班以及卓越班，转专业，双学位等申请时间。</p>
+<p>华科拥有启明学院这一创新教育试验区，在这里你可以充分放飞自我，这里绝对是一个自由的天堂。</p>
+<p>//删除18页，不讲创新创业教育</p>
+<p>学校会定期举办各种各样的国际化交流项目与国际赛事</p>
+<p>下图是华中科技大学部分杰出校友，例如微信之父-张小龙，“PPTV”创始人-姚欣等</p>
+<p>下图依然是华科杰出校友</p>
+<p>下面是2018年本科生就业与深造情况，每年毕业季都会有很多企业来到华科招人，华科的毕业证书已经是一份很多企业认可的证明，很多企业看到华中科技大学甚至会直接忽略笔试成绩，进入第二轮面试。</p>
+<p>下图是本科生深造情况。</p>
+<p>下面将要介绍的是最后一个重头戏-食堂，说一个数字你们自行体会，湖中科技大学总共拥有食堂33个。各色菜式任你挑选。</p>
+<p>光谷量子号从校门出发，环绕光谷，出行必备，顺便一提的是今年即将竣工的地铁延长线从校门口能够直通武昌与汉口火车站和天河机场，交通便利。</p>
+<p>学校毗邻森林公园，学习休闲两不误</p>
+<p>光谷步行街</p>
+<p>历年参考分差</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>最高分差</th>
+<th>最低分差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017</td>
+<td>165</td>
+<td>134</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>-</td>
+<td>125</td>
+</tr>
+<tr>
+<td>2015</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          <li>TMP</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/algorithm-course/draft.html/">DRAFT.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
