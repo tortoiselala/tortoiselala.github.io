@@ -381,12 +381,24 @@
                 
               
 
-              <time title="Created: 2019-05-03 17:05:49 / Modified: 21:46:35" itemprop="dateCreated datePublished" datetime="2019-05-03T17:05:49+08:00">2019-05-03</time>
+              <time title="Created: 2019-05-03 17:05:49" itemprop="dateCreated datePublished" datetime="2019-05-03T17:05:49+08:00">2019-05-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-04 13:21:18" itemprop="dateModified" datetime="2019-05-04T13:21:18+08:00">2019-05-04</time>
               
             
           </span>
@@ -421,136 +433,21 @@
 
       
         
-          
-            <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>以下是整理的一些自己遇到和网络搜集到的关于面试的题目。</p>
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>以下是整理的一些自己遇到和网络搜集到的关于面试的题目。</p>
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>关于网络的知识建议先看以下《计算机网络-自顶向下方法》这本书。</p>
 <h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><h4 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h4><h5 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h5><ul>
 <li>HTTP运行在TCP上，使用明文传输，客户和服务端之间都无法验证对方身份</li>
 <li>HTTP使用80端口</li>
 </ul>
-<h5 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h5><ul>
-<li>HTTPS运行于SSL+HTTP上，是添加了加密和认证机制的HTTP</li>
-<li>HTTPS使用443端口</li>
-<li>HTTPS由于需要加密和认证会消耗更多的CPU和内存资源。</li>
-<li>HTTPS协议需要到ca申请证书，一般免费证书很少，需要购买</li>
-</ul>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><h5 id="三次握手过程"><a href="#三次握手过程" class="headerlink" title="三次握手过程"></a>三次握手过程</h5><ul>
-<li><p>第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。</p>
-</li>
-<li><p>第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。</p>
-</li>
-<li><p>第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</p>
-</li>
-</ul>
-<p><img src="./src/三次握手.png" alt=""></p>
-<h5 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h5><ul>
-<li><p>第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。</p>
-</li>
-<li><p>第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。此时TCP链接处于半关闭状态，即客户端已经没有要发送的数据了，但服务端若发送数据，则客户端仍要接收。</p>
-</li>
-<li><p>第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。</p>
-</li>
-<li><p>第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。</p>
-</li>
-</ul>
-<p><img src="./src/四次挥手.png" alt=""></p>
-<h5 id="为什么TCP连接需要三次握手"><a href="#为什么TCP连接需要三次握手" class="headerlink" title="为什么TCP连接需要三次握手"></a>为什么TCP连接需要三次握手</h5><p>为了防止<strong>已经失效的链接请求报文突然又传送到了服务端</strong>，而产生错误。</p>
-<p>客户端发出的连接请求报文并未丢失，而是在某个网络节点长时间滞留了，以致延误到链接释放以后的某个时间才到达Server。这是，Server误以为这是Client发出的一个新的链接请求，于是就向客户端发送确认数据包，同意建立链接。若不采用“三次握手”，那么只要Server发出确认数据包，新的链接就建立了。由于client此时并未发出建立链接的请求，所以其不会理睬Server的确认，也不与Server通信；而这时Server一直在等待Client的请求，这样Server就白白浪费了一定的资源。若采用“三次握手”，在这种情况下，由于Server端没有收到来自客户端的确认，则就会知道Client并没有要求建立请求，就不会建立连接。</p>
-<h5 id="TCP协议如何来保证传输的可靠性"><a href="#TCP协议如何来保证传输的可靠性" class="headerlink" title="TCP协议如何来保证传输的可靠性"></a>TCP协议如何来保证传输的可靠性</h5><p>TCP提供一种面向连接的、可靠的字节流服务。其中，面向连接意味着两个使用TCP的应用（通常是一个客户和一个服务器）在彼此交换数据之前必须先建立一个TCP连接。在一个TCP连接中，仅有两方进行彼此通信；而字节流服务意味着两个应用程序通过TCP链接交换8bit字节构成的字节流，TCP不在字节流中插入记录标识符。</p>
-<p>对于可靠性，TCP通过以下方式进行保证：</p>
-<ul>
-<li><p>数据包校验：目的是检测数据在传输过程中的任何变化，若校验出包有错，则丢弃报文段并且不给出响应，这时TCP发送数据端超时后会重发数据；</p>
-</li>
-<li><p>对失序数据包重排序：既然TCP报文段作为IP数据报来传输，而IP数据报的到达可能会失序，因此TCP报文段的到达也可能会失序。TCP将对失序数据进行重新排序，然后才交给应用层；</p>
-</li>
-<li><p>丢弃重复数据：对于重复数据，能够丢弃重复数据；</p>
-</li>
-<li><p>应答机制：当TCP收到发自TCP连接另一端的数据，它将发送一个确认。这个确认不是立即发送，通常将推迟几分之一秒；</p>
-</li>
-<li><p>超时重发：当TCP发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段；</p>
-</li>
-<li><p>流量控制：TCP连接的每一方都有固定大小的缓冲空间。TCP的接收端只允许另一端发送接收端缓冲区所能接纳的数据，这可以防止较快主机致使较慢主机的缓冲区溢出，这就是流量控制。TCP使用的流量控制协议是可变大小的滑动窗口协议</p>
-</li>
-</ul>
-<h5 id="客户端不断进行请求链接会怎样？DDos-Distributed-Denial-of-Service-攻击？"><a href="#客户端不断进行请求链接会怎样？DDos-Distributed-Denial-of-Service-攻击？" class="headerlink" title="客户端不断进行请求链接会怎样？DDos(Distributed Denial of Service)攻击？"></a>客户端不断进行请求链接会怎样？DDos(Distributed Denial of Service)攻击？</h5><p>服务器端会为每个请求创建一个链接，并向其发送确认报文，然后等待客户端进行确认</p>
-<ol>
-<li><p>DDos 攻击</p>
-<p>客户端向服务端发送请求链接数据包<br>服务端向客户端发送确认数据包<br>客户端不向服务端发送确认数据包，服务器一直等待来自客户端的确认</p>
-</li>
-<li><p>DDos 预防 ( 没有彻底根治的办法，除非不使用TCP )</p>
-<p>限制同时打开SYN半链接的数目<br>缩短SYN半链接的Time out 时间</p>
-<p>关闭不必要的服务</p>
-</li>
-</ol>
-<h5 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h5><p>GET与POST是我们常用的两种HTTP Method，二者之间的区别主要包括如下五个方面：</p>
-<ul>
-<li><p>从功能上讲，GET一般用来从服务器上获取资源，POST一般用来更新服务器上的资源；</p>
-</li>
-<li><p>从REST服务角度上说，GET是幂等的，即读取同一个资源，总是得到相同的数据，而POST不是幂等的，因为每次请求对资源的改变并不是相同的；进一步地，GET不会改变服务器上的资源，而POST会对服务器资源进行改变；</p>
-</li>
-<li><p>从请求参数形式上看，GET请求的数据会附在URL之后，即将请求数据放置在HTTP报文的 请求头 中，以?分割URL和传输数据，参数之间以&amp;相连。特别地，如果数据是英文字母/数字，原样发送；否则，会将其编码为 application/x-www-form-urlencoded MIME 字符串(如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如：%E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII)；而POST请求会把提交的数据则放置在是HTTP请求报文的 请求体 中。</p>
-</li>
-<li><p>就安全性而言，POST的安全性要比GET的安全性高，因为GET请求提交的数据将明文出现在URL上，而且POST请求参数则被包装到请求体中，相对更安全。</p>
-</li>
-<li><p>从请求的大小看，GET请求的长度受限于浏览器或服务器对URL长度的限制，允许发送的数据量比较小，而POST请求则是没有大小限制的。</p>
-</li>
-</ul>
-<h5 id="GET请求中URL编码的意义"><a href="#GET请求中URL编码的意义" class="headerlink" title="GET请求中URL编码的意义"></a>GET请求中URL编码的意义</h5><p>我们知道，在GET请求中会对URL中非西文字符进行编码，这样做的目的就是为了 避免歧义。看下面的例子，</p>
-<p>　　针对“name1=value1&amp;name2=value2”的例子，我们来谈一下数据从客户端到服务端的解析过程。首先，上述字符串在计算机中用ASCII吗表示为：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">6E616D6531 3D 76616C756531 26 6E616D6532 3D 76616C756532</span><br><span class="line">  6E616D6531：name1 </span><br><span class="line">  3D：= </span><br><span class="line">  76616C756531：value1 </span><br><span class="line">  26：&amp;</span><br><span class="line">  6E616D6532：name2 </span><br><span class="line">  3D：= </span><br><span class="line">  76616C756532：value2</span><br></pre></td></tr></table></figure>
-<p>服务端在接收到该数据后就可以遍历该字节流，一个字节一个字节的吃，当吃到3D这字节后，服务端就知道前面吃得字节表示一个key，再往后吃，如果遇到26，说明从刚才吃的3D到26子节之间的是上一个key的value，以此类推就可以解析出客户端传过来的参数。</p>
-<p>　　现在考虑这样一个问题，如果我们的参数值中就包含=或&amp;这种特殊字符的时候该怎么办？比如，“name1=value1”，其中value1的值是“va&amp;lu=e1”字符串，那么实际在传输过程中就会变成这样“name1=va&amp;lu=e1”。这样，我们的本意是只有一个键值对，但是服务端却会解析成两个键值对，这样就产生了歧义。</p>
-<p>那么，如何解决上述问题带来的歧义呢？解决的办法就是对参数进行URL编码：例如，我们对上述会产生歧义的字符进行URL编码后结果：“name1=va%26lu%3D”，这样服务端会把紧跟在“%”后的字节当成普通的字节，就是不会把它当成各个参数或键值对的分隔符。</p>
-<h5 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h5><p>TCP (Transmission Control Protocol)和UDP(User Datagram Protocol)协议属于传输层协议，它们之间的区别包括：</p>
-<ul>
-<li><p>TCP是面向连接的，UDP是无连接的；</p>
-</li>
-<li><p>TCP是可靠的，UDP是不可靠的；</p>
-</li>
-<li><p>TCP只支持点对点通信，UDP支持一对一、一对多、多对一、多对多的通信模式；</p>
-</li>
-<li><p>TCP是面向字节流的，UDP是面向报文的；</p>
-</li>
-<li><p>TCP有拥塞控制机制;UDP没有拥塞控制，适合媒体通信；</p>
-</li>
-<li><p>TCP首部开销(20个字节)比UDP的首部开销(8个字节)要大；</p>
-</li>
-</ul>
-<h5 id="TCP的拥塞处理"><a href="#TCP的拥塞处理" class="headerlink" title="TCP的拥塞处理"></a>TCP的拥塞处理</h5><p>计算机网络中的带宽、交换结点中的缓存及处理机等都是网络的资源。在某段时间，若对网络中某一资源的需求超过了该资源所能提供的可用部分，网络的性能就会变坏，这种情况就叫做拥塞。拥塞控制就是 防止过多的数据注入网络中，这样可以使网络中的路由器或链路不致过载。注意，拥塞控制和流量控制不同，前者是一个全局性的过程，而后者指点对点通信量的控制。拥塞控制的方法主要有以下四种：</p>
-<ol>
-<li><p>慢启动：不要一开始就发送大量的数据，先探测一下网络的拥塞程度，也就是说由小到大逐渐增加拥塞窗口的大小;</p>
-</li>
-<li><p>拥塞避免：拥塞避免算法让拥塞窗口缓慢增长，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍，这样拥塞窗口按线性规律缓慢增长。</p>
-</li>
-</ol>
-<p><img src="./src/慢开始与拥塞避免.png" alt=""></p>
-<ol>
-<li>快重传：快重传要求接收方在收到一个 失序的报文段 后就立即发出 重复确认（为的是使发送方及早知道有报文段没有到达对方）而不要等到自己发送数据时捎带确认。快重传算法规定，发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期。</li>
-</ol>
-<p><img src="./src/快重传.jpg" alt=""></p>
-<ol>
-<li>快恢复：快重传配合使用的还有快恢复算法，当发送方连续收到三个重复确认时，就执行“乘法减小”算法，把ssthresh门限减半，但是接下去并不执行慢开始算法：因为如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。所以此时不执行慢开始算法，而是将cwnd设置为ssthresh的大小，然后执行拥塞避免算法。</li>
-</ol>
-<p><img src="./src/快恢复.jpg" alt=""></p>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><h3 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h3><p>从输入网址到获得页面的过程</p>
-<ol>
-<li><p>浏览器查询 DNS，获取域名对应的IP地址:具体过程包括浏览器搜索自身的DNS缓存、搜索操作系统的DNS缓存、读取本地的Host文件和向本地DNS服务器进行查询等。对于向本地DNS服务器进行查询，如果要查询的域名包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析(此解析具有权威性)；如果要查询的域名不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析（此解析不具有权威性）。如果本地域名服务器并未缓存该网址映射关系，那么将根据其设置发起递归查询或者迭代查询；</p>
-</li>
-<li><p>浏览器获得域名对应的IP地址以后，浏览器向服务器请求建立链接，发起三次握手；</p>
-</li>
-<li><p>TCP/IP链接建立起来后，浏览器向服务器发送HTTP请求；</p>
-</li>
-<li><p>服务器接收到这个请求，并根据路径参数映射到特定的请求处理器进行处理，并将处理结果及相应的视图返回给浏览器；</p>
-</li>
-<li><p>浏览器解析并渲染视图，若遇到对js文件、css文件及图片等静态资源的引用，则重复上述步骤并向服务器请求这些资源；</p>
-</li>
-<li><p>浏览器根据其请求到的资源、数据渲染页面，最终向用户呈现一个完整的页面。</p>
-</li>
-</ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/justloveyou_/article/details/78303617" target="_blank" rel="noopener">https://blog.csdn.net/justloveyou_/article/details/78303617</a></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>艰难的Java自学之路。</p>
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/03/面试相关/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
