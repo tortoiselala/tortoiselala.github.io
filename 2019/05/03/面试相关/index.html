@@ -104,16 +104,17 @@
 <meta property="og:site_name" content="tortoiselala">
 <meta property="og:description" content="问题以下是整理的一些自己遇到和网络搜集到的关于面试的题目。 网络关于网络的知识建议先看以下《计算机网络-自顶向下方法》这本书。 应用层HTTP和HTTPS的区别HTTP HTTP运行在TCP上，使用明文传输，客户和服务端之间都无法验证对方身份 HTTP使用80端口">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/三次握手.png">
-<meta property="og:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/四次挥手.png">
-<meta property="og:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/慢开始与拥塞避免.png">
-<meta property="og:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/快重传.jpg">
-<meta property="og:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/快恢复.jpg">
-<meta property="og:updated_time" content="2019-05-04T05:21:18.451Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/三次握手.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/四次挥手.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/慢开始与拥塞避免.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/快重传.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/快恢复.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/7779232-1a3b5f1c556ce0c9.webp">
+<meta property="og:updated_time" content="2019-05-04T07:27:31.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试相关">
 <meta name="twitter:description" content="问题以下是整理的一些自己遇到和网络搜集到的关于面试的题目。 网络关于网络的知识建议先看以下《计算机网络-自顶向下方法》这本书。 应用层HTTP和HTTPS的区别HTTP HTTP运行在TCP上，使用明文传输，客户和服务端之间都无法验证对方身份 HTTP使用80端口">
-<meta name="twitter:image" content="http://tortoiselala.github.com/2019/05/03/面试相关/src/三次握手.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/三次握手.png">
 
 
 
@@ -406,7 +407,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-04 13:21:18" itemprop="dateModified" datetime="2019-05-04T13:21:18+08:00">2019-05-04</time>
+                <time title="Modified: 2019-05-04 15:27:31" itemprop="dateModified" datetime="2019-05-04T15:27:31+08:00">2019-05-04</time>
               
             
           </span>
@@ -461,7 +462,7 @@
 <li><p>第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</p>
 </li>
 </ul>
-<p><img src="./src/三次握手.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/三次握手.png" alt=""></p>
 <h5 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h5><ul>
 <li><p>第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。</p>
 </li>
@@ -472,7 +473,7 @@
 <li><p>第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。</p>
 </li>
 </ul>
-<p><img src="./src/四次挥手.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/四次挥手.png" alt=""></p>
 <h5 id="为什么TCP连接需要三次握手"><a href="#为什么TCP连接需要三次握手" class="headerlink" title="为什么TCP连接需要三次握手"></a>为什么TCP连接需要三次握手</h5><p>为了防止<strong>已经失效的链接请求报文突然又传送到了服务端</strong>，而产生错误。</p>
 <p>客户端发出的连接请求报文并未丢失，而是在某个网络节点长时间滞留了，以致延误到链接释放以后的某个时间才到达Server。这是，Server误以为这是Client发出的一个新的链接请求，于是就向客户端发送确认数据包，同意建立链接。若不采用“三次握手”，那么只要Server发出确认数据包，新的链接就建立了。由于client此时并未发出建立链接的请求，所以其不会理睬Server的确认，也不与Server通信；而这时Server一直在等待Client的请求，这样Server就白白浪费了一定的资源。若采用“三次握手”，在这种情况下，由于Server端没有收到来自客户端的确认，则就会知道Client并没有要求建立请求，就不会建立连接。</p>
 <h5 id="TCP协议如何来保证传输的可靠性"><a href="#TCP协议如何来保证传输的可靠性" class="headerlink" title="TCP协议如何来保证传输的可靠性"></a>TCP协议如何来保证传输的可靠性</h5><p>TCP提供一种面向连接的、可靠的字节流服务。其中，面向连接意味着两个使用TCP的应用（通常是一个客户和一个服务器）在彼此交换数据之前必须先建立一个TCP连接。在一个TCP连接中，仅有两方进行彼此通信；而字节流服务意味着两个应用程序通过TCP链接交换8bit字节构成的字节流，TCP不在字节流中插入记录标识符。</p>
@@ -542,15 +543,15 @@
 <li><p>拥塞避免：拥塞避免算法让拥塞窗口缓慢增长，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍，这样拥塞窗口按线性规律缓慢增长。</p>
 </li>
 </ol>
-<p><img src="./src/慢开始与拥塞避免.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/慢开始与拥塞避免.png" alt=""></p>
 <ol>
 <li>快重传：快重传要求接收方在收到一个 失序的报文段 后就立即发出 重复确认（为的是使发送方及早知道有报文段没有到达对方）而不要等到自己发送数据时捎带确认。快重传算法规定，发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期。</li>
 </ol>
-<p><img src="./src/快重传.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/快重传.jpg" alt=""></p>
 <ol>
 <li>快恢复：快重传配合使用的还有快恢复算法，当发送方连续收到三个重复确认时，就执行“乘法减小”算法，把ssthresh门限减半，但是接下去并不执行慢开始算法：因为如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。所以此时不执行慢开始算法，而是将cwnd设置为ssthresh的大小，然后执行拥塞避免算法。</li>
 </ol>
-<p><img src="./src/快恢复.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/快恢复.jpg" alt=""></p>
 <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><h3 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h3><p>从输入网址到获得页面的过程</p>
 <ol>
 <li><p>浏览器查询 DNS，获取域名对应的IP地址:具体过程包括浏览器搜索自身的DNS缓存、搜索操作系统的DNS缓存、读取本地的Host文件和向本地DNS服务器进行查询等。对于向本地DNS服务器进行查询，如果要查询的域名包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析(此解析具有权威性)；如果要查询的域名不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析（此解析不具有权威性）。如果本地域名服务器并未缓存该网址映射关系，那么将根据其设置发起递归查询或者迭代查询；</p>
@@ -568,7 +569,43 @@
 </ol>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/justloveyou_/article/details/78303617" target="_blank" rel="noopener">https://blog.csdn.net/justloveyou_/article/details/78303617</a></p>
 <h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>艰难的Java自学之路。</p>
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2>
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><h4 id="HashMap的底层数据结构"><a href="#HashMap的底层数据结构" class="headerlink" title="HashMap的底层数据结构"></a>HashMap的底层数据结构</h4><p>哈希表结构（链表散列：数组+链表）实现。当链表长度超过8时，链表转换为红黑树。</p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/7779232-1a3b5f1c556ce0c9.webp" alt=""></p>
+<center>HashMap的数据结构</center>
+
+<h4 id="HashMap的工作原理"><a href="#HashMap的工作原理" class="headerlink" title="HashMap的工作原理"></a>HashMap的工作原理</h4><p>HashMap 底层是 <strong>hash 数组</strong>和<strong>单向链表</strong>实现，数组中的每个元素都是<strong>链表</strong>，由 <strong>Node 内部类（实现 Map.Entry<k,v>接口）</k,v></strong>实现，HashMap 通过 put &amp; get 方法存储和获取。</p>
+<p><strong>存储对象</strong>时，将 K/V 键值传给 put() 方法：</p>
+<ol>
+<li>调用 hash(K) 方法<strong>计算 K 的 hash 值</strong>，然后结合数组长度，计算得数组下标；</li>
+<li>调整数组大小<strong>（当容器中的元素个数大于 capacity * loadfactor 时，容器会进行扩容resize 为 2n）；</strong></li>
+<li><strong>i.如果 </strong>K 的 hash 值<strong>在 HashMap 中</strong>不存在<strong>，则执行</strong>插入<strong>，若存在，则发生</strong>碰撞<strong>；<br> ii.如果 K 的 hash 值在 HashMap 中</strong>存在<strong>，且它们两者 </strong>equals 返回 true<strong>，则</strong>更新键值对<strong>；<br> iii. 如果 K 的 hash 值在 HashMap 中</strong>存在<strong>，且它们两者 </strong>equals 返回 false<strong>，则</strong>插入链表的尾部（尾插法）或者红黑树中（树的添加方式）**。</li>
+</ol>
+<p>（<strong>JDK 1.7</strong> 之前使用<strong>头插法</strong>、<strong>JDK 1.8</strong> 使用<strong>尾插法</strong>）<br> （注意：当碰撞导致链表大于 TREEIFY_THRESHOLD =  8 时，就把链表转换成红黑树）</p>
+<p><strong>获取对象</strong>时，将 K 传给 get() 方法：</p>
+<ol>
+<li>调用 hash(K) 方法（<strong>计算 K 的 hash 值</strong>）从而<strong>获取该键值所在链表的数组下标</strong>；</li>
+<li>顺序遍历链表，equals()方法查找<strong>相同 Node 链表中 K 值</strong>对应的 V 值。</li>
+</ol>
+<p>hashCode 是定位的，<strong>存储位置</strong>；equals是定性的，**比较两者是否相等</p>
+<h4 id="HashCode相同，HashMap的动作"><a href="#HashCode相同，HashMap的动作" class="headerlink" title="HashCode相同，HashMap的动作"></a>HashCode相同，HashMap的动作</h4><p>因为 hashCode 相同，不一定就是相等的（equals方法比较），所以两个对象所在数组的下标相同，<strong>“碰撞”</strong>就此发生。又因为 HashMap 使用链表存储对象，这个 Node 会存储到链表中。</p>
+<h4 id="hash方法的实现"><a href="#hash方法的实现" class="headerlink" title="hash方法的实现"></a>hash方法的实现</h4><p>JDK 1.8 中，是通过 hashCode() 的<strong>高 16 位异或低 16 位</strong>实现的：(h = k.hashCode()) ^ (h &gt;&gt;&gt; 16)，主要是从速度，功效和质量来考虑的，<strong>减少系统的开销</strong>，也不会造成<strong>因为高位没有参与</strong>下标的计算，从而引起的<strong>碰撞</strong>。</p>
+<h4 id="为什么用异或运算符"><a href="#为什么用异或运算符" class="headerlink" title="为什么用异或运算符"></a>为什么用异或运算符</h4><p>保证了对象的 hashCode 的 32 位值只要有一位发生改变，整个 hash() 返回值就会改变。尽可能的减少碰撞。</p>
+<h4 id="HashMap-的-table-的容量如何确定？loadFactor-是什么？-该容量如何变化？这种变化会带来什么问题？"><a href="#HashMap-的-table-的容量如何确定？loadFactor-是什么？-该容量如何变化？这种变化会带来什么问题？" class="headerlink" title="HashMap 的 table 的容量如何确定？loadFactor 是什么？ 该容量如何变化？这种变化会带来什么问题？"></a><strong>HashMap 的 table 的容量如何确定？loadFactor 是什么？ 该容量如何变化？这种变化会带来什么问题？</strong></h4><ol>
+<li><strong>table 数组大小</strong>是由 <strong>capacity</strong> 这个参数确定的，默认是<strong>16</strong>，也可以构造时传入，最大限制是1&lt;&lt;30；</li>
+<li><strong>loadFactor 是装载因子</strong>，主要目的是用来<strong>确认table 数组是否需要动态扩展</strong>，默认值是<strong>0.75</strong>，比如table 数组大小为 16，装载因子为 0.75 时，threshold 就是12，当 table 的实际大小超过 12 时，table就需要动态扩容；</li>
+<li>扩容时，调用 resize() 方法，将 <strong>table 长度变为原来的两倍</strong>（注意是 <strong>table 长度</strong>，而不是 threshold）</li>
+<li>如果数据很大的情况下，扩展时将会带来性能的损失，在性能要求很高的地方，这种损失很可能很致命。</li>
+</ol>
+<h4 id="Java-中的另一个线程安全的与-HashMap-极其类似的类是什么？同样是线程安全，它与-HashTable-在线程同步上有什么不同？"><a href="#Java-中的另一个线程安全的与-HashMap-极其类似的类是什么？同样是线程安全，它与-HashTable-在线程同步上有什么不同？" class="headerlink" title="Java 中的另一个线程安全的与 HashMap 极其类似的类是什么？同样是线程安全，它与 HashTable 在线程同步上有什么不同？"></a><strong>Java 中的另一个线程安全的与 HashMap 极其类似的类是什么？同样是线程安全，它与 HashTable 在线程同步上有什么不同？</strong></h4><p><strong>ConcurrentHashMap</strong> 类（是 Java并发包 java.util.concurrent 中提供的一个<strong>线程安全且高效</strong>的 HashMap 实现）。<br> <strong>HashTable</strong> 是使用 <strong>synchronize</strong> 关键字加锁的原理（就是对<strong>对象</strong>加锁）；<br> 而针对 <strong>ConcurrentHashMap</strong>，在 <strong>JDK 1.7</strong> 中采用 <strong>分段锁</strong>的方式；<strong>JDK 1.8</strong> 中直接采用了<strong>CAS（无锁算法）+ synchronized</strong>。</p>
+<h4 id="为什么-ConcurrentHashMap-比-HashTable-效率要高？"><a href="#为什么-ConcurrentHashMap-比-HashTable-效率要高？" class="headerlink" title="为什么 ConcurrentHashMap  比 HashTable 效率要高？"></a><strong>为什么 ConcurrentHashMap  比 HashTable 效率要高？</strong></h4><p><strong>HashTable</strong> 使用<strong>一把锁（锁住整个链表结构）</strong>处理并发问题，多个线程竞争一把锁，容易<strong>阻塞</strong>；</p>
+<p><strong>ConcurrentHashMap</strong><br> <strong>JDK 1.7</strong> 中使用<strong>分段锁（ReentrantLock + Segment + HashEntry）</strong>，相当于把一个 HashMap 分成多个段，每段分配一把锁，这样支持多线程访问。锁粒度：<strong>基于 Segment</strong>，包含多个 HashEntry。<br> <strong>JDK 1.8</strong> 中使用 <strong>CAS + synchronized + Node + 红黑树</strong>。锁粒度：<strong>Node（首结点）</strong>（实现 Map.Entry<k,v>）。锁粒度降低了。</k,v></p>
+<h4 id="针对-ConcurrentHashMap-锁机制具体分析（JDK-1-7-VS-JDK-1-8）？"><a href="#针对-ConcurrentHashMap-锁机制具体分析（JDK-1-7-VS-JDK-1-8）？" class="headerlink" title="针对 ConcurrentHashMap 锁机制具体分析（JDK 1.7 VS JDK 1.8）？"></a><strong>针对 ConcurrentHashMap 锁机制具体分析（JDK 1.7 VS JDK 1.8）？</strong></h4><p><strong>JDK 1.7</strong> 中，采用<strong>分段锁</strong>的机制，实现并发的更新操作，底层采用<strong>数组+链表</strong>的存储结构，包括两个核心静态内部类 <strong>Segment 和 HashEntry</strong>。</p>
+<ol>
+<li><strong>Segment</strong> 继承 <strong>ReentrantLock（重入锁）</strong> 用来充当锁的角色，每个 Segment 对象守护每个散列映射表的若干个桶；</li>
+<li>HashEntry 用来封装映射表的键-值对；</li>
+<li>每个桶是由若干个 HashEntry 对象链接起来的链表。</li>
+</ol>
+
       
     </div>
 
@@ -767,7 +804,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">1.1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS的区别"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">HTTP和HTTPS的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">HTTPS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三次握手过程"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">三次握手过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四次挥手"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">四次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么TCP连接需要三次握手"><span class="nav-number">1.1.2.1.3.</span> <span class="nav-text">为什么TCP连接需要三次握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP协议如何来保证传输的可靠性"><span class="nav-number">1.1.2.1.4.</span> <span class="nav-text">TCP协议如何来保证传输的可靠性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端不断进行请求链接会怎样？DDos-Distributed-Denial-of-Service-攻击？"><span class="nav-number">1.1.2.1.5.</span> <span class="nav-text">客户端不断进行请求链接会怎样？DDos(Distributed Denial of Service)攻击？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GET和POST的区别"><span class="nav-number">1.1.2.1.6.</span> <span class="nav-text">GET和POST的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GET请求中URL编码的意义"><span class="nav-number">1.1.2.1.7.</span> <span class="nav-text">GET请求中URL编码的意义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">1.1.2.1.8.</span> <span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP的拥塞处理"><span class="nav-number">1.1.2.1.9.</span> <span class="nav-text">TCP的拥塞处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合"><span class="nav-number">1.1.4.</span> <span class="nav-text">综合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.2.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">1.3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合"><span class="nav-number">1.4.</span> <span class="nav-text">Java集合</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">1.1.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">1.1.1.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS的区别"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">HTTP和HTTPS的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">HTTPS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">1.1.2.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三次握手过程"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">三次握手过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四次挥手"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">四次挥手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么TCP连接需要三次握手"><span class="nav-number">1.1.2.1.3.</span> <span class="nav-text">为什么TCP连接需要三次握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP协议如何来保证传输的可靠性"><span class="nav-number">1.1.2.1.4.</span> <span class="nav-text">TCP协议如何来保证传输的可靠性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端不断进行请求链接会怎样？DDos-Distributed-Denial-of-Service-攻击？"><span class="nav-number">1.1.2.1.5.</span> <span class="nav-text">客户端不断进行请求链接会怎样？DDos(Distributed Denial of Service)攻击？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GET和POST的区别"><span class="nav-number">1.1.2.1.6.</span> <span class="nav-text">GET和POST的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GET请求中URL编码的意义"><span class="nav-number">1.1.2.1.7.</span> <span class="nav-text">GET请求中URL编码的意义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">1.1.2.1.8.</span> <span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP的拥塞处理"><span class="nav-number">1.1.2.1.9.</span> <span class="nav-text">TCP的拥塞处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层"><span class="nav-number">1.1.3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合"><span class="nav-number">1.1.4.</span> <span class="nav-text">综合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.2.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">1.3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合"><span class="nav-number">1.4.</span> <span class="nav-text">Java集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.4.1.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap的底层数据结构"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">HashMap的底层数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap的工作原理"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">HashMap的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashCode相同，HashMap的动作"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">HashCode相同，HashMap的动作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash方法的实现"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">hash方法的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么用异或运算符"><span class="nav-number">1.4.1.5.</span> <span class="nav-text">为什么用异或运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap-的-table-的容量如何确定？loadFactor-是什么？-该容量如何变化？这种变化会带来什么问题？"><span class="nav-number">1.4.1.6.</span> <span class="nav-text">HashMap 的 table 的容量如何确定？loadFactor 是什么？ 该容量如何变化？这种变化会带来什么问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-中的另一个线程安全的与-HashMap-极其类似的类是什么？同样是线程安全，它与-HashTable-在线程同步上有什么不同？"><span class="nav-number">1.4.1.7.</span> <span class="nav-text">Java 中的另一个线程安全的与 HashMap 极其类似的类是什么？同样是线程安全，它与 HashTable 在线程同步上有什么不同？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么-ConcurrentHashMap-比-HashTable-效率要高？"><span class="nav-number">1.4.1.8.</span> <span class="nav-text">为什么 ConcurrentHashMap  比 HashTable 效率要高？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对-ConcurrentHashMap-锁机制具体分析（JDK-1-7-VS-JDK-1-8）？"><span class="nav-number">1.4.1.9.</span> <span class="nav-text">针对 ConcurrentHashMap 锁机制具体分析（JDK 1.7 VS JDK 1.8）？</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
