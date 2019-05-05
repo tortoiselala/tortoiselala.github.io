@@ -336,6 +336,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/05/04/面试题整合/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tortoiselala"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tortoiselala"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/04/面试题整合/" class="post-title-link" itemprop="url">面试题整合</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-04 21:18:36 / Modified: 21:37:49" itemprop="dateCreated datePublished" datetime="2019-05-04T21:18:36+08:00">2019-05-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>​      有一道老鼠喝药水的题目，一百瓶药水,只有一瓶是有毒的,老鼠喝了就死那种,问至少要几只老鼠才知道哪瓶是有毒的。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">该道题目使用到了计算机组成原理中的编码校验的知识</span><br><span class="line">首先结论是：如果老鼠有n只，药水m瓶，只要pow(2, n) &lt; m都是可解的</span><br><span class="line">分析：</span><br><span class="line">对于这个问题，定是无法通过普通的测试可以通过的，所以采用一只老鼠校验多瓶药水的方法</span><br><span class="line">对于n只老鼠，编码成长度为n的二进制序列，定义喝了某一瓶药水的老鼠的编码为1</span><br><span class="line">以下以3只老鼠，6瓶药水为例：</span><br><span class="line">编码状态共6种，分别是：</span><br><span class="line">001, 010, 011, 100, 101, 110, 111</span><br><span class="line">解释：共7瓶药水，分别对应7种编码</span><br><span class="line">第一只老鼠喝了1, 3, 5, 7</span><br><span class="line">第二只老鼠喝了2, 3, 6, 7</span><br><span class="line">第三只老鼠喝了4, 5, 6, 7</span><br><span class="line">现在有几种可能：</span><br><span class="line">第一只老鼠死了，但是第二只第三只没死，则第一瓶是毒药</span><br><span class="line">第二只老鼠死了，但是第一只第三只没死，则第二瓶是毒药</span><br><span class="line">第一只老鼠第二只老鼠死了，但是第四只没死，则第三瓶是毒药</span><br><span class="line">第三只老鼠死了，但是第一只第二只没死，则第四瓶是毒药</span><br><span class="line">第一只老鼠第三只老鼠死了，但是第二只没死，则第五瓶是毒药</span><br><span class="line">第二只第三只老鼠死了，第一只没死，则第六瓶是毒药</span><br><span class="line">三只老鼠都死了，则第七瓶是毒药</span><br><span class="line"></span><br><span class="line">解决这个问题的思想主要是能够通过编码使得老鼠能够分别校验或组合校验不同的药水。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>25匹马，5个跑道，比赛排出1、2、3名，问最少跑几次；</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">为了方便理解，将<span class="number">25</span>匹马分为<span class="number">5</span>组，每组用a,b,c,d,e表示，则各组中的编号分别为a1, a2...b1, b2.... </span><br><span class="line">如下所示：</span><br><span class="line">a1 a2 a3 a4 a5</span><br><span class="line">b1 b2 b3 b4 b5</span><br><span class="line">c1 c2 c3 c4 c5</span><br><span class="line">d1 d2 d3 d4 d5</span><br><span class="line">e1 e2 e3 e4 e5</span><br><span class="line"><span class="number">1</span>.首先通过将<span class="number">25</span>匹马分为<span class="number">5</span>组，可以决出<span class="number">5</span>组的顺序，因为只需要选取<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>丢弃a4, a5, b, b5, c4, c5, d4, d5, e4, e5。count = <span class="number">5</span></span><br><span class="line"><span class="number">2</span>.将<span class="number">5</span>组马中的第一名拉到一起决出顺序，此时可以得出总的第一名为a1, b1, c1，并且此次决出的d1, e1同样丢弃。count = <span class="number">1</span>.还需要额外丢弃的是d2, d3, e2, e3</span><br><span class="line"><span class="number">3</span>.再看剩余没有被排除的</span><br><span class="line">a1 a2 a3</span><br><span class="line">b1 b2 b3</span><br><span class="line">c1 c2 c3</span><br><span class="line">因为已经确定了a1为总的第一名，对于b组中的来说b3是无论如何也不会进入前三的（a1第一, 第二可能为b1所以b3不可能进入）</span><br><span class="line">同理c2 c3也无法进入</span><br><span class="line">所以剩下的为</span><br><span class="line">a1 a2 a3</span><br><span class="line">b1 b2</span><br><span class="line">c1</span><br><span class="line">现在要决出<span class="number">2</span>，<span class="number">3</span>名除了a1剩下的<span class="number">5</span>匹去决赛<span class="number">2</span>, <span class="number">3</span> count = <span class="number">1</span></span><br><span class="line"><span class="number">4</span>.total_count = <span class="number">5</span> + <span class="number">1</span> + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>足够多的水和两个水杯（7L和17L），如何得到9L水</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">17 - 7 = 10</span><br><span class="line">10 - 7 = 3</span><br><span class="line">17 - 4 = 13</span><br><span class="line">13 - 7 = 6</span><br><span class="line">17 - 1 = 16</span><br><span class="line">16 - 7 = 9</span><br></pre></td></tr></table></figure>
+<ol>
+<li>16个球，有一个异常球，有一个天平秤，称重多少次，可以找到那个球（称重次数尽量少）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">首先需要确定异常球是重点的还是轻点的。下面假设是重点的</span><br><span class="line">分成两份，每份8个，重点的一方继续分</span><br><span class="line">每份4个，重点的一方继续分</span><br><span class="line">每份2个，重点的一方继续分</span><br><span class="line">每份1个。</span><br><span class="line">如果无法得知异常是重的还是轻的。</span><br><span class="line">将球分为四组，每组4个，count = 1</span><br><span class="line">随机选取两组进行称量，可以得知异常球存在于2组也就是8个之中</span><br><span class="line">将8个分为四组每组2个count = 1</span><br><span class="line">随机选取两组进程乘凉，可以得知异常球存在于4个中</span><br><span class="line">将四个分为四组，随机选取两个进行count = 1</span><br><span class="line">可以得知四个存在于2个中</span><br><span class="line">随机选取一个与之前确定的比较，相等则是正常的。count = 1</span><br><span class="line">需要8次</span><br></pre></td></tr></table></figure>
+<ol>
+<li>判断是否数字前面所有的数字都比它小，后面的数字都比它小，若有，则输出，若没有输出-1，时间复杂度和空间均为O(n)</li>
+<li>给定一个字符串里面只有”R” “G” “B” 三个字符，请排序，最终结果的顺序是R在前 G中 B在后。时间复杂度为O(n),空间复杂度O(1)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sort</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Sort(<span class="string">"RGBGBRGGBBBGRRR"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">char</span>[] array;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sort</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.array = str.toCharArray();</span><br><span class="line">        sort();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> R = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> G = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> B = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i] == <span class="string">'R'</span>)&#123;</span><br><span class="line">                swap(i, R);</span><br><span class="line">                R++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">		G = R;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i] == <span class="string">'G'</span>)&#123;</span><br><span class="line">                swap(i, G);</span><br><span class="line">                ++G;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">		B = G;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[i] == <span class="string">'B'</span>)&#123;</span><br><span class="line">                swap(i, B);</span><br><span class="line">                ++B;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i)&#123;</span><br><span class="line">            System.out.print(<span class="string">""</span> + <span class="keyword">this</span>.array[i] + <span class="string">"\t"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &gt;= array.length || j &gt;= array.length)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">char</span> tmp = <span class="keyword">this</span>.array[i];</span><br><span class="line">        <span class="keyword">this</span>.array[i] = <span class="keyword">this</span>.array[j];</span><br><span class="line">        <span class="keyword">this</span>.array[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>用5g和7g砝码称140g面粉，最多只能称三次</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li>你有2g和7g的砝码各一个，有140g的盐，有一把天平秤锁上了，只能称三次，把盐称得50g和90g</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2+7 称出 9 分成9, 131</span><br><span class="line">2 + 7 +9 称出 18, 分成9, 18, 113</span><br><span class="line">7 + 18 = 23 + 2称出23, 分成9, 18, 23, 90</span><br><span class="line">9, 18, 23放在一起成为50</span><br></pre></td></tr></table></figure>
+<ol>
+<li>1只蚂蚁1s走完一段路，两只蚂蚁方向相反相遇的话会转向，问n只蚂蚁随机分布在路上（方向随机）最长多久所有蚂蚁都走完这段路？</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两只蚂蚁相遇时转向实际相当于没有转向继续走，因为速度时相同的，所以长度取决于这些蚂蚁中举例目标方向终点最长的。</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>抛硬币选饭馆，做出去三个饭馆概率相同的方案</p>
+</li>
+<li><p>.四个药罐中有一个浑浊的药罐，浑浊的每片药片都比其他三个干净的药罐多一克，如何只用一次天平找出浑浊的药罐</p>
+</li>
+<li><p>两个升序数组，一个长度为m一个长度为n，证明长度为n的数组是长度为m的数组的子集，时间复杂度多少</p>
+</li>
+<li><p>.一个6升和5升的水壶，没刻度，如何得到3升水</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6 - 5 = 1</span><br><span class="line">6 - 4 = 2</span><br><span class="line">6 - 3 = 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>1元钱一瓶汽水，喝完后两个空瓶换一瓶汽水，问：你有20元钱，最多可以喝到几瓶汽水？（可以借）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">count = 20</span><br><span class="line">count = 10</span><br><span class="line">count = 5</span><br><span class="line">count = 2</span><br><span class="line">count = 1</span><br><span class="line">count = 1</span><br><span class="line">借一个空瓶与上面的最后一个空瓶喝掉count = 1</span><br><span class="line">total_count = 40</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>20个人，戴着红帽子或者黑帽子，排成一队，每个人能够看到前面所有人的帽子颜色，他们只能说红或者黑一个字，如果他们猜对了自己帽子的颜色，他们就可以活命，否则处决。他们事先可以商定规则，如何才能使得尽量多的人活命。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">最后一个人牺牲自己，可获得19个人的存活</span><br><span class="line">约定：黑色表示共有偶数个白色帽子，白色共有奇数个白色帽子</span><br><span class="line">最后一个人数前面白色帽子的数量，然后说出：黑/白（假设是偶数，即说出黑色）</span><br><span class="line">第19个人数前面的白色帽子的数量，如果有偶数个则自己是黑色，然后说出黑色，如果有奇数个则自己是白色，则说出白色</span><br><span class="line">同理之前的所有人都可以如此解决</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有一个1m × 1m × 1m 的箱子，往里面放直径为2cm的小球，问最多能放多少个？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>瓶子从100楼往下扔，一共两个瓶子，问从那个楼扔瓶子刚好碎</p>
+</li>
+<li><p>如何判断一个数是2的次方 如何优化 时间复杂度</p>
+</li>
+<li><p><a href="https://blog.csdn.net/zyq522376829/article/details/47686867" target="_blank" rel="noopener">https://blog.csdn.net/zyq522376829/article/details/47686867</a></p>
+</li>
+<li><p>一个无序数组，包括正负和0，都是整数，找到其中按自然序不存在的第一个值，比如2，-1，-3，9，0.第一个不存在的为-2.</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/05/03/面试相关/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -398,7 +601,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-04 20:16:52" itemprop="dateModified" datetime="2019-05-04T20:16:52+08:00">2019-05-04</time>
+                <time title="Modified: 2019-05-04 21:03:59" itemprop="dateModified" datetime="2019-05-04T21:03:59+08:00">2019-05-04</time>
               
             
           </span>
@@ -433,9 +636,11 @@
 
       
         
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>以下是整理的一些自己遇到和网络搜集到的关于面试的题目。</p>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>关于网络的知识建议先看以下《计算机网络-自顶向下方法》这本书。</p>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><h4 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h4><h5 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h5><ul>
+          <p>问题</p>
+<p>以下是整理的一些自己遇到和网络搜集到的关于面试的题目。</p>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><p>关于网络的知识建议先看以下《计算机网络-自顶向下方法》这本书。</p>
+<h2 id="杂项问题"><a href="#杂项问题" class="headerlink" title="杂项问题"></a>杂项问题</h2><h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><h3 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h3><p>HTTP</p>
+<ul>
 <li>HTTP运行在TCP上，使用明文传输，客户和服务端之间都无法验证对方身份</li>
 <li>HTTP使用80端口</li>
 </ul>
@@ -715,7 +920,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-03 11:04:01" itemprop="dateModified" datetime="2019-05-03T11:04:01+08:00">2019-05-03</time>
+                <time title="Modified: 2019-05-06 00:02:05" itemprop="dateModified" datetime="2019-05-06T00:02:05+08:00">2019-05-06</time>
               
             
           </span>
@@ -1786,167 +1991,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/03/17/Java-IO/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="tortoiselala"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="tortoiselala"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/17/Java-IO/" class="post-title-link" itemprop="url">Java IO</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-17 21:09:36" itemprop="dateCreated datePublished" datetime="2019-03-17T21:09:36+08:00">2019-03-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-03 11:13:56" itemprop="dateModified" datetime="2019-05-03T11:13:56+08:00">2019-05-03</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Java-IO"><a href="#Java-IO" class="headerlink" title="Java IO"></a>Java IO</h1><h2 id="Java-IO简介"><a href="#Java-IO简介" class="headerlink" title="Java IO简介"></a>Java IO简介</h2><p>java io系统的设计初衷，就是为了实现“文件、控制台、网络设备”这些io设置的通信。例如，对于一个文件，我们可以打开文件，然后进行读取和写入。<br>在java 1.0中，java提供的类都是以字节(byte)为单位，例如，<code>FileInputStream</code>和<code>FileOutputStream</code>。而到了java 1.1，为了与国际化进行接轨，在java io中添加了许多以字符(Unicode)为单位进行操作的类。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/17/Java-IO/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1994,7 +2038,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
