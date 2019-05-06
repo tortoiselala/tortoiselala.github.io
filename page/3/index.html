@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/01/14/jdbc笔记/"/>
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/01/14/jsp笔记/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tortoiselala"/>
@@ -356,7 +356,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/01/14/jdbc笔记/" class="post-title-link" itemprop="url">jdbc</a>
+                <a href="/2019/01/14/jsp笔记/" class="post-title-link" itemprop="url">jsp</a>
               
             
           </h1>
@@ -398,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-03 11:15:19" itemprop="dateModified" datetime="2019-05-03T11:15:19+08:00">2019-05-03</time>
+                <time title="Modified: 2019-05-03 11:20:02" itemprop="dateModified" datetime="2019-05-03T11:20:02+08:00">2019-05-03</time>
               
             
           </span>
@@ -433,9 +433,53 @@
 
       
         
+          <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><a href="https://zh.wikipedia.org/wiki/%E6%89%A9%E5%B1%95%E5%90%8D" target="_blank" rel="noopener">扩展名</a></th>
+<th><code>.jsp</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">互联网媒体类型</a></td>
+<td><code>application/jsp</code></td>
+</tr>
+<tr>
+<td><a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E5%91%A8%E6%9C%9F" target="_blank" rel="noopener">最新版本</a></td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>标准</td>
+<td><a href="http://jcp.org/en/jsr/detail?id=245" target="_blank" rel="noopener">JSR 245</a></td>
+</tr>
+<tr>
+<td>网站</td>
+<td><a href="http://www.oracle.com/technetwork/java/jsp-138432.html" target="_blank" rel="noopener">JavaServer Pages Technology</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>JSP</strong>（全称<strong>J</strong>ava<strong>S</strong>erver <strong>P</strong>ages）是由<a href="https://zh.wikipedia.org/wiki/Sun_Microsystems" target="_blank" rel="noopener">Sun Microsystems</a>公司主导创建的一种动态网页技术标准。JSP部署于网络服务器上，可以响应客户端发送的请求，并根据请求内容动态地生成<a href="https://zh.wikipedia.org/wiki/HTML" target="_blank" rel="noopener">HTML</a>、<a href="https://zh.wikipedia.org/wiki/XML" target="_blank" rel="noopener">XML</a>或其他格式文档的<a href="https://zh.wikipedia.org/wiki/Web" target="_blank" rel="noopener">Web</a>网页，然后返回给请求者。JSP技术以<a href="https://zh.wikipedia.org/wiki/Java" target="_blank" rel="noopener">Java</a>语言作为<a href="https://zh.wikipedia.org/wiki/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener">脚本语言</a>，为用户的<a href="https://zh.wikipedia.org/wiki/HTTP" target="_blank" rel="noopener">HTTP</a>请求提供服务，并能与服务器上的其它Java程序共同处理复杂的业务需求。</p>
+<p>JSP将Java代码和特定变动内容嵌入到静态的页面中，实现以静态页面为模板，动态生成其中的部分内容。JSP引入了被称为“JSP动作”的XML标签，用来调用内建功能。另外，可以创建JSP标签库，然后像使用标准HTML或XML标签一样使用它们。标签库能增强功能和服务器性能，而且不受<a href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E5%B9%B3%E5%8F%B0" target="_blank" rel="noopener">跨平台</a>问题的限制。JSP文件在运行时会被其编译器转换成更原始的<a href="https://zh.wikipedia.org/wiki/Servlet" target="_blank" rel="noopener">Servlet</a>代码。JSP编译器可以把JSP文件编译成用Java代码写的Servlet，然后再由Java编译器来编译成能快速执行的二进制<a href="https://zh.wikipedia.org/wiki/%E6%A9%9F%E5%99%A8%E7%A2%BC" target="_blank" rel="noopener">机器码</a>，也可以直接编译成二进制码。</p>
+<p>实际上JSP就是对Servlet的包装。</p>
+<h3 id="JSP是什么"><a href="#JSP是什么" class="headerlink" title="JSP是什么"></a>JSP是什么</h3><ul>
+<li>JSP运行在服务器</li>
+<li>JSP的基础是Servlet。</li>
+<li>JSP是一个综合技术，如以下公式。</li>
+</ul>
+<script type="math/tex; mode=display">
+JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特点"><a href="#JSP的特点" class="headerlink" title="JSP的特点"></a>JSP的特点</h3>
+          <!--noindex-->
           
-            
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/14/jsp笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>

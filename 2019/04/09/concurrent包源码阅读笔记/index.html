@@ -106,7 +106,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorImplectations.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorServiceSourceCode.png">
-<meta property="og:updated_time" content="2019-05-06T03:23:05.603Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ThreadPoolExecutor.webp">
+<meta property="og:updated_time" content="2019-05-06T05:51:00.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="concurrent包源码阅读笔记">
 <meta name="twitter:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
@@ -403,7 +404,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-06 11:23:05" itemprop="dateModified" datetime="2019-05-06T11:23:05+08:00">2019-05-06</time>
+                <time title="Modified: 2019-05-06 13:51:00" itemprop="dateModified" datetime="2019-05-06T13:51:00+08:00">2019-05-06</time>
               
             
           </span>
@@ -471,7 +472,7 @@
 <h2 id="Sychronizers"><a href="#Sychronizers" class="headerlink" title="Sychronizers"></a>Sychronizers</h2><ul>
 <li><code>Semaphore</code></li>
 <li><code>CountDownLatch</code>是一个非常简单但非常常见的实用程序，用于阻塞，直到给定数量的信号，事件或条件成立。</li>
-<li><code>CycleBarrier</code>是一种可重置的多路同步点，在某些并行编程风格中很有用。</li>
+<li><code>CyclicBarrier</code>是一种可重置的多路同步点，在某些并行编程风格中很有用。</li>
 <li><code>Phaser</code>提供了更灵活的屏障形式，可用于控制多个线程之间的分阶段计算</li>
 <li><code>Exchager</code>允许两个线程在集合点交换对象，并且在多个管道设计中很有用</li>
 </ul>
@@ -538,7 +539,39 @@
 </li>
 </ul>
 <h2 id="AbstractExecutorService"><a href="#AbstractExecutorService" class="headerlink" title="AbstractExecutorService"></a>AbstractExecutorService</h2><p>提供了<code>ExecutorService</code>的默认方法实现。</p>
-<h2 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h2><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
+<h2 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h2><p>提供了能够指定延迟执行或定时执行任务的方法。</p>
+<h2 id="ForkJoinPool"><a href="#ForkJoinPool" class="headerlink" title="ForkJoinPool"></a>ForkJoinPool</h2><p><code>ForkJoinPool</code>是在Java 1.7 引入的一种新的并发框架-Fork/Join Framework。</p>
+<p><code>ForkJoinPool</code>主要用于实现“分而治之”的算法，特别是分治之后递归调用的函数，例如quick sort等。</p>
+<p><code>ForkJoinPool</code>最适合的是计算密集型任务，如果存在I/O，线程间同步，sleep()等会造成线程长时间阻塞的情况，最好配合使用<code>ManagedBlocker</code>.</p>
+<p><a href="gee.cs.oswego.edu.papers/fj.pdf">参考资料 ForkJoinPool的作者Doug Lea的论文 - 《A Java Fork/Join Framework》</a></p>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ThreadPoolExecutor.webp" alt=""></p>
+<center>线程池执行流程</center>
+
+<ul>
+<li>如果线程池中的线程数量少于<code>corePoolSize</code>,就创建新的线程来执行新添加的任务</li>
+<li>如果线程池中的线程数量大于等于<code>corePoolSize</code>,但队列<code>workQueue</code>未满,则将新添加的任务放到<code>workQueue</code>中</li>
+<li>如果线程池中的线程数量大于等于<code>corePoolSize</code>,且队列<code>workQueue</code>已满,但线程池中的线程数量小于<code>maximumPoolSize</code>,则会创建新的线程来处理被添加的任务</li>
+<li>如果线程池中的线程数量等于了<code>maximumPoolSize</code>,就用<code>RejectedExecutionHandler</code>来执行拒绝策略</li>
+</ul>
+<p>线程池状态</p>
+<ul>
+<li>RUNNING:接受新的线程，处理队列任务</li>
+<li>SHUTDOWN：不再接受新的任务，处理队列任务</li>
+<li>STOP：不再接受新的任务，不处理队列任务，中断正在执行的任务线程</li>
+<li>TIDYING：所有任务已经结束，任务线程为0，线程转换到TIDYING</li>
+<li>TERMINATED：线程池已经结束，即terminated()方法执行完。</li>
+</ul>
+<p>可能的线程池状态转换：</p>
+<ul>
+<li><p>RUNNING -&gt; SHUTDOWN</p>
+</li>
+<li><p>(RUNNING or SHUTDOWN) -&gt; STOP</p>
+</li>
+<li>SHUTDOWN -&gt;TIDYING</li>
+<li>STOP -&gt; TIDYING</li>
+<li>TIDYING -&gt;TERMINATEDT</li>
+</ul>
+<h2 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h2><h1 id="Queues-1"><a href="#Queues-1" class="headerlink" title="Queues"></a>Queues</h1><h1 id="Timing-1"><a href="#Timing-1" class="headerlink" title="Timing"></a>Timing</h1><h1 id="Sychronizers-1"><a href="#Sychronizers-1" class="headerlink" title="Sychronizers"></a>Sychronizers</h1><h1 id="Concurrent-Collections-1"><a href="#Concurrent-Collections-1" class="headerlink" title="Concurrent Collections"></a>Concurrent Collections</h1><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
 <li><code>Executor</code></li>
 <li><code>ExecutorService</code></li>
 <li><code>Future</code></li>
@@ -749,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-number">1.1.</span> <span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">1.2.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timing"><span class="nav-number">1.3.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronizers"><span class="nav-number">1.4.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">1.5.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Consistency-Properties"><span class="nav-number">1.6.</span> <span class="nav-text">Memory Consistency Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Executors-1"><span class="nav-number">2.</span> <span class="nav-text">Executors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executor"><span class="nav-number">2.1.</span> <span class="nav-text">Executor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExecutorService"><span class="nav-number">2.2.</span> <span class="nav-text">ExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractExecutorService"><span class="nav-number">2.3.</span> <span class="nav-text">AbstractExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScheduledExecutorService"><span class="nav-number">2.4.</span> <span class="nav-text">ScheduledExecutorService</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包结构"><span class="nav-number">3.</span> <span class="nav-text">包结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">3.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executor-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">Executor</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-number">1.1.</span> <span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">1.2.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timing"><span class="nav-number">1.3.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronizers"><span class="nav-number">1.4.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">1.5.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Consistency-Properties"><span class="nav-number">1.6.</span> <span class="nav-text">Memory Consistency Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Executors-1"><span class="nav-number">2.</span> <span class="nav-text">Executors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executor"><span class="nav-number">2.1.</span> <span class="nav-text">Executor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExecutorService"><span class="nav-number">2.2.</span> <span class="nav-text">ExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractExecutorService"><span class="nav-number">2.3.</span> <span class="nav-text">AbstractExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScheduledExecutorService"><span class="nav-number">2.4.</span> <span class="nav-text">ScheduledExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ForkJoinPool"><span class="nav-number">2.5.</span> <span class="nav-text">ForkJoinPool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor"><span class="nav-number">2.6.</span> <span class="nav-text">ThreadPoolExecutor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScheduledThreadPoolExecutor"><span class="nav-number">2.7.</span> <span class="nav-text">ScheduledThreadPoolExecutor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Queues-1"><span class="nav-number">3.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Timing-1"><span class="nav-number">4.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sychronizers-1"><span class="nav-number">5.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Concurrent-Collections-1"><span class="nav-number">6.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包结构"><span class="nav-number">7.</span> <span class="nav-text">包结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">7.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executor-1"><span class="nav-number">7.1.1.</span> <span class="nav-text">Executor</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
