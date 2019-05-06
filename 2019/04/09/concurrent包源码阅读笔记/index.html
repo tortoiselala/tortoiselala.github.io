@@ -106,7 +106,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorImplectations.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorServiceSourceCode.png">
-<meta property="og:updated_time" content="2019-05-06T03:02:05.791Z">
+<meta property="og:updated_time" content="2019-05-06T03:23:05.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="concurrent包源码阅读笔记">
 <meta name="twitter:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-06 11:02:05" itemprop="dateModified" datetime="2019-05-06T11:02:05+08:00">2019-05-06</time>
+                <time title="Modified: 2019-05-06 11:23:05" itemprop="dateModified" datetime="2019-05-06T11:23:05+08:00">2019-05-06</time>
               
             
           </span>
@@ -503,7 +503,42 @@
 </ul>
 <p>对于一个不再使用的<code>ExecutorService</code>应该执行关闭，以允许回收资源。</p>
 <p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorServiceSourceCode.png" alt=""></p>
-<h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
+<ul>
+<li><p><code>void shutdown();</code></p>
+</li>
+<li><p><code>List&lt;Runnable&gt; shutdownNow();</code></p>
+<p>尝试取消所有已经被启动的任务，停止等待处理的任务，返回等待启动的任务列表。</p>
+</li>
+<li><p><code>boolean isShutdown();</code></p>
+<p>查看<code>executor</code>的状态，当关闭时返回<code>true</code></p>
+</li>
+<li><p><code>boolean isTerminated();</code></p>
+<p>在<code>executor</code>关闭后当所有任务都执行完毕，返回<code>true</code></p>
+</li>
+<li><p><code>boolean awaitTermination(long timeout, TimeUnit unit)</code></p>
+<p>该方法会一直阻塞直到所有任务都在<code>shutdown</code>请求后完成执行或超时或当前线程中断。</p>
+</li>
+<li><p><code>&lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task);</code></p>
+</li>
+<li><p><code>&lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result);</code></p>
+</li>
+<li><p><code>Future&lt;?&gt; submit(Runnable task);</code></p>
+</li>
+<li><p><code>&lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</code></p>
+<p>启动给定的任务，当所有任务完成后，返回一个<code>Future</code>的<code>list</code>表示任务执行状态和结果。</p>
+</li>
+<li><p><code>&lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, long timeout, TimeUnit unit)</code></p>
+<p>启动给定的任务，当所有任务完成或超时后，返回一个<code>Future</code>的<code>list</code>表示任务执行状态和结果。</p>
+</li>
+<li><p><code>&lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</code></p>
+<p>启动给定的任务，当任何一个成功执行完成后，返回结果。</p>
+</li>
+<li><p><code>&lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks, long timeout, TimeUnit unit)</code> </p>
+<p>启动给定的任务，当任何一个成功执行完成或超时后，返回结果。</p>
+</li>
+</ul>
+<h2 id="AbstractExecutorService"><a href="#AbstractExecutorService" class="headerlink" title="AbstractExecutorService"></a>AbstractExecutorService</h2><p>提供了<code>ExecutorService</code>的默认方法实现。</p>
+<h2 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h2><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
 <li><code>Executor</code></li>
 <li><code>ExecutorService</code></li>
 <li><code>Future</code></li>
@@ -714,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-number">1.1.</span> <span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">1.2.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timing"><span class="nav-number">1.3.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronizers"><span class="nav-number">1.4.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">1.5.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Consistency-Properties"><span class="nav-number">1.6.</span> <span class="nav-text">Memory Consistency Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Executors-1"><span class="nav-number">2.</span> <span class="nav-text">Executors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executor"><span class="nav-number">2.1.</span> <span class="nav-text">Executor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExecutorService"><span class="nav-number">2.2.</span> <span class="nav-text">ExecutorService</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包结构"><span class="nav-number">3.</span> <span class="nav-text">包结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">3.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executor-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">Executor</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors"><span class="nav-number">1.1.</span> <span class="nav-text">Executors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">1.2.</span> <span class="nav-text">Queues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timing"><span class="nav-number">1.3.</span> <span class="nav-text">Timing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronizers"><span class="nav-number">1.4.</span> <span class="nav-text">Sychronizers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">1.5.</span> <span class="nav-text">Concurrent Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Consistency-Properties"><span class="nav-number">1.6.</span> <span class="nav-text">Memory Consistency Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Executors-1"><span class="nav-number">2.</span> <span class="nav-text">Executors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executor"><span class="nav-number">2.1.</span> <span class="nav-text">Executor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExecutorService"><span class="nav-number">2.2.</span> <span class="nav-text">ExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractExecutorService"><span class="nav-number">2.3.</span> <span class="nav-text">AbstractExecutorService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScheduledExecutorService"><span class="nav-number">2.4.</span> <span class="nav-text">ScheduledExecutorService</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包结构"><span class="nav-number">3.</span> <span class="nav-text">包结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">3.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executor-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">Executor</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
