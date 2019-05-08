@@ -109,11 +109,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ExecutorServiceSourceCode.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/ThreadPoolExecutor.webp">
 <meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/30221944-21a18064c0114e65bffa68c5dadd4f0b.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list.svg">
-<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-2.svg">
-<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-search-path.svg">
-<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-4.svg">
-<meta property="og:updated_time" content="2019-05-08T11:47:45.798Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-search-path.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-4.png">
+<meta property="og:updated_time" content="2019-05-08T11:58:00.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="concurrent包源码阅读笔记">
 <meta name="twitter:description" content="概览java.util.concurrent oracle文档中对该包的描述是：  Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that">
@@ -410,7 +410,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-08 19:47:45" itemprop="dateModified" datetime="2019-05-08T19:47:45+08:00">2019-05-08</time>
+                <time title="Modified: 2019-05-08 19:58:00" itemprop="dateModified" datetime="2019-05-08T19:58:00+08:00">2019-05-08</time>
               
             
           </span>
@@ -726,18 +726,19 @@
 <p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/30221944-21a18064c0114e65bffa68c5dadd4f0b.jpg" alt=""></p>
 <h3 id="跳表的基础知识"><a href="#跳表的基础知识" class="headerlink" title="跳表的基础知识"></a>跳表的基础知识</h3><p>跳表(skip list) 对标的是平衡树(AVL Tree)，是一种 插入/删除/搜索 都是 <code>O(log n)</code> 的数据结构。它最大的优势是原理简单、容易实现、方便扩展、效率更高。因此在一些热门的项目里用来替代平衡树，如 redis, leveldb 等。</p>
 <h4 id="跳表的基本思想"><a href="#跳表的基本思想" class="headerlink" title="跳表的基本思想"></a>跳表的基本思想</h4><p>首先，跳表处理的是有序的链表（一般是双向链表，下图未表示双向），如下：</p>
-<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list.svg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list.png" alt=""></p>
 <p>这个链表中，如果要搜索一个数，需要从头到尾比较每个元素是否匹配，直到找到匹配的数为止，即时间复杂度是 O(n)O(n)。同理，插入一个数并保持链表有序，需要先找到合适的插入位置，再执行插入，总计也是 O(n)O(n) 的时间。</p>
 <p>那么如何提高搜索的速度呢？很简单，做个索引：</p>
-<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-2.svg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-2.png" alt=""></p>
 <p>如上图，我们新创建一个链表，它包含的元素为前一个链表的偶数个元素。这样在搜索一个元素时，我们先在上层链表进行搜索，当元素未找到时再到下层链表中搜索。例如搜索数字 <code>19</code> 时的路径如下图：</p>
-<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-search-path.svg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-search-path.png" alt=""></p>
 <p>先在上层中搜索，到达节点 <code>17</code> 时发现下一个节点为 <code>21</code>，已经大于 <code>19</code>，于是转到下一层搜索，找到的目标数字 <code>19</code>。</p>
 <p>我们知道上层的节点数目为 n/2n/2，因此，有了这层索引，我们搜索的时间复杂度降为了：O(n/2)O(n/2)。同理，我们可以不断地增加层数，来减少搜索的时间：</p>
-<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-4.svg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/BlogSources/master/images/linked-list-4.png" alt=""></p>
 <p>在上面的 4 层链表中搜索 <code>25</code>，在最上层搜索时就可以直接跳过 <code>21</code> 之前的所有节点，因此十分高效。</p>
 <p>更一般地，如果有 kk 层，我们需要的搜索次数会小于 ⌈n2k⌉+k⌈n2k⌉+k ，这样当层数 kk 增加到 ⌈log2n⌉⌈log2⁡n⌉ 时，搜索的时间复杂度就变成了 lognlog⁡n。其实这背后的原理和二叉搜索树或二分查找很类似，通过索引来跳过大量的节点，从而提高搜索效率。</p>
-<h2 id="ConcurrentSkipListSet"><a href="#ConcurrentSkipListSet" class="headerlink" title="ConcurrentSkipListSet"></a>ConcurrentSkipListSet</h2><h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
+<h2 id="ConcurrentSkipListSet"><a href="#ConcurrentSkipListSet" class="headerlink" title="ConcurrentSkipListSet"></a>ConcurrentSkipListSet</h2><p><code>ConcurrentSkipListSet</code>是线程安全的有序的集合，适用于高并发的场景。<br><code>ConcurrentSkipListSet</code>和<code>TreeSet</code>，它们虽然都是有序的集合。但是，第一，它们的线程安全机制不同，<code>TreeSet</code>是非线程安全的，而<code>ConcurrentSkipListSet</code>是线程安全的。第二，<code>ConcurrentSkipListSet</code>是通过<code>ConcurrentSkipListMap</code>实现的，而<code>TreeSet</code>是通过<code>TreeMap</code>实现的。</p>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><h1 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h1><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="Executor-1"><a href="#Executor-1" class="headerlink" title="Executor"></a>Executor</h3><ul>
 <li><code>Executor</code></li>
 <li><code>ExecutorService</code></li>
 <li><code>Future</code></li>
