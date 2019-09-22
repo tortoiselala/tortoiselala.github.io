@@ -16,7 +16,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222"/>
@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="多源最短路径问题的解法Floyed-Warshall算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。 Floyed-Warshall的时间复杂度为$O({N^3})$,空间复杂度为$O({N^2})$ Floyed-Warshall算法的原理是动态规划 题目：luogu.org  ID：12110  传纸条 单源最短路径问题的解法Dijkst">
+  <meta name="description" content="Floyd-Warshall算法 - w">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Floyd-Warshall算法">
+<meta property="og:title" content="tortoiselala">
 <meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180821/20180821.html">
 <meta property="og:site_name" content="tortoiselala">
-<meta property="og:description" content="多源最短路径问题的解法Floyed-Warshall算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。 Floyed-Warshall的时间复杂度为$O({N^3})$,空间复杂度为$O({N^2})$ Floyed-Warshall算法的原理是动态规划 题目：luogu.org  ID：12110  传纸条 单源最短路径问题的解法Dijkst">
+<meta property="og:description" content="Floyd-Warshall算法 - w">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-21T20:28:48.000Z">
+<meta property="og:updated_time" content="2018-08-30T18:26:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Floyd-Warshall算法">
-<meta name="twitter:description" content="多源最短路径问题的解法Floyed-Warshall算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。 Floyed-Warshall的时间复杂度为$O({N^3})$,空间复杂度为$O({N^2})$ Floyed-Warshall算法的原理是动态规划 题目：luogu.org  ID：12110  传纸条 单源最短路径问题的解法Dijkst">
+<meta name="twitter:title" content="tortoiselala">
+<meta name="twitter:description" content="Floyd-Warshall算法 - w">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Floyd-Warshall算法 | tortoiselala</title>
+  <title> | tortoiselala</title>
   
 
 
@@ -160,7 +160,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
 </head>
 
@@ -171,7 +171,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -352,7 +352,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Floyd-Warshall算法<a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180821/20180821.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+<h1 class="post-title" itemprop="name headline"><a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180821/20180821.html" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
 </h1>
 
@@ -435,13 +435,326 @@
       <div class="post-body">
         
         
-          <h3 id="多源最短路径问题的解法"><a href="#多源最短路径问题的解法" class="headerlink" title="多源最短路径问题的解法"></a>多源最短路径问题的解法</h3><p><strong>Floyed-Warshall</strong>算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。</p>
+          <!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="多源最短路径问题的解法Floyed-Warshall算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。
+Floyed-Warshall的时间复杂度为$O({N^3})$,空间复杂度为$O({N^2})$
+Floyed-Warshall算法的原理是">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="tortoiselala">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Floyd-Warshall算法">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="welcome to my site">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Floyd-Warshall算法 - welcome to my site</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about/index.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags/index.html">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories/index.html">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Java">
+                    Java
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        
+            <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+            <section class="main">
+                
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/new/20180821/20180821.html">
+                Floyd-Warshall算法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-08-21</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h3 id="多源最短路径问题的解法"><a href="#多源最短路径问题的解法" class="headerlink" title="多源最短路径问题的解法"></a>多源最短路径问题的解法</h3><p><strong>Floyed-Warshall</strong>算法，中文名称为弗洛伊德算法，是解决任意两点之间的最短路径的一种算法，可以正确处理有向图的最短路径问题。</p>
 <p><strong>Floyed-Warshall</strong>的时间复杂度为$O({N^3})$,空间复杂度为$O({N^2})$</p>
 <p><strong>Floyed-Warshall</strong>算法的原理是动态规划</p>
 <p>题目：luogu.org  ID：12110  传纸条</p>
 <h3 id="单源最短路径问题的解法"><a href="#单源最短路径问题的解法" class="headerlink" title="单源最短路径问题的解法"></a>单源最短路径问题的解法</h3><p><strong>Dijkstra算法</strong></p>
 <p>历史来源：由荷兰计算机科学家<a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E5%85%B9%E8%B5%AB%E5%B0%94%C2%B7%E6%88%B4%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89" target="_blank" rel="noopener">艾兹赫尔·戴克斯特拉</a>在1956年提出。戴克斯特拉算法使用了<a href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank" rel="noopener">广度优先搜索</a>解决赋权有向图的单源<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">最短路径问题</a>。</p>
 
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+            </section>
+        
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Yangming Wu<br><br>Majored in Computer Science and Technology(Fake CS).<br>CS1601, Compouter Science & Technonlgy School, Huazhong University of Science and Technology(HUST).<br>QQ: 1546191727
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/30/浮点数的机器级表示-IEEE-754/">浮点数的机器级表示(IEEE 754)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/29/Welcome to My Site/">Welcome</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/tortoiselala" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?tortoiselala?s=09" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:tortoiselala@gmail.com" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    copyright@tortoiselala. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
         
       </div>
       
@@ -659,7 +972,11 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多源最短路径问题的解法"><span class="nav-number">1.</span> <span class="nav-text">多源最短路径问题的解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路径问题的解法"><span class="nav-number">2.</span> <span class="nav-text">单源最短路径问题的解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+            
+                Floyd-Warshall算法
+            
+        </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多源最短路径问题的解法"><span class="nav-number">1.0.1.</span> <span class="nav-text">多源最短路径问题的解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路径问题的解法"><span class="nav-number">1.0.2.</span> <span class="nav-text">单源最短路径问题的解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Recent Posts</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -942,24 +1259,7 @@
         }, 300);
       }).append(e);
     })
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </script>
 
 
 </body>
