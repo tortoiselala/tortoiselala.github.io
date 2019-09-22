@@ -16,7 +16,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222"/>
@@ -96,20 +96,20 @@
 
 
 
-  <meta name="description" content="二叉树、队列 - welcome to">
+  <meta name="description" content="二叉树的存储 如果完全二叉树的一个父节点编号为$k$，那么左右子节点的编号分别为$2k, 2k+1$, 如果已知子节点(无论左右子节点)的编号为$x$,父节点的编号就是$x/2$ 如果一颗完全二叉树有n个节点，那么这颗树的高度就是$log_2N$，简写做$logN$ 堆堆是一种特殊的完全二叉树。 堆的逻辑定义n个元素序列${k_1, k_2… k_i…k_n}$,当且仅当满足下列关系时称之为堆：">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tortoiselala">
+<meta property="og:title" content="二叉树、队">
 <meta property="og:url" content="http://tortoiselala.github.com/algorithm-course/tmp/project_for_class_liu/课件/20180827/二叉树.html">
 <meta property="og:site_name" content="tortoiselala">
-<meta property="og:description" content="二叉树、队列 - welcome to">
+<meta property="og:description" content="二叉树的存储 如果完全二叉树的一个父节点编号为$k$，那么左右子节点的编号分别为$2k, 2k+1$, 如果已知子节点(无论左右子节点)的编号为$x$,父节点的编号就是$x/2$ 如果一颗完全二叉树有n个节点，那么这颗树的高度就是$log_2N$，简写做$logN$ 堆堆是一种特殊的完全二叉树。 堆的逻辑定义n个元素序列${k_1, k_2… k_i…k_n}$,当且仅当满足下列关系时称之为堆：">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://p17hwuice.bkt.clouddn.com/20180827.jpg">
 <meta property="og:image" content="http://p17hwuice.bkt.clouddn.com/20180827_2.jpg">
 <meta property="og:image" content="http://hi.csdn.net/attachment/201107/29/0_131190167189S8.gif">
-<meta property="og:updated_time" content="2018-08-30T18:26:52.000Z">
+<meta property="og:updated_time" content="2018-08-27T20:50:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tortoiselala">
-<meta name="twitter:description" content="二叉树、队列 - welcome to">
+<meta name="twitter:title" content="二叉树、队">
+<meta name="twitter:description" content="二叉树的存储 如果完全二叉树的一个父节点编号为$k$，那么左右子节点的编号分别为$2k, 2k+1$, 如果已知子节点(无论左右子节点)的编号为$x$,父节点的编号就是$x/2$ 如果一颗完全二叉树有n个节点，那么这颗树的高度就是$log_2N$，简写做$logN$ 堆堆是一种特殊的完全二叉树。 堆的逻辑定义n个元素序列${k_1, k_2… k_i…k_n}$,当且仅当满足下列关系时称之为堆：">
 <meta name="twitter:image" content="http://p17hwuice.bkt.clouddn.com/20180827.jpg">
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title> | tortoiselala</title>
+  <title>二叉树、队 | tortoiselala</title>
   
 
 
@@ -164,7 +164,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -175,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -356,7 +356,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"><a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180827/二叉树.html" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+<h1 class="post-title" itemprop="name headline">二叉树、队<a href="https://github.com/tortoiselala/blog-srcalgorithm-course/tmp/project_for_class_liu/课件/20180827/二叉树.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
 </h1>
 
@@ -439,184 +439,7 @@
       <div class="post-body">
         
         
-          <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
-    
-        <meta name="description" content="二叉树的存储
-如果完全二叉树的一个父节点编号为$k$，那么左右子节点的编号分别为$2k, 2k+1$, 如果已知子节点(无论左右子节点)的编号为$x$,父节点的编号就是$x/2$
-如果一颗完全二叉树有n个节点，那么这颗树的高度就是$log_2N$，简写做$logN$
-堆堆是一种特殊的完全二叉树。
-堆">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="tortoiselala">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="二叉树、队列">
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="welcome to my site">
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article">
-    
-
-    <!--Page Cover-->
-    
-
-    <meta name="twitter:card" content="summary">
-    
-
-    <!-- Title -->
-    
-    <title>二叉树、队列 - welcome to my site</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-
-
-</head>
-
-
-<body>
-
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about/index.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags/index.html">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories/index.html">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/Java">
-                    Java
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        
-            <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
-            <section class="main">
-                
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/new/20180827/二叉树.html">
-                二叉树、队列
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-08-27</span>
-            
-            
-            
-        </div>
-    </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h4 id="二叉树的存储"><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h4><p><img src="http://p17hwuice.bkt.clouddn.com/20180827.jpg" width="500px"></p>
+          <h4 id="二叉树的存储"><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h4><p><img src="http://p17hwuice.bkt.clouddn.com/20180827.jpg" width="500px"></p>
 <p>如果完全二叉树的一个父节点编号为$k$，那么左右子节点的编号分别为$2k, 2k+1$, 如果已知子节点(无论左右子节点)的编号为$x$,父节点的编号就是$x/2$</p>
 <p>如果一颗完全二叉树有n个节点，那么这颗树的高度就是$log_2N$，简写做$logN$</p>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>堆是一种特殊的完全二叉树。</p>
@@ -642,6 +465,7 @@
 <p>为了更加精确的定义这些方法，需要定义如何表示集合。一种常用的策略是为每个集合选定一个固定的元素，称为代表，以表示整个集合。接着，Find(x) 返回 x 所属集合的代表，而 Union 使用两个集合的代表作为参数。</p>
 <p>先来看一个例子</p>
 <p>例子：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -708,11 +532,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>存在这样一个函数find(name)这个函数只要输入名称就能知道他的老大是谁，存在这样一个函数set(name,boss)可以设置老大</p>
 <p>在初始情况下，他们任何人都不知道自己的朋友是谁，所以他们各自成派，那么各自的老大就是自己了，所以，在没有进行任何操作的情况下得到的find结果都是自己。</p>
 <p>张无忌 金毛狮王 杨左使  范右使  胡青牛  张三丰  宋远桥 宋青书  周芷若  灭绝师太   王重阳  丘处机  段正淳  段誉  韦小宝  玄难  玄慈   慧轮  虚竹   欧阳锋  杨过   小龙女   </p>
 <p>我们假设左边的人要比右边的人厉害，所左边的人会成为老大</p>
 <p>现在我们开始查看我们的朋友字典</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -811,150 +637,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>张无忌和范右使是朋友，所以范右使的老大变为张无忌</p>
 <p>胡青牛的老大是杨左使</p>
 <p>杨左使的老大是张无忌</p>
 <p><strong>但是还有问题啊，大侠们只知道自己直接的朋友是谁，很多人压根就不认识队长，要判断自己的队长是谁，只能漫无目的的通过朋友的朋友关系问下去：“你是不是队长？你是不是队长？”这样一来，队长面子上挂不住了，而且效率太低，还有可能陷入无限循环中。于是队长下令，重新组队。队内所有人实行分等级制度，形成树状结构，我队长就是根节点，下面分别是二级队员、三级队员。每个人只要记住自己的上级是谁就行了。遇到判断敌友的时候，只要一层层向上问，直到最高层，就可以在短时间内确定队长是谁了。由于我们关心的只是两个人之间是否连通，至于他们是如何连通的，以及每个圈子内部的结构是怎样的，甚至队长是谁，并不重要。所以我们可以放任队长随意重新组队，只要不搞错敌友关系就好了。于是，门派产生了。</strong></p>
 <p><img src="http://hi.csdn.net/attachment/201107/29/0_131190167189S8.gif" alt="img"></p>
 
-    </div>
-
-    
-
-    
-
-    <!-- Comments -->
-    
-
-</div>
-            </section>
-        
-    </div>
-</div>
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    Yangming Wu<br><br>Majored in Computer Science and Technology(Fake CS).<br>CS1601, Compouter Science & Technonlgy School, Huazhong University of Science and Technology(HUST).<br>QQ: 1546191727
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2018/06/30/浮点数的机器级表示-IEEE-754/">浮点数的机器级表示(IEEE 754)</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2018/06/29/Welcome to My Site/">Welcome</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a href="https://github.com/tortoiselala" target="_blank" rel="noopener">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://twitter.com/?tortoiselala?s=09" target="_blank" rel="noopener">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:tortoiselala@gmail.com" target="_blank" rel="noopener">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    copyright@tortoiselala. All right reserved
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
-
-<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-
-</body>
-
-</html>
         
       </div>
       
@@ -1085,7 +774,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1172,11 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
-            
-                二叉树、队列
-            
-        </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的存储"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">二叉树的存储</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.1.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的逻辑定义"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">堆的逻辑定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的性质"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">堆的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆-1"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的应用"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">堆的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.2.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">Recent Posts</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的存储"><span class="nav-number">1.</span> <span class="nav-text">二叉树的存储</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number"></span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的逻辑定义"><span class="nav-number">1.</span> <span class="nav-text">堆的逻辑定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的性质"><span class="nav-number">2.</span> <span class="nav-text">堆的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆-1"><span class="nav-number">3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆的应用"><span class="nav-number">4.</span> <span class="nav-text">堆的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number"></span> <span class="nav-text">并查集</span></a></div>
             
 
           </div>
@@ -1459,7 +1144,24 @@
         }, 300);
       }).append(e);
     })
-  </script>
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

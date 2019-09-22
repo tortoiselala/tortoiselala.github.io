@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="tortoiselala">
 <meta property="og:description" content="设计模式GoF的23种设计模式根据目的来划分，分为创建型模式、结构性模式和行为型模式三种。  创建型模式：用来描述“怎么创建对象”，它的主要特点是“将对象创建与使用分离“。GoF中提供了单例、原型、工厂方法、抽象工厂和建造者等5中创建型模式。 结构性模式：用于描述如何将类或对象按某种布局组成更大的结构。GoF中提供了代理、适配器、桥接、装饰、外观、享元和组合等7种结构性模式。 行为型模式：用于描述">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-24T10:19:46.955Z">
+<meta property="og:updated_time" content="2019-05-24T11:43:48.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="设计模式GoF的23种设计模式根据目的来划分，分为创建型模式、结构性模式和行为型模式三种。  创建型模式：用来描述“怎么创建对象”，它的主要特点是“将对象创建与使用分离“。GoF中提供了单例、原型、工厂方法、抽象工厂和建造者等5中创建型模式。 结构性模式：用于描述如何将类或对象按某种布局组成更大的结构。GoF中提供了代理、适配器、桥接、装饰、外观、享元和组合等7种结构性模式。 行为型模式：用于描述">
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="Created: 2019-05-24 13:21:20 / Modified: 18:19:46" itemprop="dateCreated datePublished" datetime="2019-05-24T13:21:20+08:00">2019-05-24</time>
+              <time title="Created: 2019-05-24 13:21:20 / Modified: 19:43:48" itemprop="dateCreated datePublished" datetime="2019-05-24T13:21:20+08:00">2019-05-24</time>
             
 
             
@@ -427,6 +427,7 @@
 <li><strong>结构性模式</strong>：用于描述如何将类或对象按某种布局组成更大的结构。GoF中提供了代理、适配器、桥接、装饰、外观、享元和组合等7种结构性模式。</li>
 <li><strong>行为型模式</strong>：用于描述类或对象之间怎样协作共同完成单个对象都无法完成的任务，以及怎样分配职责。GoF中提供了模板方法、策略、命令、职责链、状态、观察者、中介者、迭代器、访问者、备忘录和解释器等11中行为型模式。</li>
 </ul>
+<a id="more"></a>
 <h2 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h2><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
 <p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
 <p><strong>注意：</strong></p>
@@ -498,7 +499,19 @@
 <p><strong>缺点：</strong>产品族扩展非常困难，要增加一个系列的某一产品，既要在抽象的 Creator 里加代码，又要在具体的里面加代码。</p>
 <p><strong>使用场景：</strong> 1、QQ 换皮肤，一整套一起换。 2、生成不同操作系统的程序。</p>
 <p><strong>注意事项：</strong>产品族难扩展，产品等级易扩展。</p>
-<h3 id="模式实现-3"><a href="#模式实现-3" class="headerlink" title="模式实现"></a>模式实现</h3>
+<h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><p>建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
+<p>一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。</p>
+<h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p><strong>意图：</strong>将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。</p>
+<p><strong>主要解决：</strong>主要解决在软件系统中，有时候面临着”一个复杂对象”的创建工作，其通常由各个部分的子对象用一定的算法构成；由于需求的变化，这个复杂对象的各个部分经常面临着剧烈的变化，但是将它们组合在一起的算法却相对稳定。</p>
+<p><strong>何时使用：</strong>一些基本部件不会变，而其组合经常变化的时候。</p>
+<p><strong>如何解决：</strong>将变与不变分离开。</p>
+<p><strong>关键代码：</strong>建造者：创建和提供实例，导演：管理建造出来的实例的依赖关系。</p>
+<p><strong>应用实例：</strong> 1、去肯德基，汉堡、可乐、薯条、炸鸡翅等是不变的，而其组合是经常变化的，生成出所谓的”套餐”。 2、JAVA 中的 StringBuilder。</p>
+<p><strong>优点：</strong> 1、建造者独立，易扩展。 2、便于控制细节风险。</p>
+<p><strong>缺点：</strong> 1、产品必须有共同点，范围有限制。 2、如内部变化复杂，会有很多的建造类。</p>
+<p><strong>使用场景：</strong> 1、需要生成的对象具有复杂的内部结构。 2、需要生成的对象内部属性本身相互依赖。</p>
+<p><strong>注意事项：</strong>与工厂模式的区别是：建造者模式更加关注与零件装配的顺序。</p>
+
       
     </div>
 
@@ -537,6 +550,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/08/ConcurrentHashMap源码/" rel="prev" title="ConcurrentHashMap源码">
+                ConcurrentHashMap源码 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -606,7 +623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -693,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式-Singleton"><span class="nav-number">1.1.</span> <span class="nav-text">单例模式(Singleton)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">模式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉式，线程不安全"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">懒汉式，线程不安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉式，线程安全"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">懒汉式，线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双检锁-双重校验锁-DCL，-double-checked-locking"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">双检锁/双重校验锁(DCL， double checked locking)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登记式-静态内部类"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">登记式/静态内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#饿汉式单例"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">饿汉式单例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">枚举</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式-Prototype-Pattern"><span class="nav-number">1.2.</span> <span class="nav-text">原型模式(Prototype Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">模式实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式-Factory-Pattern"><span class="nav-number">1.3.</span> <span class="nav-text">工厂方法模式(Factory Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模式实现-2"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">模式实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">1.4.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.4.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">模式实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式-Singleton"><span class="nav-number">1.1.</span> <span class="nav-text">单例模式(Singleton)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">模式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉式，线程不安全"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">懒汉式，线程不安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒汉式，线程安全"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">懒汉式，线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双检锁-双重校验锁-DCL，-double-checked-locking"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">双检锁/双重校验锁(DCL， double checked locking)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登记式-静态内部类"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">登记式/静态内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#饿汉式单例"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">饿汉式单例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">枚举</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式-Prototype-Pattern"><span class="nav-number">1.2.</span> <span class="nav-text">原型模式(Prototype Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">模式实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式-Factory-Pattern"><span class="nav-number">1.3.</span> <span class="nav-text">工厂方法模式(Factory Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模式实现-2"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">模式实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">1.4.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.4.1.</span> <span class="nav-text">介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建造者模式"><span class="nav-number">1.5.</span> <span class="nav-text">建造者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">介绍</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
