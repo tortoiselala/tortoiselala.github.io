@@ -336,6 +336,199 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2018/11/08/计算机网络-网络层/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tortoiselala"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tortoiselala"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/08/计算机网络-网络层/" class="post-title-link" itemprop="url">计算机网络-网络层</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-08 22:36:55" itemprop="dateCreated datePublished" datetime="2018-11-08T22:36:55+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-03 11:00:11" itemprop="dateModified" datetime="2019-05-03T11:00:11+08:00">2019-05-03</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前言：</p>
+<ul>
+<li>两种用于构造网络层分组交付的方法，即<strong>数据报模式</strong>和<strong>虚电路模式</strong></li>
+<li>编址</li>
+<li>网络层的<strong>转发</strong>($forwarding$)功能和<strong>路由选择</strong>($routing$)功能。转发涉及分组在单一的路由器中从一条入链路到一条出链路的传送。路由选择涉及一个网络的所有路由器，它们经路由选择协议共同交互，以决定分组从源到目的地节点所采用的路径。</li>
+<li>网际协议($ IP $)。网络层编址和$IPv4$的数据报格式。</li>
+<li>网络地址转换($NAT$)、数据报分段、因特网控制报文协议（$ICMP$）和$IPv6$。</li>
+<li>网络层的路由选择功能：链路状态算法和距离矢量算法。</li>
+</ul>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li><p>网络层实现的是主机与主机之间的通信。</p>
+</li>
+<li><p>网络层在计算机网络中为运输层提供支持：</p>
+<ul>
+<li><p>运输层实现进程到进程的通行</p>
+</li>
+<li><p>运输层功能的实现依赖于网络层提供的服务</p>
+</li>
+</ul>
+</li>
+<li><p>在数据报文传输的路径上，每一台分组交换机都需要实现网络层以完成数据分组交付</p>
+</li>
+<li><p>网络层的主要功能：</p>
+<ul>
+<li><p>在全局范围内为主机间通信选路，选路的结果反映为分组交换机上的转发表。</p>
+</li>
+<li><p>分组交换机上的网络层根据转发表以及分组头部信息，将分组向适当的链路进行转发。</p>
+</li>
+<li><p>对于面向连接的网络层服务，提供建立连接的功能。</p>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/11/08/计算机网络-网络层/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2018/10/24/java-thread/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1900,7 +2093,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2147,6 +2340,10 @@
   
     
       
+        
+      
+    
+      
     
       
     
@@ -2167,6 +2364,43 @@
   
 
   
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
 
 
   
@@ -2174,6 +2408,8 @@
 
   
   
+    
+      
     
       
     
