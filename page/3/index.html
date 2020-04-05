@@ -336,6 +336,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/02/04/java中的transient关键字/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tortoiselala"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tortoiselala"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/04/java中的transient关键字/" class="post-title-link" itemprop="url">java中的transient关键字</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-04 08:28:25" itemprop="dateCreated datePublished" datetime="2019-02-04T08:28:25+08:00">2019-02-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-03 11:04:23" itemprop="dateModified" datetime="2019-05-03T11:04:23+08:00">2019-05-03</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="transient用法"><a href="#transient用法" class="headerlink" title="transient用法"></a>transient用法</h1><ul>
+<li>被<code>transient</code>修饰的变量不会被序列化或写到磁盘中。</li>
+<li>一旦对象被<code>transient</code>修饰，变量将不再是对象持久化的一部分，该变量内容无法在序列化后被访问。</li>
+<li>该方法只能够修饰变量，而不能够修饰方法和类。</li>
+</ul>
+<p>注：实现序列化的方法是通过实现<code>Serializable</code>接口。</p>
+<h1 id="transient-踩坑"><a href="#transient-踩坑" class="headerlink" title="transient 踩坑"></a>transient 踩坑</h1><p>一个静态变量无论是否被<code>transient</code>修饰，均不能序列化。</p>
+<p>不能够序列话的变量并不是说存储时，存储的null，而是什么都不进行存储。</p>
+<h2 id="并不一定被transient修饰的变量就一定不能被序列化"><a href="#并不一定被transient修饰的变量就一定不能被序列化" class="headerlink" title="并不一定被transient修饰的变量就一定不能被序列化"></a>并不一定被<code>transient</code>修饰的变量就一定不能被序列化</h2><p>在Java中，对象的序列化可以通过两种接口来实现，若实现的<code>Serializable</code>接口，所有的序列化会自动进行，但是如果实现的是<code>Externalizable</code>接口，则没有任何东西可以自动进行序列化，需要在<code>writeExternal<code>中指定所要序列化的变量，这与是否被<code>transient</code>修饰无关。</code></code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2019/02/01/Java-Collection-Framework-JCF/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1865,165 +2028,11 @@ JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tortoiselala.github.com/2018/11/10/计算机网络-运输层/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="tortoiselala"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="tortoiselala"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/10/计算机网络-运输层/" class="post-title-link" itemprop="url">计算机网络-运输层</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-10 17:46:06" itemprop="dateCreated datePublished" datetime="2018-11-10T17:46:06+08:00">2018-11-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-03 11:00:53" itemprop="dateModified" datetime="2019-05-03T11:00:53+08:00">2019-05-03</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <a id="more"></a>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2066,7 +2075,7 @@ JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2117,7 +2126,9 @@ JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特�
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2156,7 +2167,7 @@ JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -2319,9 +2330,9 @@ JSP = HTMl + Java片段 + JSP标签 + JavaScript(CSS)</script><h3 id="JSP的特�
       
     
       
-        
-      
     
+      
+        
       
     
       
