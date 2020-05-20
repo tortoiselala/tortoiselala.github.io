@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="目录FundamentalsInput and OutputComplexityFirst ProblemsBessies’s CandlesFroyoBig IdeasBrute ForceSquare RootCombination LockSki Course DesignContest PractiseDepth-First Search(DFS)PermutationsBasketbal">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guide">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/foreword/guide.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="目录FundamentalsInput and OutputComplexityFirst ProblemsBessies’s CandlesFroyoBig IdeasBrute ForceSquare RootCombination LockSki Course DesignContest PractiseDepth-First Search(DFS)PermutationsBasketbal">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-16T21:31:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Guide">
+<meta name="twitter:description" content="目录FundamentalsInput and OutputComplexityFirst ProblemsBessies’s CandlesFroyoBig IdeasBrute ForceSquare RootCombination LockSki Course DesignContest PractiseDepth-First Search(DFS)PermutationsBasketbal">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/foreword/guide.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Guide | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Guide<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/foreword/guide.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>FOREWORD</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/guide.html/">GUIDE.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="Fundamentals"><a href="#Fundamentals" class="headerlink" title="Fundamentals"></a>Fundamentals</h2><h3 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h3><h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><h3 id="First-Problems"><a href="#First-Problems" class="headerlink" title="First Problems"></a>First Problems</h3><h4 id="Bessies’s-Candles"><a href="#Bessies’s-Candles" class="headerlink" title="Bessies’s Candles"></a>Bessies’s Candles</h4><h4 id="Froyo"><a href="#Froyo" class="headerlink" title="Froyo"></a>Froyo</h4><h2 id="Big-Ideas"><a href="#Big-Ideas" class="headerlink" title="Big Ideas"></a>Big Ideas</h2><h3 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h3><h4 id="Square-Root"><a href="#Square-Root" class="headerlink" title="Square Root"></a>Square Root</h4><h4 id="Combination-Lock"><a href="#Combination-Lock" class="headerlink" title="Combination Lock"></a>Combination Lock</h4><h4 id="Ski-Course-Design"><a href="#Ski-Course-Design" class="headerlink" title="Ski Course Design"></a>Ski Course Design</h4><h4 id="Contest-Practise"><a href="#Contest-Practise" class="headerlink" title="Contest Practise"></a>Contest Practise</h4><h3 id="Depth-First-Search-DFS"><a href="#Depth-First-Search-DFS" class="headerlink" title="Depth-First Search(DFS)"></a>Depth-First Search(DFS)</h3><h4 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h4><h4 id="Basketball"><a href="#Basketball" class="headerlink" title="Basketball"></a>Basketball</h4><h4 id="Problem-Break"><a href="#Problem-Break" class="headerlink" title="Problem Break"></a>Problem Break</h4><h4 id="Generalizing-DFS"><a href="#Generalizing-DFS" class="headerlink" title="Generalizing DFS"></a>Generalizing DFS</h4><h4 id="Dungeon"><a href="#Dungeon" class="headerlink" title="Dungeon"></a>Dungeon</h4><h4 id="n-Queens-Puzzle"><a href="#n-Queens-Puzzle" class="headerlink" title="n Queens Puzzle"></a>n Queens Puzzle</h4><h3 id="Greedy-Algorithms"><a href="#Greedy-Algorithms" class="headerlink" title="Greedy Algorithms"></a>Greedy Algorithms</h3><h4 id="Bessie-the-Polyglot"><a href="#Bessie-the-Polyglot" class="headerlink" title="Bessie the Polyglot"></a>Bessie the Polyglot</h4><h4 id="More-Cowbell"><a href="#More-Cowbell" class="headerlink" title="More Cowbell"></a>More Cowbell</h4><h4 id="Farmer-John-and-Boxes"><a href="#Farmer-John-and-Boxes" class="headerlink" title="Farmer John and Boxes"></a>Farmer John and Boxes</h4><h4 id="Snack-Time"><a href="#Snack-Time" class="headerlink" title="Snack Time"></a>Snack Time</h4><h2 id="Standard-Library-Data-Structctures"><a href="#Standard-Library-Data-Structctures" class="headerlink" title="Standard Library Data Structctures"></a>Standard Library Data Structctures</h2><h3 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h3><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h4 id="Dynamic-Array"><a href="#Dynamic-Array" class="headerlink" title="Dynamic Array"></a>Dynamic Array</h4><h4 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h4><h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><h3 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h3><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h2 id="Graph-Algortihms"><a href="#Graph-Algortihms" class="headerlink" title="Graph Algortihms"></a>Graph Algortihms</h2><h3 id="Connected-Components"><a href="#Connected-Components" class="headerlink" title="Connected Components"></a>Connected Components</h3><h4 id="Flood-Fill"><a href="#Flood-Fill" class="headerlink" title="Flood Fill"></a>Flood Fill</h4><h4 id="Union-Find-Disjoint-Set-Union"><a href="#Union-Find-Disjoint-Set-Union" class="headerlink" title="Union-Find(Disjoint Set Union)"></a>Union-Find(Disjoint Set Union)</h4><h3 id="Shortest-Path"><a href="#Shortest-Path" class="headerlink" title="Shortest Path"></a>Shortest Path</h3><h4 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h4><h4 id="Floyd-Warshall"><a href="#Floyd-Warshall" class="headerlink" title="Floyd-Warshall"></a>Floyd-Warshall</h4><h4 id="Bellman-Ford"><a href="#Bellman-Ford" class="headerlink" title="Bellman-Ford"></a>Bellman-Ford</h4><h3 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning Tree"></a>Minimum Spanning Tree</h3><h4 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h4><h4 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h4><h3 id="Eulerian-Tour"><a href="#Eulerian-Tour" class="headerlink" title="Eulerian Tour"></a>Eulerian Tour</h3><h2 id="Complex-Ideas-and-Data-Structures"><a href="#Complex-Ideas-and-Data-Structures" class="headerlink" title="Complex Ideas and Data Structures"></a>Complex Ideas and Data Structures</h2><h3 id="Dynamic-Programming-over-Subsets-n2-n-DP"><a href="#Dynamic-Programming-over-Subsets-n2-n-DP" class="headerlink" title="Dynamic  Programming over Subsets ($n2^n, DP$)"></a>Dynamic  Programming over Subsets ($n2^n, DP$)</h3><h3 id="sqrt-n-Bucketing"><a href="#sqrt-n-Bucketing" class="headerlink" title="$\sqrt{n}$ Bucketing"></a>$\sqrt{n}$ Bucketing</h3><h3 id="Segment-Tree"><a href="#Segment-Tree" class="headerlink" title="Segment Tree"></a>Segment Tree</h3><h4 id="Lazy-Propagation"><a href="#Lazy-Propagation" class="headerlink" title="Lazy Propagation"></a>Lazy Propagation</h4><h4 id="Fenwick-Tree"><a href="#Fenwick-Tree" class="headerlink" title="Fenwick Tree"></a>Fenwick Tree</h4><h2 id="Computational-Geometry"><a href="#Computational-Geometry" class="headerlink" title="Computational Geometry"></a>Computational Geometry</h2><h2 id="Tree-Algorithms"><a href="#Tree-Algorithms" class="headerlink" title="Tree Algorithms"></a>Tree Algorithms</h2><h2 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h2><h2 id="More-Graph-Algorithms"><a href="#More-Graph-Algorithms" class="headerlink" title="More Graph Algorithms"></a>More Graph Algorithms</h2><h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><h2 id="Nonsense"><a href="#Nonsense" class="headerlink" title="Nonsense"></a>Nonsense</h2><h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>FOREWORD</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/guide.html/">GUIDE.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fundamentals"><span class="nav-number">1.1.</span> <span class="nav-text">Fundamentals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-and-Output"><span class="nav-number">1.1.1.</span> <span class="nav-text">Input and Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complexity"><span class="nav-number">1.1.2.</span> <span class="nav-text">Complexity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Problems"><span class="nav-number">1.1.3.</span> <span class="nav-text">First Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bessies’s-Candles"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Bessies’s Candles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Froyo"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Froyo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-Ideas"><span class="nav-number">1.2.</span> <span class="nav-text">Big Ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute-Force"><span class="nav-number">1.2.1.</span> <span class="nav-text">Brute Force</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Square-Root"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Square Root</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Combination-Lock"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Combination Lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ski-Course-Design"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Ski Course Design</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contest-Practise"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">Contest Practise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Depth-First-Search-DFS"><span class="nav-number">1.2.2.</span> <span class="nav-text">Depth-First Search(DFS)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Permutations"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Permutations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basketball"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Basketball</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-Break"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Problem Break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalizing-DFS"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">Generalizing DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dungeon"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">Dungeon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#n-Queens-Puzzle"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">n Queens Puzzle</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Greedy-Algorithms"><span class="nav-number">1.2.3.</span> <span class="nav-text">Greedy Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bessie-the-Polyglot"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Bessie the Polyglot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#More-Cowbell"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">More Cowbell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Farmer-John-and-Boxes"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Farmer John and Boxes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Snack-Time"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">Snack Time</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standard-Library-Data-Structctures"><span class="nav-number">1.3.</span> <span class="nav-text">Standard Library Data Structctures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generics"><span class="nav-number">1.3.1.</span> <span class="nav-text">Generics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">1.3.2.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Array"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Dynamic Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linked-List"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Linked List</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.3.3.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.3.4.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap"><span class="nav-number">1.3.5.</span> <span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.3.6.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">1.3.7.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-Table"><span class="nav-number">1.3.8.</span> <span class="nav-text">Hash Table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.3.9.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Algortihms"><span class="nav-number">1.4.</span> <span class="nav-text">Graph Algortihms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connected-Components"><span class="nav-number">1.4.1.</span> <span class="nav-text">Connected Components</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flood-Fill"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Flood Fill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Union-Find-Disjoint-Set-Union"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Union-Find(Disjoint Set Union)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shortest-Path"><span class="nav-number">1.4.2.</span> <span class="nav-text">Shortest Path</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Floyd-Warshall"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">Floyd-Warshall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bellman-Ford"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Bellman-Ford</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimum-Spanning-Tree"><span class="nav-number">1.4.3.</span> <span class="nav-text">Minimum Spanning Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Prim"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">Prim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kruskal"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">Kruskal</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eulerian-Tour"><span class="nav-number">1.4.4.</span> <span class="nav-text">Eulerian Tour</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complex-Ideas-and-Data-Structures"><span class="nav-number">1.5.</span> <span class="nav-text">Complex Ideas and Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-Programming-over-Subsets-n2-n-DP"><span class="nav-number">1.5.1.</span> <span class="nav-text">Dynamic  Programming over Subsets ($n2^n, DP$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqrt-n-Bucketing"><span class="nav-number">1.5.2.</span> <span class="nav-text">$\sqrt{n}$ Bucketing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segment-Tree"><span class="nav-number">1.5.3.</span> <span class="nav-text">Segment Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lazy-Propagation"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">Lazy Propagation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fenwick-Tree"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">Fenwick Tree</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computational-Geometry"><span class="nav-number">1.6.</span> <span class="nav-text">Computational Geometry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-Algorithms"><span class="nav-number">1.7.</span> <span class="nav-text">Tree Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strings"><span class="nav-number">1.8.</span> <span class="nav-text">Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-Graph-Algorithms"><span class="nav-number">1.9.</span> <span class="nav-text">More Graph Algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math"><span class="nav-number">1.10.</span> <span class="nav-text">Math</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nonsense"><span class="nav-number">1.11.</span> <span class="nav-text">Nonsense</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems"><span class="nav-number">1.12.</span> <span class="nav-text">Problems</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

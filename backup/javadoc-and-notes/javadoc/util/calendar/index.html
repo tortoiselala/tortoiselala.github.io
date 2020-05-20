@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="java.util.Calendarjava.utol.Calendar doc 继承关系12java.lang.Object	java,.util.Calendar 实现接口1Serializable, Cloneable, Comparable&amp;lt;Calendar&amp;gt; Calendar类是一个提供了将特定时间转换为calendar fields集合方法的抽象类，calendar fie">
+<meta name="keywords" content="javadoc">
+<meta property="og:type" content="website">
+<meta property="og:title" content="calendar">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/javadoc-and-notes/javadoc/util/calendar/index.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="java.util.Calendarjava.utol.Calendar doc 继承关系12java.lang.Object	java,.util.Calendar 实现接口1Serializable, Cloneable, Comparable&amp;lt;Calendar&amp;gt; Calendar类是一个提供了将特定时间转换为calendar fields集合方法的抽象类，calendar fie">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-19T10:23:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="calendar">
+<meta name="twitter:description" content="java.util.Calendarjava.utol.Calendar doc 继承关系12java.lang.Object	java,.util.Calendar 实现接口1Serializable, Cloneable, Comparable&amp;lt;Calendar&amp;gt; Calendar类是一个提供了将特定时间转换为calendar fields集合方法的抽象类，calendar fie">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/javadoc-and-notes/javadoc/util/calendar/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>calendar | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">calendar<a href="https://github.com/tortoiselala/blog-srcbackup/javadoc-and-notes/javadoc/util/calendar/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/">JAVADOC-AND-NOTES</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/">JAVADOC</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/util/">UTIL</a></li>
+        
+      
+    
+      
+      
+        
+          <li>CALENDAR</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="java-util-Calendar"><a href="#java-util-Calendar" class="headerlink" title="java.util.Calendar"></a>java.util.Calendar</h1><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html" target="_blank" rel="noopener">java.utol.Calendar doc</a></p>
+<h2 id="继承关系"><a href="#继承关系" class="headerlink" title="继承关系"></a>继承关系</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Object</span><br><span class="line">	java,.util.Calendar</span><br></pre></td></tr></table></figure>
+<h2 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Serializable, Cloneable, Comparable&lt;Calendar&gt;</span><br></pre></td></tr></table></figure>
+<p><code>Calendar</code>类是一个提供了将特定时间转换为<code>calendar fields</code>集合方法的抽象类，<code>calendar fields</code>例如：<code>YEAR, MONTH, DAY_OF_MONTH, HOUR</code> 等等。特定的时间能够使用一个自<code>January 1, 1970 00:00:00.000 GMT</code>至这个时间的所有毫秒表示。</p>
+<p>这个类也提供了额外的字段和方法实现一个具体的日历系统，这些字段和方法被定义为<code>protected</code></p>
+<h2 id="Calendar-Fields-Resolution"><a href="#Calendar-Fields-Resolution" class="headerlink" title="Calendar Fields Resolution"></a>Calendar Fields Resolution</h2><p>当通过calendar字段计算日期或时间，或许信息并不是足够的（例如：只有年月，缺少天），或者是前后矛盾的信息（例如：1996年7月15日，星期二，实际上这天是星期一）。<code>Calendar</code>将会按照下面的方式重新计算时间和日期。</p>
+<p>如果calendar字段值存在冲突，<code>Calendar</code>对最近设置的calendar字段值给定一个优先级顺序。下面是默认的calendar字段值的组合。最近的组合，有最近设置的字段决定，就会被使用。</p>
+<p>对于日期字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">YEAR + MONTH + DAY_OF_MONTH</span><br><span class="line">YEAR + MONTH + WEEK_OF_MONTH + DAY_OF_WEEK</span><br><span class="line">YEAR + MONTH + DAY_OF_WEEK_IN_MONTH + DAY_OF_WEEK</span><br><span class="line">YEAR + DAY_OF_YEAR</span><br><span class="line">YEAR + DAY_OF_WEEK + WEEK_OF_YEAR</span><br></pre></td></tr></table></figure>
+<p>对于时间字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HOUR_OF_DAY</span><br><span class="line">AM_PM + HOUR</span><br></pre></td></tr></table></figure>
+<p>如果在选定的字段组合中有字段值并没有被设置，<code>Calendar</code>使用它们默认的值。字段的默认值或许会由于具体的日历系统而变化。例如：在<code>GregorianCalendar</code>中，默认的字段值与Epoch的起始一样：<code>YEAR = 1970</code>，<code>MONTH = JANUARY</code>, <code>DAY_OF_MONTH = 1</code>等等。</p>
+<p><strong>Note:</strong></p>
+<p>在解释某些奇怪的时间的时候可能会存在一些歧义(这翻译的是什么哇。。。。)，可以使用下面的方法解决。</p>
+<ol>
+<li><p>23:59 is the last minute of the day and 00:00 is the first minute of the next day. Thus, 23:59 on Dec 31, 1999 &lt; 00:00 on Jan 1, 2000 &lt; 00:01 on Jan 1, 2000.</p>
+</li>
+<li><p>Although historically not precise, midnight also belongs to “am”, and noon belongs to “pm”, so on the same day, 12:00 am (midnight) &lt; 12:01 am, and 12:00 pm (noon) &lt; 12:01 pm</p>
+<p>The date or time format strings are not part of the definition of a calendar, as those must be modifiable or overridable by the user at runtime. Use <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormat.html" target="_blank" rel="noopener"><code>DateFormat</code></a> to format dates.</p>
+</li>
+</ol>
+<h4 id="Field-Manipulation"><a href="#Field-Manipulation" class="headerlink" title="Field Manipulation"></a>Field Manipulation</h4><p>calendar字段值能够使用以下方法改变：<code>set()</code>,<code>add()</code>,<code>roll()</code>。</p>
+<p><code>set(f, value)</code>将字段<code>f</code>更改为<code>value</code>，该方法还会设置一个额外的成员变量来表明字段<code>f</code>值已被更改。尽管字段<code>f</code>值会被立即更改，但是calendar使用<code>milliseconds</code>表示的时间值不会被立即重新计算直到<code>get()</code>、<code>getTime()</code>、<code>getTimeMillis()</code>、<code>add()</code>或<code>roll()</code>方法被调用。因此，多个<code>set()</code>调用并不会触发多个不必要的调用。使用<code>set()</code>方法更改calendar字段值后，其他的calendar字段值也许会更改，这取决于calendar字段，calendar字段值和calendar系统。此外，在calendar字段被重新计算后<code>get(f)</code>方法不一定会返回<code>set(value)</code>设定的<code>value</code>。这个特性是由具体的calendar类决定的。</p>
+<p><em>Example</em>: Consider a <code>GregorianCalendar</code> originally set to August 31, 1999. Calling <code>set(Calendar.MONTH, Calendar.SEPTEMBER)</code> sets the date to September 31, 1999. This is a temporary internal representation that resolves to October 1, 1999 if <code>getTime()</code>is then called. However, a call to <code>set(Calendar.DAY_OF_MONTH, 30)</code> before the call to <code>getTime()</code> sets the date to September 30, 1999, since no recomputation occurs after <code>set()</code> itself.</p>
+<p><strong>add(f, delta)</strong> adds <code>delta</code> to field <code>f</code>. This is equivalent to calling <code>set(f, get(f) + delta)</code> with two adjustments:</p>
+<blockquote>
+<p><strong>Add rule 1</strong>. The value of field <code>f</code> after the call minus the value of field <code>f</code> before the call is <code>delta</code>, modulo any overflow that has occurred in field <code>f</code>. Overflow occurs when a field value exceeds its range and, as a result, the next larger field is incremented or decremented and the field value is adjusted back into its range.</p>
+<p><strong>Add rule 2</strong>. If a smaller field is expected to be invariant, but it is impossible for it to be equal to its prior value because of changes in its minimum or maximum after field <code>f</code> is changed or other constraints, such as time zone offset changes, then its value is adjusted to be as close as possible to its expected value. A smaller field represents a smaller unit of time. <code>HOUR</code> is a smaller field than <code>DAY_OF_MONTH</code>. No adjustment is made to smaller fields that are not expected to be invariant. The calendar system determines what fields are expected to be invariant.</p>
+</blockquote>
+<p>In addition, unlike <code>set()</code>, <code>add()</code> forces an immediate recomputation of the calendar’s milliseconds and all fields.</p>
+<p><em>Example</em>: Consider a <code>GregorianCalendar</code> originally set to August 31, 1999. Calling <code>add(Calendar.MONTH, 13)</code> sets the calendar to September 30, 2000. <strong>Add rule 1</strong> sets the <code>MONTH</code> field to September, since adding 13 months to August gives September of the next year. Since <code>DAY_OF_MONTH</code>cannot be 31 in September in a <code>GregorianCalendar</code>, <strong>add rule 2</strong> sets the <code>DAY_OF_MONTH</code> to 30, the closest possible value. Although it is a smaller field, <code>DAY_OF_WEEK</code> is not adjusted by rule 2, since it is expected to change when the month changes in a <code>GregorianCalendar</code>.</p>
+<p><strong>roll(f, delta)</strong> adds <code>delta</code> to field <code>f</code> without changing larger fields. This is equivalent to calling <code>add(f, delta)</code> with the following adjustment:</p>
+<blockquote>
+<p><strong>Roll rule</strong>. Larger fields are unchanged after the call. A larger field represents a larger unit of time. <code>DAY_OF_MONTH</code> is a larger field than <code>HOUR</code>.</p>
+</blockquote>
+<p><em>Example</em>: See <a href="https://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html#roll(int,%20int" target="_blank" rel="noopener"><code>GregorianCalendar.roll(int, int)</code></a>).</p>
+<p><strong>Usage model</strong>. To motivate the behavior of <code>add()</code> and <code>roll()</code>, consider a user interface component with increment and decrement buttons for the month, day, and year, and an underlying <code>GregorianCalendar</code>. If the interface reads January 31, 1999 and the user presses the month increment button, what should it read? If the underlying implementation uses <code>set()</code>, it might read March 3, 1999. A better result would be February 28, 1999. Furthermore, if the user presses the month increment button again, it should read March 31, 1999, not March 28, 1999. By saving the original date and using either <code>add()</code> or <code>roll()</code>, depending on whether larger fields should be affected, the user interface can behave as most users will intuitively expect.</p>
+<p><strong>See Also</strong>:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#currentTimeMillis(" target="_blank" rel="noopener"><code>System.currentTimeMillis()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Date.html" target="_blank" rel="noopener"><code>Date</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html" target="_blank" rel="noopener"><code>GregorianCalendar</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html" target="_blank" rel="noopener"><code>TimeZone</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormat.html" target="_blank" rel="noopener"><code>DateFormat</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/serialized-form.html#java.util.Calendar" target="_blank" rel="noopener">Serialized Form</a></p>
+<h4 id="Filed"><a href="#Filed" class="headerlink" title="Filed"></a>Filed</h4><ul>
+<li><code>static int ALL_STYLES</code>-这是<code>getDisplayNames</code>的样式说明符，表明可以使用任何类型的名称，例如”$ January $”和”$ Jan $”。</li>
+<li><code>static int AM</code>-这是<code>AM_PM</code>字段的值表明一天的周期从午夜到中午之前。</li>
+<li><code>static int AM_PM</code>-这是一个可以用于<code>get</code>和<code>set</code>表明时间是在中午之前或之后的数字。</li>
+<li><code>protected boolean areFieldSet</code>-</li>
+<li></li>
+<li><code>static int DATE</code>-</li>
+<li><code>static int DAY_OF_MONTH</code>-</li>
+<li><code>static int DAY_OF_WEEK</code>-</li>
+<li><code>static int DAY_OF_WEEK</code>-</li>
+<li><code>static int DAY_OF_MONTH</code>-</li>
+<li><code>static int DAY_OF_WEEK</code>-</li>
+<li><code>static int DAY_OF_WEEK_IN_MONTH</code>-</li>
+<li><code>static int DAY_OF_YEAR</code>-</li>
+<li><code>static int DST_OFFSET</code>-</li>
+<li><code>static int ERA</code>-</li>
+<li><code>static int FIELD_COUNT</code>-</li>
+<li><code>protected int[] fields</code>-</li>
+<li><code>static int HOUR</code>-</li>
+<li><code>static int HOUR_OD_DAY</code>-</li>
+<li><code>protected boolean[] isSet</code>-</li>
+<li><code>protected boolean isTimeSet</code>-</li>
+<li><code>static int LONG</code>-</li>
+<li><code>static int MINUTE</code>-</li>
+<li><code>static int MONTH</code>-</li>
+<li><code>static int PM</code>-</li>
+<li></li>
+<li><code>static int JANUARY</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第一个月。</li>
+<li><code>static int FEBRUARY</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第二个月。</li>
+<li><code>static int MARCH</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第三个月。</li>
+<li><code>static int APRIL</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第四个月。</li>
+<li><code>static int MAY</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第五个月。</li>
+<li><code>static int JUNE</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第六个月。</li>
+<li><code>static int JULY</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第七个月。</li>
+<li><code>static int AUGUST</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第八个月。</li>
+<li><code>static int SEPTEMBER</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第九个月。</li>
+<li><code>static int OCTOBER</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第十个月。</li>
+<li><code>static int NOVEMEBER</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第十一个月。</li>
+<li><code>static int DECEMBER</code>-这是一个<code>MONTH</code>字段的值表示阳历一年中的第十二个月。</li>
+<li><code>static int MONDAY</code>-这是<code>DAY_OF_WEEK</code>字段的值代表了星期一</li>
+<li><code>static int FRIDAY</code>-这是<code>DAY_OF_WEEK</code>字段的值代表了星期五</li>
+<li><code>static int SATDAY</code>-这是<code>DAY_OF_WEEK</code>字段的值代表了星期六</li>
+</ul>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Constructor and Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>protected</code></td>
+<td><code>Calendar()</code>Constructs a Calendar with the default time zone and locale.</td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td><code>Calendar(TimeZone zone, Locale aLocale)</code>Constructs a calendar with the specified time zone and locale.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h3 id="Method-Summary"><a href="#Method-Summary" class="headerlink" title="Method Summary"></a>Method Summary</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Modifier and Type</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abstract void</code></td>
+<td><code>**add**(int field, int amount)</code>Adds or subtracts the specified amount of time to the given calendar field, based on the calendar’s rules.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**after**(Object when)</code>Returns whether this <code>Calendar</code> represents a time after the time represented by the specified<code>Object</code>.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**before**(Object when)</code>Returns whether this <code>Calendar</code> represents a time before the time represented by the specified <code>Object</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**clear**()</code>Sets all the calendar field values and the time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) of this <code>Calendar</code> undefined.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**clear**(int field)</code>Sets the given calendar field value and the time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) of this <code>Calendar</code> undefined.</td>
+</tr>
+<tr>
+<td><code>Object</code></td>
+<td><code>**clone**()</code>Creates and returns a copy of this object.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**compareTo**(Calendar anotherCalendar)</code>Compares the time values (millisecond offsets from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) represented by two<code>Calendar</code> objects.</td>
+</tr>
+<tr>
+<td><code>protected void</code></td>
+<td><code>**complete**()</code>Fills in any unset fields in the calendar fields.</td>
+</tr>
+<tr>
+<td><code>protected abstract void</code></td>
+<td><code>**computeFields**()</code>Converts the current millisecond time value <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time" target="_blank" rel="noopener"><code>time</code></a> to calendar field values in <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#fields" target="_blank" rel="noopener"><code>fields[\]</code></a>.</td>
+</tr>
+<tr>
+<td><code>protected abstract void</code></td>
+<td><code>**computeTime**()</code>Converts the current calendar field values in <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#fields" target="_blank" rel="noopener"><code>fields[\]</code></a> to the millisecond time value <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time" target="_blank" rel="noopener"><code>time</code></a>.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**equals**(Object obj)</code>Compares this <code>Calendar</code> to the specified <code>Object</code>.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**get**(int field)</code>Returns the value of the given calendar field.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getActualMaximum**(int field)</code>Returns the maximum value that the specified calendar field could have, given the time value of this <code>Calendar</code>.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getActualMinimum**(int field)</code>Returns the minimum value that the specified calendar field could have, given the time value of this <code>Calendar</code>.</td>
+</tr>
+<tr>
+<td><code>static Locale[]</code></td>
+<td><code>**getAvailableLocales**()</code>Returns an array of all locales for which the <code>getInstance</code> methods of this class can return localized instances.</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>**getDisplayName**(int field, int style, Locale locale)</code>Returns the string representation of the calendar <code>field</code> value in the given <code>style</code> and <code>locale</code>.</td>
+</tr>
+<tr>
+<td><code>Map&lt;String,Integer&gt;</code></td>
+<td><code>**getDisplayNames**(int field, int style, Locale locale)</code>Returns a <code>Map</code> containing all names of the calendar <code>field</code> in the given <code>style</code> and <code>locale</code> and their corresponding field values.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getFirstDayOfWeek**()</code>Gets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S., <code>MONDAY</code> in France.</td>
+</tr>
+<tr>
+<td><code>abstract int</code></td>
+<td><code>**getGreatestMinimum**(int field)</code>Returns the highest minimum value for the given calendar field of this <code>Calendar</code> instance.</td>
+</tr>
+<tr>
+<td><code>static Calendar</code></td>
+<td><code>**getInstance**()</code>Gets a calendar using the default time zone and locale.</td>
+</tr>
+<tr>
+<td><code>static Calendar</code></td>
+<td><code>**getInstance**(Locale aLocale)</code>Gets a calendar using the default time zone and specified locale.</td>
+</tr>
+<tr>
+<td><code>static Calendar</code></td>
+<td><code>**getInstance**(TimeZone zone)</code>Gets a calendar using the specified time zone and default locale.</td>
+</tr>
+<tr>
+<td><code>static Calendar</code></td>
+<td><code>**getInstance**(TimeZone zone, Locale aLocale)</code>Gets a calendar with the specified time zone and locale.</td>
+</tr>
+<tr>
+<td><code>abstract int</code></td>
+<td><code>**getLeastMaximum**(int field)</code>Returns the lowest maximum value for the given calendar field of this <code>Calendar</code> instance.</td>
+</tr>
+<tr>
+<td><code>abstract int</code></td>
+<td><code>**getMaximum**(int field)</code>Returns the maximum value for the given calendar field of this <code>Calendar</code> instance.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getMinimalDaysInFirstWeek**()</code>Gets what the minimal days required in the first week of the year are; e.g., if the first week is defined as one that contains the first day of the first month of a year, this method returns 1.</td>
+</tr>
+<tr>
+<td><code>abstract int</code></td>
+<td><code>**getMinimum**(int field)</code>Returns the minimum value for the given calendar field of this <code>Calendar</code> instance.</td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td><code>**getTime**()</code>Returns a <code>Date</code> object representing this <code>Calendar</code>‘s time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>“).</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td><code>**getTimeInMillis**()</code>Returns this Calendar’s time value in milliseconds.</td>
+</tr>
+<tr>
+<td><code>TimeZone</code></td>
+<td><code>**getTimeZone**()</code>Gets the time zone.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getWeeksInWeekYear**()</code>Returns the number of weeks in the week year represented by this <code>Calendar</code>.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**getWeekYear**()</code>Returns the week year represented by this <code>Calendar</code>.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>**hashCode**()</code>Returns a hash code for this calendar.</td>
+</tr>
+<tr>
+<td><code>protected int</code></td>
+<td><code>**internalGet**(int field)</code>Returns the value of the given calendar field.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**isLenient**()</code>Tells whether date/time interpretation is to be lenient.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**isSet**(int field)</code>Determines if the given calendar field has a value set, including cases that the value has been set by internal fields calculations triggered by a <code>get</code> method call.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>**isWeekDateSupported**()</code>Returns whether this <code>Calendar</code> supports week dates.</td>
+</tr>
+<tr>
+<td><code>abstract void</code></td>
+<td><code>**roll**(int field, boolean up)</code>Adds or subtracts (up/down) a single unit of time on the given time field without changing larger fields.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**roll**(int field, int amount)</code>Adds the specified (signed) amount to the specified calendar field without changing larger fields.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**set**(int field, int value)</code>Sets the given calendar field to the given value.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**set**(int year, int month, int date)</code>Sets the values for the calendar fields <code>YEAR</code>, <code>MONTH</code>, and <code>DAY_OF_MONTH</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**set**(int year, int month, int date, int hourOfDay, int minute)</code>Sets the values for the calendar fields <code>YEAR</code>, <code>MONTH</code>, <code>DAY_OF_MONTH</code>, <code>HOUR_OF_DAY</code>, and <code>MINUTE</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**set**(int year, int month, int date, int hourOfDay, int minute, int second)</code>Sets the values for the fields <code>YEAR</code>, <code>MONTH</code>, <code>DAY_OF_MONTH</code>, <code>HOUR</code>, <code>MINUTE</code>, and <code>SECOND</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setFirstDayOfWeek**(int value)</code>Sets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S., <code>MONDAY</code> in France.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setLenient**(boolean lenient)</code>Specifies whether or not date/time interpretation is to be lenient.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setMinimalDaysInFirstWeek**(int value)</code>Sets what the minimal days required in the first week of the year are; For example, if the first week is defined as one that contains the first day of the first month of a year, call this method with value 1.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setTime**(Date date)</code>Sets this Calendar’s time with the given <code>Date</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setTimeInMillis**(long millis)</code>Sets this Calendar’s current time from the given long value.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setTimeZone**(TimeZone value)</code>Sets the time zone with the given time zone value.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>**setWeekDate**(int weekYear, int weekOfYear, int dayOfWeek)</code>Sets the date of this <code>Calendar</code> with the the given date specifiers - week year, week of year, and day of week.</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>**toString**()</code>Return a string representation of this calendar.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><h3 id="Field-Detail"><a href="#Field-Detail" class="headerlink" title="Field Detail"></a>Field Detail</h3></li>
+<li><h4 id="ERA"><a href="#ERA" class="headerlink" title="ERA"></a>ERA</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int ERA</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the era, e.g., AD or BC in the Julian calendar. This is a calendar-specific value; see subclass documentation.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html#AD" target="_blank" rel="noopener"><code>GregorianCalendar.AD</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html#BC" target="_blank" rel="noopener"><code>GregorianCalendar.BC</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.ERA" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="YEAR"><a href="#YEAR" class="headerlink" title="YEAR"></a>YEAR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int YEAR</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the year. This is a calendar-specific value; see subclass documentation.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.YEAR" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MONTH"><a href="#MONTH" class="headerlink" title="MONTH"></a>MONTH</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MONTH</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the month. This is a calendar-specific value. The first month of the year in the Gregorian and Julian calendars is <code>JANUARY</code> which is 0; the last depends on the number of months in a year.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#JANUARY" target="_blank" rel="noopener"><code>JANUARY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#FEBRUARY" target="_blank" rel="noopener"><code>FEBRUARY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MARCH" target="_blank" rel="noopener"><code>MARCH</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#APRIL" target="_blank" rel="noopener"><code>APRIL</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MAY" target="_blank" rel="noopener"><code>MAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#JUNE" target="_blank" rel="noopener"><code>JUNE</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#JULY" target="_blank" rel="noopener"><code>JULY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AUGUST" target="_blank" rel="noopener"><code>AUGUST</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SEPTEMBER" target="_blank" rel="noopener"><code>SEPTEMBER</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#OCTOBER" target="_blank" rel="noopener"><code>OCTOBER</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#NOVEMBER" target="_blank" rel="noopener"><code>NOVEMBER</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DECEMBER" target="_blank" rel="noopener"><code>DECEMBER</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#UNDECIMBER" target="_blank" rel="noopener"><code>UNDECIMBER</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MONTH" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="WEEK-OF-YEAR"><a href="#WEEK-OF-YEAR" class="headerlink" title="WEEK_OF_YEAR"></a>WEEK_OF_YEAR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int WEEK_OF_YEAR</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the week number within the current year. The first week of the year, as defined by <code>getFirstDayOfWeek()</code> and <code>getMinimalDaysInFirstWeek()</code>, has value 1. Subclasses define the value of <code>WEEK_OF_YEAR</code> for days before the first week of the year.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getFirstDayOfWeek(" target="_blank" rel="noopener"><code>getFirstDayOfWeek()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek(" target="_blank" rel="noopener"><code>getMinimalDaysInFirstWeek()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.WEEK_OF_YEAR" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="WEEK-OF-MONTH"><a href="#WEEK-OF-MONTH" class="headerlink" title="WEEK_OF_MONTH"></a>WEEK_OF_MONTH</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int WEEK_OF_MONTH</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the week number within the current month. The first week of the month, as defined by <code>getFirstDayOfWeek()</code> and <code>getMinimalDaysInFirstWeek()</code>, has value 1. Subclasses define the value of <code>WEEK_OF_MONTH</code> for days before the first week of the month.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getFirstDayOfWeek(" target="_blank" rel="noopener"><code>getFirstDayOfWeek()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek(" target="_blank" rel="noopener"><code>getMinimalDaysInFirstWeek()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.WEEK_OF_MONTH" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DATE"><a href="#DATE" class="headerlink" title="DATE"></a>DATE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DATE</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the day of the month. This is a synonym for <code>DAY_OF_MONTH</code>. The first day of the month has value 1.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_MONTH" target="_blank" rel="noopener"><code>DAY_OF_MONTH</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DATE" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DAY-OF-MONTH"><a href="#DAY-OF-MONTH" class="headerlink" title="DAY_OF_MONTH"></a>DAY_OF_MONTH</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DAY_OF_MONTH</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the day of the month. This is a synonym for <code>DATE</code>. The first day of the month has value 1.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DATE" target="_blank" rel="noopener"><code>DATE</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DAY_OF_MONTH" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DAY-OF-YEAR"><a href="#DAY-OF-YEAR" class="headerlink" title="DAY_OF_YEAR"></a>DAY_OF_YEAR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DAY_OF_YEAR</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the day number within the current year. The first day of the year has value 1.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DAY_OF_YEAR" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DAY-OF-WEEK"><a href="#DAY-OF-WEEK" class="headerlink" title="DAY_OF_WEEK"></a>DAY_OF_WEEK</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DAY_OF_WEEK</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the day of the week. This field takes values <code>SUNDAY</code>, <code>MONDAY</code>, <code>TUESDAY</code>, <code>WEDNESDAY</code>,<code>THURSDAY</code>, <code>FRIDAY</code>, and <code>SATURDAY</code>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SUNDAY" target="_blank" rel="noopener"><code>SUNDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONDAY" target="_blank" rel="noopener"><code>MONDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#TUESDAY" target="_blank" rel="noopener"><code>TUESDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#WEDNESDAY" target="_blank" rel="noopener"><code>WEDNESDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#THURSDAY" target="_blank" rel="noopener"><code>THURSDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#FRIDAY" target="_blank" rel="noopener"><code>FRIDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SATURDAY" target="_blank" rel="noopener"><code>SATURDAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DAY_OF_WEEK" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DAY-OF-WEEK-IN-MONTH"><a href="#DAY-OF-WEEK-IN-MONTH" class="headerlink" title="DAY_OF_WEEK_IN_MONTH"></a>DAY_OF_WEEK_IN_MONTH</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DAY_OF_WEEK_IN_MONTH</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the ordinal number of the day of the week within the current month. Together with the <code>DAY_OF_WEEK</code> field, this uniquely specifies a day within a month. Unlike <code>WEEK_OF_MONTH</code> and <code>WEEK_OF_YEAR</code>, this field’s value does <em>not</em> depend on <code>getFirstDayOfWeek()</code> or <code>getMinimalDaysInFirstWeek()</code>. <code>DAY_OF_MONTH 1</code> through <code>7</code> always correspond to <code>DAY_OF_WEEK_IN_MONTH 1</code>; <code>8</code> through <code>14</code> correspond to <code>DAY_OF_WEEK_IN_MONTH 2</code>, and so on. <code>DAY_OF_WEEK_IN_MONTH 0</code> indicates the week before <code>DAY_OF_WEEK_IN_MONTH 1</code>. Negative values count back from the end of the month, so the last Sunday of a month is specified as <code>DAY_OF_WEEK = SUNDAY, DAY_OF_WEEK_IN_MONTH = -1</code>. Because negative values count backward they will usually be aligned differently within the month than positive values. For example, if a month has 31 days, <code>DAY_OF_WEEK_IN_MONTH -1</code> will overlap <code>DAY_OF_WEEK_IN_MONTH 5</code> and the end of <code>4</code>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#WEEK_OF_MONTH" target="_blank" rel="noopener"><code>WEEK_OF_MONTH</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DAY_OF_WEEK_IN_MONTH" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="AM-PM"><a href="#AM-PM" class="headerlink" title="AM_PM"></a>AM_PM</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int AM_PM</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating whether the <code>HOUR</code> is before or after noon. E.g., at 10:04:15.250 PM the <code>AM_PM</code> is <code>PM</code>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AM" target="_blank" rel="noopener"><code>AM</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#PM" target="_blank" rel="noopener"><code>PM</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#HOUR" target="_blank" rel="noopener"><code>HOUR</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.AM_PM" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="HOUR"><a href="#HOUR" class="headerlink" title="HOUR"></a>HOUR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int HOUR</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the hour of the morning or afternoon. <code>HOUR</code> is used for the 12-hour clock (0 - 11). Noon and midnight are represented by 0, not by 12. E.g., at 10:04:15.250 PM the <code>HOUR</code> is 10.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AM_PM" target="_blank" rel="noopener"><code>AM_PM</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#HOUR_OF_DAY" target="_blank" rel="noopener"><code>HOUR_OF_DAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.HOUR" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="HOUR-OF-DAY"><a href="#HOUR-OF-DAY" class="headerlink" title="HOUR_OF_DAY"></a>HOUR_OF_DAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int HOUR_OF_DAY</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the hour of the day. <code>HOUR_OF_DAY</code> is used for the 24-hour clock. E.g., at 10:04:15.250 PM the <code>HOUR_OF_DAY</code> is 22.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#HOUR" target="_blank" rel="noopener"><code>HOUR</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.HOUR_OF_DAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MINUTE"><a href="#MINUTE" class="headerlink" title="MINUTE"></a>MINUTE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MINUTE</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the minute within the hour. E.g., at 10:04:15.250 PM the <code>MINUTE</code> is 4.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MINUTE" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="SECOND"><a href="#SECOND" class="headerlink" title="SECOND"></a>SECOND</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int SECOND</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the second within the minute. E.g., at 10:04:15.250 PM the <code>SECOND</code> is 15.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.SECOND" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MILLISECOND"><a href="#MILLISECOND" class="headerlink" title="MILLISECOND"></a>MILLISECOND</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MILLISECOND</span><br></pre></td></tr></table></figure>
+<p>Field number for <code>get</code> and <code>set</code> indicating the millisecond within the second. E.g., at 10:04:15.250 PM the <code>MILLISECOND</code> is 250.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MILLISECOND" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="ZONE-OFFSET"><a href="#ZONE-OFFSET" class="headerlink" title="ZONE_OFFSET"></a>ZONE_OFFSET</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int ZONE_OFFSET</span><br></pre></td></tr></table></figure>
+<p>Field number for</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get    and    set    indicating the raw offset from GMT in milliseconds.  This field reflects the correct GMT offset value of the time zone of this `Calendar` if the `TimeZone` implementation subclass supports historical GMT offset changes.  - See Also:    [Constant Field Values](https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.ZONE_OFFSET)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="DST-OFFSET"><a href="#DST-OFFSET" class="headerlink" title="DST_OFFSET"></a>DST_OFFSET</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DST_OFFSET</span><br></pre></td></tr></table></figure>
+<p>Field number for</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get    and    set    indicating the daylight saving offset in milliseconds.  This field reflects the correct daylight saving offset value of the time zone of this `Calendar` if the `TimeZone` implementation subclass supports historical Daylight Saving Time schedule changes.  - See Also:    [Constant Field Values](https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DST_OFFSET)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="FIELD-COUNT"><a href="#FIELD-COUNT" class="headerlink" title="FIELD_COUNT"></a>FIELD_COUNT</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int FIELD_COUNT</span><br></pre></td></tr></table></figure>
+<p>The number of distinct fields recognized by <code>get</code> and <code>set</code>. Field numbers range from <code>0..FIELD_COUNT-1</code>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.FIELD_COUNT" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="SUNDAY"><a href="#SUNDAY" class="headerlink" title="SUNDAY"></a>SUNDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int SUNDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Sunday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.SUNDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MONDAY"><a href="#MONDAY" class="headerlink" title="MONDAY"></a>MONDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MONDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Monday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MONDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="TUESDAY"><a href="#TUESDAY" class="headerlink" title="TUESDAY"></a>TUESDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int TUESDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Tuesday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.TUESDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="WEDNESDAY"><a href="#WEDNESDAY" class="headerlink" title="WEDNESDAY"></a>WEDNESDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int WEDNESDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Wednesday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.WEDNESDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="THURSDAY"><a href="#THURSDAY" class="headerlink" title="THURSDAY"></a>THURSDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int THURSDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Thursday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.THURSDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="FRIDAY"><a href="#FRIDAY" class="headerlink" title="FRIDAY"></a>FRIDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int FRIDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Friday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.FRIDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="SATURDAY"><a href="#SATURDAY" class="headerlink" title="SATURDAY"></a>SATURDAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int SATURDAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK" target="_blank" rel="noopener"><code>DAY_OF_WEEK</code></a> field indicating Saturday.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.SATURDAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="JANUARY"><a href="#JANUARY" class="headerlink" title="JANUARY"></a>JANUARY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int JANUARY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the first month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.JANUARY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="FEBRUARY"><a href="#FEBRUARY" class="headerlink" title="FEBRUARY"></a>FEBRUARY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int FEBRUARY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the second month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.FEBRUARY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MARCH"><a href="#MARCH" class="headerlink" title="MARCH"></a>MARCH</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MARCH</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the third month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MARCH" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="APRIL"><a href="#APRIL" class="headerlink" title="APRIL"></a>APRIL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int APRIL</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the fourth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.APRIL" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="MAY"><a href="#MAY" class="headerlink" title="MAY"></a>MAY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int MAY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the fifth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.MAY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="JUNE"><a href="#JUNE" class="headerlink" title="JUNE"></a>JUNE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int JUNE</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the sixth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.JUNE" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="JULY"><a href="#JULY" class="headerlink" title="JULY"></a>JULY</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int JULY</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the seventh month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.JULY" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="AUGUST"><a href="#AUGUST" class="headerlink" title="AUGUST"></a>AUGUST</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int AUGUST</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the eighth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.AUGUST" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="SEPTEMBER"><a href="#SEPTEMBER" class="headerlink" title="SEPTEMBER"></a>SEPTEMBER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int SEPTEMBER</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the ninth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.SEPTEMBER" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="OCTOBER"><a href="#OCTOBER" class="headerlink" title="OCTOBER"></a>OCTOBER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int OCTOBER</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the tenth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.OCTOBER" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="NOVEMBER"><a href="#NOVEMBER" class="headerlink" title="NOVEMBER"></a>NOVEMBER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int NOVEMBER</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the eleventh month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.NOVEMBER" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="DECEMBER"><a href="#DECEMBER" class="headerlink" title="DECEMBER"></a>DECEMBER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int DECEMBER</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the twelfth month of the year in the Gregorian and Julian calendars.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.DECEMBER" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="UNDECIMBER"><a href="#UNDECIMBER" class="headerlink" title="UNDECIMBER"></a>UNDECIMBER</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int UNDECIMBER</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> field indicating the thirteenth month of the year. Although <code>GregorianCalendar</code> does not use this value, lunar calendars do.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.UNDECIMBER" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="AM"><a href="#AM" class="headerlink" title="AM"></a>AM</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int AM</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AM_PM" target="_blank" rel="noopener"><code>AM_PM</code></a> field indicating the period of the day from midnight to just before noon.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.AM" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="PM"><a href="#PM" class="headerlink" title="PM"></a>PM</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int PM</span><br></pre></td></tr></table></figure>
+<p>Value of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AM_PM" target="_blank" rel="noopener"><code>AM_PM</code></a> field indicating the period of the day from noon to just before midnight.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.PM" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="ALL-STYLES"><a href="#ALL-STYLES" class="headerlink" title="ALL_STYLES"></a>ALL_STYLES</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int ALL_STYLES</span><br></pre></td></tr></table></figure>
+<p>A style specifier for <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getDisplayNames(int,%20int,%20java.util.Locale" target="_blank" rel="noopener"><code>getDisplayNames</code></a>) indicating names in all styles, such as “January” and “Jan”.</p>
+<ul>
+<li><p>Since:</p>
+<p>1.6</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SHORT" target="_blank" rel="noopener"><code>SHORT</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#LONG" target="_blank" rel="noopener"><code>LONG</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.ALL_STYLES" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="SHORT"><a href="#SHORT" class="headerlink" title="SHORT"></a>SHORT</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int SHORT</span><br></pre></td></tr></table></figure>
+<p>A style specifier for <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getDisplayName(int,%20int,%20java.util.Locale" target="_blank" rel="noopener"><code>getDisplayName</code></a>) and <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getDisplayNames(int,%20int,%20java.util.Locale" target="_blank" rel="noopener"><code>getDisplayNames</code></a>) indicating a short name, such as “Jan”.</p>
+<ul>
+<li><p>Since:</p>
+<p>1.6</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#LONG" target="_blank" rel="noopener"><code>LONG</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.SHORT" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="LONG"><a href="#LONG" class="headerlink" title="LONG"></a>LONG</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final int LONG</span><br></pre></td></tr></table></figure>
+<p>A style specifier for <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getDisplayName(int,%20int,%20java.util.Locale" target="_blank" rel="noopener"><code>getDisplayName</code></a>) and <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getDisplayNames(int,%20int,%20java.util.Locale" target="_blank" rel="noopener"><code>getDisplayNames</code></a>) indicating a long name, such as “January”.</p>
+<ul>
+<li><p>Since:</p>
+<p>1.6</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SHORT" target="_blank" rel="noopener"><code>SHORT</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/constant-values.html#java.util.Calendar.LONG" target="_blank" rel="noopener">Constant Field Values</a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="fields"><a href="#fields" class="headerlink" title="fields"></a>fields</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected int[] fields</span><br></pre></td></tr></table></figure>
+<p>The calendar field values for the currently set time for this calendar. This is an array of <code>FIELD_COUNT</code> integers, with index values <code>ERA</code> through <code>DST_OFFSET</code>.</p>
+</li>
+<li><h4 id="isSet"><a href="#isSet" class="headerlink" title="isSet"></a>isSet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected boolean[] isSet</span><br></pre></td></tr></table></figure>
+<p>The flags which tell if a specified calendar field for the calendar is set. A new object has no fields set. After the first call to a method which generates the fields, they all remain set after that. This is an array of <code>FIELD_COUNT</code> booleans, with index values<code>ERA</code> through <code>DST_OFFSET</code>.</p>
+</li>
+<li><h4 id="time"><a href="#time" class="headerlink" title="time"></a>time</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected long time</span><br></pre></td></tr></table></figure>
+<p>The currently set time for this calendar, expressed in milliseconds after January 1, 1970, 0:00:00 GMT.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isTimeSet" target="_blank" rel="noopener"><code>isTimeSet</code></a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="isTimeSet"><a href="#isTimeSet" class="headerlink" title="isTimeSet"></a>isTimeSet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected boolean isTimeSet</span><br></pre></td></tr></table></figure>
+<p>True if then the value of <code>time</code> is valid. The time is made invalid by a change to an item of <code>field[]</code>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time" target="_blank" rel="noopener"><code>time</code></a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="areFieldsSet"><a href="#areFieldsSet" class="headerlink" title="areFieldsSet"></a>areFieldsSet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected boolean areFieldsSet</span><br></pre></td></tr></table></figure>
+<p>True if <code>fields[]</code> are in sync with the currently set time. If false, then the next attempt to get the value of a field will force a recomputation of all fields from the current value of <code>time</code>.</p>
+</li>
+<li><h3 id="Constructor-Detail"><a href="#Constructor-Detail" class="headerlink" title="Constructor Detail"></a>Constructor Detail</h3></li>
+<li><h4 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected Calendar()</span><br></pre></td></tr></table></figure>
+<p>Constructs a Calendar with the default time zone and locale.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html#getDefault(" target="_blank" rel="noopener"><code>TimeZone.getDefault()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="Calendar-1"><a href="#Calendar-1" class="headerlink" title="Calendar"></a>Calendar</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">protected Calendar(TimeZone zone,</span><br><span class="line">        Locale aLocale)</span><br></pre></td></tr></table></figure>
+<p>Constructs a calendar with the specified time zone and locale.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>zone</code> - the time zone to use</p>
+<p><code>aLocale</code> - the locale for the week data</p>
+</li>
+</ul>
+</li>
+<li><h3 id="Method-Detail"><a href="#Method-Detail" class="headerlink" title="Method Detail"></a>Method Detail</h3></li>
+<li><h4 id="getInstance"><a href="#getInstance" class="headerlink" title="getInstance"></a>getInstance</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static Calendar getInstance()</span><br></pre></td></tr></table></figure>
+<p>Gets a calendar using the default time zone and locale. The <code>Calendar</code> returned is based on the current time in the default time zone with the default locale.</p>
+<ul>
+<li><p>Returns:</p>
+<p>a Calendar.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getInstance-1"><a href="#getInstance-1" class="headerlink" title="getInstance"></a>getInstance</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static Calendar getInstance(TimeZone zone)</span><br></pre></td></tr></table></figure>
+<p>Gets a calendar using the specified time zone and default locale. The <code>Calendar</code> returned is based on the current time in the given time zone with the default locale.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>zone</code> - the time zone to use</p>
+</li>
+<li><p>Returns:</p>
+<p>a Calendar.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getInstance-2"><a href="#getInstance-2" class="headerlink" title="getInstance"></a>getInstance</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static Calendar getInstance(Locale aLocale)</span><br></pre></td></tr></table></figure>
+<p>Gets a calendar using the default time zone and specified locale. The <code>Calendar</code> returned is based on the current time in the default time zone with the given locale.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>aLocale</code> - the locale for the week data</p>
+</li>
+<li><p>Returns:</p>
+<p>a Calendar.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getInstance-3"><a href="#getInstance-3" class="headerlink" title="getInstance"></a>getInstance</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static Calendar getInstance(TimeZone zone,</span><br><span class="line">                   Locale aLocale)</span><br></pre></td></tr></table></figure>
+<p>Gets a calendar with the specified time zone and locale. The <code>Calendar</code> returned is based on the current time in the given time zone with the given locale.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>zone</code> - the time zone to use</p>
+<p><code>aLocale</code> - the locale for the week data</p>
+</li>
+<li><p>Returns:</p>
+<p>a Calendar.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getAvailableLocales"><a href="#getAvailableLocales" class="headerlink" title="getAvailableLocales"></a>getAvailableLocales</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static Locale[] getAvailableLocales()</span><br></pre></td></tr></table></figure>
+<p>Returns an array of all locales for which the <code>getInstance</code> methods of this class can return localized instances. The array returned must contain at least a <code>Locale</code> instance equal to <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html#US" target="_blank" rel="noopener"><code>Locale.US</code></a>.</p>
+<ul>
+<li><p>Returns:</p>
+<p>An array of locales for which localized <code>Calendar</code> instances are available.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="computeTime"><a href="#computeTime" class="headerlink" title="computeTime"></a>computeTime</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected abstract void computeTime()</span><br></pre></td></tr></table></figure>
+<p>Converts the current calendar field values in <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#fields" target="_blank" rel="noopener"><code>fields[\]</code></a> to the millisecond time value <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time" target="_blank" rel="noopener"><code>time</code></a>.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#complete(" target="_blank" rel="noopener"><code>complete()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#computeFields(" target="_blank" rel="noopener"><code>computeFields()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="computeFields"><a href="#computeFields" class="headerlink" title="computeFields"></a>computeFields</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected abstract void computeFields()</span><br></pre></td></tr></table></figure>
+<p>Converts the current millisecond time value <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time" target="_blank" rel="noopener"><code>time</code></a> to calendar field values in <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#fields" target="_blank" rel="noopener"><code>fields[\]</code></a>. This allows you to sync up the calendar field values with a new time that is set for the calendar. The time is <em>not</em> recomputed first; to recompute the time, then the fields, call the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#complete(" target="_blank" rel="noopener"><code>complete()</code></a>) method.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#computeTime(" target="_blank" rel="noopener"><code>computeTime()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getTime"><a href="#getTime" class="headerlink" title="getTime"></a>getTime</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final Date getTime()</span><br></pre></td></tr></table></figure>
+<p>Returns a <code>Date</code> object representing this <code>Calendar</code>‘s time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>“).</p>
+<ul>
+<li><p>Returns:</p>
+<p>a <code>Date</code> representing the time value.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setTime(java.util.Date" target="_blank" rel="noopener"><code>setTime(Date)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getTimeInMillis(" target="_blank" rel="noopener"><code>getTimeInMillis()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setTime"><a href="#setTime" class="headerlink" title="setTime"></a>setTime</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final void setTime(Date date)</span><br></pre></td></tr></table></figure>
+<p>Sets this Calendar’s time with the given</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date  .  Note: Calling `setTime()` with `Date(Long.MAX_VALUE)` or `Date(Long.MIN_VALUE)` may yield incorrect field values from `get()`.  - Parameters:    `date` - the given Date.  - See Also:    [`getTime()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getTime()), [`setTimeInMillis(long)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setTimeInMillis(long))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="getTimeInMillis"><a href="#getTimeInMillis" class="headerlink" title="getTimeInMillis"></a>getTimeInMillis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public long getTimeInMillis()</span><br></pre></td></tr></table></figure>
+<p>Returns this Calendar’s time value in milliseconds.</p>
+<ul>
+<li><p>Returns:</p>
+<p>the current time as UTC milliseconds from the epoch.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getTime(" target="_blank" rel="noopener"><code>getTime()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setTimeInMillis(long" target="_blank" rel="noopener"><code>setTimeInMillis(long)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setTimeInMillis"><a href="#setTimeInMillis" class="headerlink" title="setTimeInMillis"></a>setTimeInMillis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void setTimeInMillis(long millis)</span><br></pre></td></tr></table></figure>
+<p>Sets this Calendar’s current time from the given long value.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>millis</code> - the new time in UTC milliseconds from the epoch.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setTime(java.util.Date" target="_blank" rel="noopener"><code>setTime(Date)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getTimeInMillis(" target="_blank" rel="noopener"><code>getTimeInMillis()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int get(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the value of the given calendar field. In lenient mode, all calendar fields are normalized. In non-lenient mode, all calendar fields are validated and this method throws an exception if any calendar fields have out-of-range values. The normalization and validation are handled by the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#complete(" target="_blank" rel="noopener"><code>complete()</code></a>) method, which process is calendar system dependent.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the given calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the value for the given calendar field.</p>
+</li>
+<li><p>Throws:</p>
+<p><code>ArrayIndexOutOfBoundsException</code> - if the specified field is out of range (<code>field &lt; 0 || field &gt;= FIELD_COUNT</code>).</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#complete(" target="_blank" rel="noopener"><code>complete()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="internalGet"><a href="#internalGet" class="headerlink" title="internalGet"></a>internalGet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected final int internalGet(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the value of the given calendar field. This method does not involve normalization or validation of the field value.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the given calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the value for the given calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#get(int" target="_blank" rel="noopener"><code>get(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void set(int field,</span><br><span class="line">       int value)</span><br></pre></td></tr></table></figure>
+<p>Sets the given calendar field to the given value. The value is not interpreted by this method regardless of the leniency mode.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the given calendar field.</p>
+<p><code>value</code> - the value to be set for the given calendar field.</p>
+</li>
+<li><p>Throws:</p>
+<p><code>ArrayIndexOutOfBoundsException</code> - if the specified field is out of range (<code>field &lt; 0 || field &gt;= FIELD_COUNT</code>). in non-lenient mode.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#get(int" target="_blank" rel="noopener"><code>get(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="set-1"><a href="#set-1" class="headerlink" title="set"></a>set</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final void set(int year,</span><br><span class="line">       int month,</span><br><span class="line">       int date)</span><br></pre></td></tr></table></figure>
+<p>Sets the values for the calendar fields <code>YEAR</code>, <code>MONTH</code>, and <code>DAY_OF_MONTH</code>. Previous values of other calendar fields are retained. If this is not desired, call <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#clear(" target="_blank" rel="noopener"><code>clear()</code></a>) first.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>year</code> - the value used to set the <code>YEAR</code> calendar field.</p>
+<p><code>month</code> - the value used to set the <code>MONTH</code> calendar field. Month value is 0-based. e.g., 0 for January.</p>
+<p><code>date</code> - the value used to set the <code>DAY_OF_MONTH</code> calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="set-2"><a href="#set-2" class="headerlink" title="set"></a>set</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public final void set(int year,</span><br><span class="line">       int month,</span><br><span class="line">       int date,</span><br><span class="line">       int hourOfDay,</span><br><span class="line">       int minute)</span><br></pre></td></tr></table></figure>
+<p>Sets the values for the calendar fields <code>YEAR</code>, <code>MONTH</code>, <code>DAY_OF_MONTH</code>, <code>HOUR_OF_DAY</code>, and <code>MINUTE</code>. Previous values of other fields are retained. If this is not desired, call <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#clear(" target="_blank" rel="noopener"><code>clear()</code></a>) first.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>year</code> - the value used to set the <code>YEAR</code> calendar field.</p>
+<p><code>month</code> - the value used to set the <code>MONTH</code> calendar field. Month value is 0-based. e.g., 0 for January.</p>
+<p><code>date</code> - the value used to set the <code>DAY_OF_MONTH</code> calendar field.</p>
+<p><code>hourOfDay</code> - the value used to set the <code>HOUR_OF_DAY</code> calendar field.</p>
+<p><code>minute</code> - the value used to set the <code>MINUTE</code> calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="set-3"><a href="#set-3" class="headerlink" title="set"></a>set</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public final void set(int year,</span><br><span class="line">       int month,</span><br><span class="line">       int date,</span><br><span class="line">       int hourOfDay,</span><br><span class="line">       int minute,</span><br><span class="line">       int second)</span><br></pre></td></tr></table></figure>
+<p>Sets the values for the fields <code>YEAR</code>, <code>MONTH</code>, <code>DAY_OF_MONTH</code>, <code>HOUR</code>, <code>MINUTE</code>, and <code>SECOND</code>. Previous values of other fields are retained. If this is not desired, call <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#clear(" target="_blank" rel="noopener"><code>clear()</code></a>) first.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>year</code> - the value used to set the <code>YEAR</code> calendar field.</p>
+<p><code>month</code> - the value used to set the <code>MONTH</code> calendar field. Month value is 0-based. e.g., 0 for January.</p>
+<p><code>date</code> - the value used to set the <code>DAY_OF_MONTH</code> calendar field.</p>
+<p><code>hourOfDay</code> - the value used to set the <code>HOUR_OF_DAY</code> calendar field.</p>
+<p><code>minute</code> - the value used to set the <code>MINUTE</code> calendar field.</p>
+<p><code>second</code> - the value used to set the <code>SECOND</code> calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int,%20int,%20int,%20int" target="_blank" rel="noopener"><code>set(int,int,int,int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final void clear()</span><br></pre></td></tr></table></figure>
+<p>Sets all the calendar field values and the time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) of this <code>Calendar</code> undefined. This means that <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isSet(int" target="_blank" rel="noopener"><code>isSet()</code></a>) will return <code>false</code> for all the calendar fields, and the date and time calculations will treat the fields as if they had never been set. A <code>Calendar</code>implementation class may use its specific default field values for date/time calculations. For example, <code>GregorianCalendar</code> uses 1970 if the <code>YEAR</code> field value is undefined.</p>
+<ul>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#clear(int" target="_blank" rel="noopener"><code>clear(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="clear-1"><a href="#clear-1" class="headerlink" title="clear"></a>clear</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final void clear(int field)</span><br></pre></td></tr></table></figure>
+<p>Sets the given calendar field value and the time value (millisecond offset from the Epoch) of this <code>Calendar</code> undefined. This means that <code>isSet(field)</code> will return<code>false</code>, and the date and time calculations will treat the field as if it had never been set. A<code>Calendar</code>implementation class may use the field’s specific default value for date and time calculations.</p>
+<p>The <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#HOUR_OF_DAY" target="_blank" rel="noopener"><code>HOUR_OF_DAY</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#HOUR" target="_blank" rel="noopener"><code>HOUR</code></a> and <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#AM_PM" target="_blank" rel="noopener"><code>AM_PM</code></a> fields are handled independently and the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#time_resolution" target="_blank" rel="noopener">the resolution rule for the time of day</a> is applied. Clearing one of the fields doesn’t reset the hour of day value of this <code>Calendar</code>. Use <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(Calendar.HOUR_OF_DAY, 0)</code></a>) to reset the hour value.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field to be cleared.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#clear(" target="_blank" rel="noopener"><code>clear()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="isSet-1"><a href="#isSet-1" class="headerlink" title="isSet"></a>isSet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final boolean isSet(int field)</span><br></pre></td></tr></table></figure>
+<p>Determines if the given calendar field has a value set, including cases that the value has been set by internal fields calculations triggered by a <code>get</code> method call.</p>
+<ul>
+<li><p>Returns:</p>
+<p><code>true</code> if the given calendar field has a value set; <code>false</code> otherwise.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getDisplayName"><a href="#getDisplayName" class="headerlink" title="getDisplayName"></a>getDisplayName</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public String getDisplayName(int field,</span><br><span class="line">                    int style,</span><br><span class="line">                    Locale locale)</span><br></pre></td></tr></table></figure>
+<p>Returns the string representation of the calendar<code>field</code></p>
+<p>value in the given style and locale. If no string representation is applicable, null is returned. This method calls<code>get(field)</code> to get the calendar field value if the string representation is applicable to the given calendar field.For example, if this <code>Calendar</code> is a <code>GregorianCalendar</code> and its date is 2005-01-01, then the string representation of the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a>field would be “January” in the long style in an English locale or “Jan” in the short style. However, no string representation would be available for the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_MONTH" target="_blank" rel="noopener"><code>DAY_OF_MONTH</code></a> field, and this method would return <code>null</code>.</p>
+<p>The default implementation supports the calendar fields for which a <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormatSymbols.html" target="_blank" rel="noopener"><code>DateFormatSymbols</code></a> has names in the given <code>locale</code>.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field for which the string representation is returned</p>
+<p><code>style</code> - the style applied to the string representation; one of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SHORT" target="_blank" rel="noopener"><code>SHORT</code></a> or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#LONG" target="_blank" rel="noopener"><code>LONG</code></a>.</p>
+<p><code>locale</code> - the locale for the string representation</p>
+</li>
+<li><p>Returns:</p>
+<p>the string representation of the given <code>field</code> in the given <code>style</code>, or <code>null</code> if no string representation is applicable.</p>
+</li>
+<li><p>Throws:</p>
+<p><code>IllegalArgumentException</code> - if <code>field</code> or <code>style</code> is invalid, or if this <code>Calendar</code> is non-lenient and any of the calendar fields have invalid values</p>
+<p><code>NullPointerException</code> - if <code>locale</code> is null</p>
+</li>
+<li><p>Since:</p>
+<p>1.6</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getDisplayNames"><a href="#getDisplayNames" class="headerlink" title="getDisplayNames"></a>getDisplayNames</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Map&lt;String,Integer&gt; getDisplayNames(int field,</span><br><span class="line">                                  int style,</span><br><span class="line">                                  Locale locale)</span><br></pre></td></tr></table></figure>
+<p>Returns a<code>Map</code>containing all names of the calendar in the given style and locale</p>
+<p>and their corresponding field values. For example, if this <code>Calendar</code> is a</p>
+<p><code>GregorianCalendar</code>, the returned map would contain “Jan” to</p>
+<p><code>JANUARY</code>, “Feb” to <code>FEBRUARY</code>, and so on, in the short style in an English locale.</p>
+<p>The values of other calendar fields may be taken into account to determine a set of display names. For example, if this <code>Calendar</code> is a lunisolar calendar system and the year value given by the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#YEAR" target="_blank" rel="noopener"><code>YEAR</code></a>field has a leap month, this method would return month names containing the leap month name, and month names are mapped to their values specific for the year.</p>
+<p>The default implementation supports display names contained in a <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormatSymbols.html" target="_blank" rel="noopener"><code>DateFormatSymbols</code></a>. For example, if <code>field</code> is <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#MONTH" target="_blank" rel="noopener"><code>MONTH</code></a> and <code>style</code> is <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#ALL_STYLES" target="_blank" rel="noopener"><code>ALL_STYLES</code></a>, this method returns a <code>Map</code> containing all strings returned by <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormatSymbols.html#getShortMonths(" target="_blank" rel="noopener"><code>DateFormatSymbols.getShortMonths()</code></a>) and <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormatSymbols.html#getMonths(" target="_blank" rel="noopener"><code>DateFormatSymbols.getMonths()</code></a>).</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field for which the display names are returned</p>
+<p><code>style</code> - the style applied to the display names; one of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SHORT" target="_blank" rel="noopener"><code>SHORT</code></a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#LONG" target="_blank" rel="noopener"><code>LONG</code></a>, or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#ALL_STYLES" target="_blank" rel="noopener"><code>ALL_STYLES</code></a>.</p>
+<p><code>locale</code> - the locale for the display names</p>
+</li>
+<li><p>Returns:</p>
+<p>a <code>Map</code> containing all display names in <code>style</code> and <code>locale</code> and their field values, or <code>null</code> if no display names are defined for <code>field</code></p>
+</li>
+<li><p>Throws:</p>
+<p><code>IllegalArgumentException</code> - if <code>field</code> or <code>style</code> is invalid, or if this <code>Calendar</code> is non-lenient and any of the calendar fields have invalid values</p>
+<p><code>NullPointerException</code> - if <code>locale</code> is null</p>
+</li>
+<li><p>Since:</p>
+<p>1.6</p>
+</li>
+</ul>
+</li>
+<li><h4 id="complete"><a href="#complete" class="headerlink" title="complete"></a>complete</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected void complete()</span><br></pre></td></tr></table></figure>
+<p>Fills in any unset fields in the calendar fields. First, the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#computeTime(" target="_blank" rel="noopener"><code>computeTime()</code></a>) method is called if the time value (millisecond offset from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) has not been calculated from calendar field values. Then, the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#computeFields(" target="_blank" rel="noopener"><code>computeFields()</code></a>) method is called to calculate all calendar field values.</p>
+</li>
+<li><h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public boolean equals(Object obj)</span><br></pre></td></tr></table></figure>
+<p>Compares this<code>Calendar</code>to the specified <code>Object</code>. The result is<code>true</code>if and only if the argument is a<code>Calendar</code> object of the same calendar system that represents the same time value (millisecond offset from the Epoch) under the same<code>Calendar</code>parameters as this object.</p>
+<p>The <code>Calendar</code> parameters are the values represented by the <code>isLenient</code>, <code>getFirstDayOfWeek</code>, <code>getMinimalDaysInFirstWeek</code> and <code>getTimeZone</code> methods. If there is any difference in those parameters between the two <code>Calendar</code>s, this method returns <code>false</code>.</p>
+<p>Use the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#compareTo(java.util.Calendar" target="_blank" rel="noopener"><code>compareTo</code></a>) method to compare only the time values.</p>
+<ul>
+<li><p><strong>Overrides:</strong></p>
+<p><code>equals</code> in class <code>Object</code></p>
+</li>
+<li><p>Parameters:</p>
+<p><code>obj</code> - the object to compare with.</p>
+</li>
+<li><p>Returns:</p>
+<p><code>true</code> if this object is equal to <code>obj</code>; <code>false</code> otherwise.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode(" target="_blank" rel="noopener"><code>Object.hashCode()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="noopener"><code>HashMap</code></a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int hashCode()</span><br></pre></td></tr></table></figure>
+<p>Returns a hash code for this calendar.</p>
+<ul>
+<li><p><strong>Overrides:</strong></p>
+<p><code>hashCode</code> in class <code>Object</code></p>
+</li>
+<li><p>Returns:</p>
+<p>a hash code value for this object.</p>
+</li>
+<li><p>Since:</p>
+<p>1.2</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#equals(java.lang.Object" target="_blank" rel="noopener"><code>Object.equals(java.lang.Object)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#identityHashCode(java.lang.Object" target="_blank" rel="noopener"><code>System.identityHashCode(java.lang.Object)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="before"><a href="#before" class="headerlink" title="before"></a>before</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public boolean before(Object when)</span><br></pre></td></tr></table></figure>
+<p>Returns whether this <code>Calendar</code>represents a time before the time represented by the specified<code>Object</code>. This method is equivalent to:if and only if<code>when</code></p>
+<p>is a<code>Calendar</code>instance. Otherwise, the method returns<code>false</code>.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>when</code> - the <code>Object</code> to be compared</p>
+</li>
+<li><p>Returns:</p>
+<p><code>true</code> if the time of this <code>Calendar</code> is before the time represented by <code>when</code>; <code>false</code>otherwise.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#compareTo(java.util.Calendar" target="_blank" rel="noopener"><code>compareTo(Calendar)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="after"><a href="#after" class="headerlink" title="after"></a>after</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public boolean after(Object when)</span><br></pre></td></tr></table></figure>
+<p>Returns whether this<code>Calendar</code>represents a time after the time represented by the specified. This method is equivalent to:if and only if<code>when</code>is a<code>Calendar</code>instance. Otherwise, the method returns<code>false</code>.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>when</code> - the <code>Object</code> to be compared</p>
+</li>
+<li><p>Returns:</p>
+<p><code>true</code> if the time of this <code>Calendar</code> is after the time represented by <code>when</code>; <code>false</code> otherwise.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#compareTo(java.util.Calendar" target="_blank" rel="noopener"><code>compareTo(Calendar)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="compareTo"><a href="#compareTo" class="headerlink" title="compareTo"></a>compareTo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int compareTo(Calendar anotherCalendar)</span><br></pre></td></tr></table></figure>
+<p>Compares the time values (millisecond offsets from the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#Epoch" target="_blank" rel="noopener">Epoch</a>) represented by two <code>Calendar</code>objects.</p>
+<ul>
+<li><p><strong>Specified by:</strong></p>
+<p><code>compareTo</code> in interface <code>Comparable&lt;Calendar&gt;</code></p>
+</li>
+<li><p>Parameters:</p>
+<p><code>anotherCalendar</code> - the <code>Calendar</code> to be compared.</p>
+</li>
+<li><p>Returns:</p>
+<p>the value <code>0</code> if the time represented by the argument is equal to the time represented by this <code>Calendar</code>; a value less than <code>0</code>if the time of this <code>Calendar</code> is before the time represented by the argument; and a value greater than <code>0</code> if the time of this <code>Calendar</code> is after the time represented by the argument.</p>
+</li>
+<li><p>Throws:</p>
+<p><code>NullPointerException</code> - if the specified <code>Calendar</code> is <code>null</code>.</p>
+<p><code>IllegalArgumentException</code> - if the time value of the specified <code>Calendar</code> object can’t be obtained due to any invalid calendar values.</p>
+</li>
+<li><p>Since:</p>
+<p>1.5</p>
+</li>
+</ul>
+</li>
+<li><h4 id="add"><a href="#add" class="headerlink" title="add"></a>add</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public abstract void add(int field,</span><br><span class="line">       int amount)</span><br></pre></td></tr></table></figure>
+<p>Adds or subtracts the specified amount of time to the given calendar field, based on the calendar’s rules. For example, to subtract 5 days from the current time of the calendar, you can achieve it by calling:</p>
+<p><code>add(Calendar.DAY_OF_MONTH, -5)</code>.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+<p><code>amount</code> - the amount of date or time to be added to the field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#roll(int,%20int" target="_blank" rel="noopener"><code>roll(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="roll"><a href="#roll" class="headerlink" title="roll"></a>roll</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public abstract void roll(int field,</span><br><span class="line">        boolean up)</span><br></pre></td></tr></table></figure>
+<p>Adds or subtracts (up/down) a single unit of time on the given time field without changing larger fields. For example, to roll the current date up by one day, you can achieve it by calling:</p>
+<p>roll(Calendar.DATE, true). When rolling on the year or Calendar.YEAR field, it will roll the year value in the range between 1 and the value returned by calling <code>getMaximum(Calendar.YEAR)</code>. When rolling on the month or Calendar.MONTH field, other fields like date might conflict and, need to be changed. For instance, rolling the month on the date 01/31/96 will result in 02/29/96. When rolling on the hour-in-day or Calendar.HOUR_OF_DAY field, it will roll the hour value in the range between 0 and 23, which is zero-based.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the time field.</p>
+<p><code>up</code> - indicates if the value of the specified time field is to be rolled up or rolled down. Use true if rolling up, false otherwise.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#add(int,%20int" target="_blank" rel="noopener"><code>add(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="roll-1"><a href="#roll-1" class="headerlink" title="roll"></a>roll</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void roll(int field,</span><br><span class="line">        int amount)</span><br></pre></td></tr></table></figure>
+<p>Adds the specified (signed) amount to the specified calendar field without changing larger fields. A negative amount means to roll down.</p>
+<p>NOTE: This default implementation on <code>Calendar</code> just repeatedly calls the version of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#roll(int,%20boolean" target="_blank" rel="noopener"><code>roll()</code></a>) that rolls by one unit. This may not always do the right thing. For example, if the <code>DAY_OF_MONTH</code> field is 31, rolling through February will leave it set to 28. The <code>GregorianCalendar</code> version of this function takes care of this problem. Other subclasses should also provide overrides of this function that do the right thing.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+<p><code>amount</code> - the signed amount to add to the calendar <code>field</code>.</p>
+</li>
+<li><p>Since:</p>
+<p>1.2</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#roll(int,%20boolean" target="_blank" rel="noopener"><code>roll(int,boolean)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#add(int,%20int" target="_blank" rel="noopener"><code>add(int,int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#set(int,%20int" target="_blank" rel="noopener"><code>set(int,int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setTimeZone"><a href="#setTimeZone" class="headerlink" title="setTimeZone"></a>setTimeZone</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void setTimeZone(TimeZone value)</span><br></pre></td></tr></table></figure>
+<p>Sets the time zone with the given time zone value.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>value</code> - the given time zone.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getTimeZone"><a href="#getTimeZone" class="headerlink" title="getTimeZone"></a>getTimeZone</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public TimeZone getTimeZone()</span><br></pre></td></tr></table></figure>
+<p>Gets the time zone.</p>
+<ul>
+<li><p>Returns:</p>
+<p>the time zone object associated with this calendar.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setLenient"><a href="#setLenient" class="headerlink" title="setLenient"></a>setLenient</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void setLenient(boolean lenient)</span><br></pre></td></tr></table></figure>
+<p>Specifies whether or not date/time interpretation is to be lenient. With lenient interpretation, a date such as “February 942, 1996” will be treated as being equivalent to the 941st day after February 1, 1996. With strict (non-lenient) interpretation, such dates will cause an exception to be thrown. The default is lenient.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>lenient</code> - <code>true</code> if the lenient mode is to be turned on; <code>false</code> if it is to be turned off.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isLenient(" target="_blank" rel="noopener"><code>isLenient()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/text/DateFormat.html#setLenient(boolean" target="_blank" rel="noopener"><code>DateFormat.setLenient(boolean)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="isLenient"><a href="#isLenient" class="headerlink" title="isLenient"></a>isLenient</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public boolean isLenient()</span><br></pre></td></tr></table></figure>
+<p>Tells whether date/time interpretation is to be lenient.</p>
+<ul>
+<li><p>Returns:</p>
+<p><code>true</code> if the interpretation mode of this calendar is lenient; <code>false</code> otherwise.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setLenient(boolean" target="_blank" rel="noopener"><code>setLenient(boolean)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setFirstDayOfWeek"><a href="#setFirstDayOfWeek" class="headerlink" title="setFirstDayOfWeek"></a>setFirstDayOfWeek</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void setFirstDayOfWeek(int value)</span><br></pre></td></tr></table></figure>
+<p>Sets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S., <code>MONDAY</code> in France.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>value</code> - the given first day of the week.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getFirstDayOfWeek(" target="_blank" rel="noopener"><code>getFirstDayOfWeek()</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek(" target="_blank" rel="noopener"><code>getMinimalDaysInFirstWeek()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getFirstDayOfWeek"><a href="#getFirstDayOfWeek" class="headerlink" title="getFirstDayOfWeek"></a>getFirstDayOfWeek</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getFirstDayOfWeek()</span><br></pre></td></tr></table></figure>
+<p>Gets what the first day of the week is; e.g., <code>SUNDAY</code> in the U.S., <code>MONDAY</code> in France.</p>
+<ul>
+<li><p>Returns:</p>
+<p>the first day of the week.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setFirstDayOfWeek(int" target="_blank" rel="noopener"><code>setFirstDayOfWeek(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek(" target="_blank" rel="noopener"><code>getMinimalDaysInFirstWeek()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="setMinimalDaysInFirstWeek"><a href="#setMinimalDaysInFirstWeek" class="headerlink" title="setMinimalDaysInFirstWeek"></a>setMinimalDaysInFirstWeek</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void setMinimalDaysInFirstWeek(int value)</span><br></pre></td></tr></table></figure>
+<p>Sets what the minimal days required in the first week of the year are; For example, if the first week is defined as one that contains the first day of the first month of a year, call this method with value 1. If it must be a full week, use value 7.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>value</code> - the given minimal days required in the first week of the year.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek(" target="_blank" rel="noopener"><code>getMinimalDaysInFirstWeek()</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getMinimalDaysInFirstWeek"><a href="#getMinimalDaysInFirstWeek" class="headerlink" title="getMinimalDaysInFirstWeek"></a>getMinimalDaysInFirstWeek</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getMinimalDaysInFirstWeek()</span><br></pre></td></tr></table></figure>
+<p>Gets what the minimal days required in the first week of the year are; e.g., if the first week is defined as one that contains the first day of the first month of a year, this method returns 1. If the minimal days required must be a full week, this method returns 7.</p>
+<ul>
+<li><p>Returns:</p>
+<p>the minimal days required in the first week of the year.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setMinimalDaysInFirstWeek(int" target="_blank" rel="noopener"><code>setMinimalDaysInFirstWeek(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="isWeekDateSupported"><a href="#isWeekDateSupported" class="headerlink" title="isWeekDateSupported"></a>isWeekDateSupported</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public boolean isWeekDateSupported()</span><br></pre></td></tr></table></figure>
+<p>Returns whether this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar    supports week dates.  The default implementation of this method returns `false`.  - Returns:    `true` if this `Calendar` supports week dates; `false` otherwise.  - Since:    1.7  - See Also:    [`getWeekYear()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getWeekYear()), [`setWeekDate(int,int,int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#setWeekDate(int,%20int,%20int)), [`getWeeksInWeekYear()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getWeeksInWeekYear())</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="getWeekYear"><a href="#getWeekYear" class="headerlink" title="getWeekYear"></a>getWeekYear</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getWeekYear()</span><br></pre></td></tr></table></figure>
+<p>Returns the week year represented by this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar  . The week year is in sync with the week cycle. The    first day of the first week    is the first day of the week year.  The default implementation of this method throws an [`UnsupportedOperationException`](https://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html).  - Returns:    the week year of this `Calendar`  - Throws:    `UnsupportedOperationException` - if any week year numbering isn&apos;t supported in this `Calendar`.  - Since:    1.7  - See Also:    [`isWeekDateSupported()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isWeekDateSupported()), [`getFirstDayOfWeek()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getFirstDayOfWeek()), [`getMinimalDaysInFirstWeek()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek())</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="setWeekDate"><a href="#setWeekDate" class="headerlink" title="setWeekDate"></a>setWeekDate</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void setWeekDate(int weekYear,</span><br><span class="line">               int weekOfYear,</span><br><span class="line">               int dayOfWeek)</span><br></pre></td></tr></table></figure>
+<p>Sets the date of this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar    with the the given date specifiers - week year, week of year, and day of week.  Unlike the `set` method, all of the calendar fields and `time` values are calculated upon return.  If `weekOfYear` is out of the valid week-of-year range in `weekYear`, the `weekYear` and `weekOfYear` values are adjusted in lenient mode, or an `IllegalArgumentException` is thrown in non-lenient mode.  The default implementation of this method throws an `UnsupportedOperationException`.  - Parameters:    `weekYear` - the week year    `weekOfYear` - the week number based on `weekYear`    `dayOfWeek` - the day of week value: one of the constants for the [`DAY_OF_WEEK`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#DAY_OF_WEEK) field: [`SUNDAY`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SUNDAY), ..., [`SATURDAY`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#SATURDAY).  - Throws:    `IllegalArgumentException` - if any of the given date specifiers is invalid or any of the calendar fields are inconsistent with the given date specifiers in non-lenient mode    `UnsupportedOperationException` - if any week year numbering isn&apos;t supported in this `Calendar`.  - Since:    1.7  - See Also:    [`isWeekDateSupported()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isWeekDateSupported()), [`getFirstDayOfWeek()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getFirstDayOfWeek()), [`getMinimalDaysInFirstWeek()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimalDaysInFirstWeek())</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="getWeeksInWeekYear"><a href="#getWeeksInWeekYear" class="headerlink" title="getWeeksInWeekYear"></a>getWeeksInWeekYear</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getWeeksInWeekYear()</span><br></pre></td></tr></table></figure>
+<p>Returns the number of weeks in the week year represented by this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar  .  The default implementation of this method throws an `UnsupportedOperationException`.  - Returns:    the number of weeks in the week year.  - Throws:    `UnsupportedOperationException` - if any week year numbering isn&apos;t supported in this `Calendar`.  - Since:    1.7  - See Also:    [`WEEK_OF_YEAR`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#WEEK_OF_YEAR), [`isWeekDateSupported()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#isWeekDateSupported()), [`getWeekYear()`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getWeekYear()), [`getActualMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="getMinimum"><a href="#getMinimum" class="headerlink" title="getMinimum"></a>getMinimum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract int getMinimum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the minimum value for the given calendar field of this <code>Calendar</code> instance. The minimum value is defined as the smallest value returned by the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#get(int" target="_blank" rel="noopener"><code>get</code></a>) method for any possible time value. The minimum value depends on calendar system specific parameters of the instance.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the minimum value for the given calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMaximum(int" target="_blank" rel="noopener"><code>getMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getGreatestMinimum(int" target="_blank" rel="noopener"><code>getGreatestMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getLeastMaximum(int" target="_blank" rel="noopener"><code>getLeastMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int" target="_blank" rel="noopener"><code>getActualMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int" target="_blank" rel="noopener"><code>getActualMaximum(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getMaximum"><a href="#getMaximum" class="headerlink" title="getMaximum"></a>getMaximum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract int getMaximum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the maximum value for the given calendar field of this <code>Calendar</code> instance. The maximum value is defined as the largest value returned by the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#get(int" target="_blank" rel="noopener"><code>get</code></a>) method for any possible time value. The maximum value depends on calendar system specific parameters of the instance.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the maximum value for the given calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimum(int" target="_blank" rel="noopener"><code>getMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getGreatestMinimum(int" target="_blank" rel="noopener"><code>getGreatestMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getLeastMaximum(int" target="_blank" rel="noopener"><code>getLeastMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int" target="_blank" rel="noopener"><code>getActualMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int" target="_blank" rel="noopener"><code>getActualMaximum(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getGreatestMinimum"><a href="#getGreatestMinimum" class="headerlink" title="getGreatestMinimum"></a>getGreatestMinimum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract int getGreatestMinimum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the highest minimum value for the given calendar field of this <code>Calendar</code> instance. The highest minimum value is defined as the largest value returned by <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int" target="_blank" rel="noopener"><code>getActualMinimum(int)</code></a>) for any possible time value. The greatest minimum value depends on calendar system specific parameters of the instance.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the highest minimum value for the given calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimum(int" target="_blank" rel="noopener"><code>getMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMaximum(int" target="_blank" rel="noopener"><code>getMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getLeastMaximum(int" target="_blank" rel="noopener"><code>getLeastMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int" target="_blank" rel="noopener"><code>getActualMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int" target="_blank" rel="noopener"><code>getActualMaximum(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getLeastMaximum"><a href="#getLeastMaximum" class="headerlink" title="getLeastMaximum"></a>getLeastMaximum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract int getLeastMaximum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the lowest maximum value for the given calendar field of this <code>Calendar</code> instance. The lowest maximum value is defined as the smallest value returned by <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int" target="_blank" rel="noopener"><code>getActualMaximum(int)</code></a>) for any possible time value. The least maximum value depends on calendar system specific parameters of the instance. For example, a <code>Calendar</code> for the Gregorian calendar system returns 28 for the <code>DAY_OF_MONTH</code> field, because the 28th is the last day of the shortest month of this calendar, February in a common year.</p>
+<ul>
+<li><p>Parameters:</p>
+<p><code>field</code> - the calendar field.</p>
+</li>
+<li><p>Returns:</p>
+<p>the lowest maximum value for the given calendar field.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimum(int" target="_blank" rel="noopener"><code>getMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMaximum(int" target="_blank" rel="noopener"><code>getMaximum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getGreatestMinimum(int" target="_blank" rel="noopener"><code>getGreatestMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int" target="_blank" rel="noopener"><code>getActualMinimum(int)</code></a>), <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int" target="_blank" rel="noopener"><code>getActualMaximum(int)</code></a>)</p>
+</li>
+</ul>
+</li>
+<li><h4 id="getActualMinimum"><a href="#getActualMinimum" class="headerlink" title="getActualMinimum"></a>getActualMinimum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getActualMinimum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the minimum value that the specified calendar field could have, given the time value of this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar  .  The default implementation of this method uses an iterative algorithm to determine the actual minimum value for the calendar field. Subclasses should, if possible, override this with a more efficient implementation - in many cases, they can simply return `getMinimum()`.  - Parameters:    `field` - the calendar field  - Returns:    the minimum of the given calendar field for the time value of this `Calendar`  - Since:    1.2  - See Also:    [`getMinimum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimum(int)), [`getMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMaximum(int)), [`getGreatestMinimum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getGreatestMinimum(int)), [`getLeastMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getLeastMaximum(int)), [`getActualMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMaximum(int))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="getActualMaximum"><a href="#getActualMaximum" class="headerlink" title="getActualMaximum"></a>getActualMaximum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public int getActualMaximum(int field)</span><br></pre></td></tr></table></figure>
+<p>Returns the maximum value that the specified calendar field could have, given the time value of this</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar  . For example, the actual maximum value of the    MONTH    field is 12 in some years, and 13 in other years in the Hebrew calendar system.  The default implementation of this method uses an iterative algorithm to determine the actual maximum value for the calendar field. Subclasses should, if possible, override this with a more efficient implementation.  - Parameters:    `field` - the calendar field  - Returns:    the maximum of the given calendar field for the time value of this `Calendar`  - Since:    1.2  - See Also:    [`getMinimum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMinimum(int)), [`getMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getMaximum(int)), [`getGreatestMinimum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getGreatestMinimum(int)), [`getLeastMaximum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getLeastMaximum(int)), [`getActualMinimum(int)`](https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getActualMinimum(int))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public Object clone()</span><br></pre></td></tr></table></figure>
+<p>Creates and returns a copy of this object.</p>
+<ul>
+<li><p><strong>Overrides:</strong></p>
+<p><code>clone</code> in class <code>Object</code></p>
+</li>
+<li><p>Returns:</p>
+<p>a copy of this object.</p>
+</li>
+<li><p>See Also:</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html" target="_blank" rel="noopener"><code>Cloneable</code></a></p>
+</li>
+</ul>
+</li>
+<li><h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public String toString()</span><br></pre></td></tr></table></figure>
+<p>Return a string representation of this calendar. This method is intended to be used only for debugging purposes, and the format of the returned string may vary between implementations. The returned string may be empty but may not be <code>null</code>.</p>
+<ul>
+<li><p><strong>Overrides:</strong></p>
+<p><code>toString</code> in class <code>Object</code></p>
+</li>
+<li><p>Returns:</p>
+<p>a string representation of this calendar.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/">JAVADOC-AND-NOTES</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/">JAVADOC</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/util/">UTIL</a></li>
+        
+      
+    
+      
+      
+        
+          <li>CALENDAR</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-util-Calendar"><span class="nav-number">1.</span> <span class="nav-text">java.util.Calendar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#继承关系"><span class="nav-number">1.1.</span> <span class="nav-text">继承关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现接口"><span class="nav-number">1.2.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar-Fields-Resolution"><span class="nav-number">1.3.</span> <span class="nav-text">Calendar Fields Resolution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Field-Manipulation"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Field Manipulation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filed"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">Filed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Summary"><span class="nav-number">1.3.1.</span> <span class="nav-text">Method Summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field-Detail"><span class="nav-number">1.3.2.</span> <span class="nav-text">Field Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ERA"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">ERA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YEAR"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">YEAR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MONTH"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">MONTH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEEK-OF-YEAR"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">WEEK_OF_YEAR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEEK-OF-MONTH"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">WEEK_OF_MONTH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DATE"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">DATE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAY-OF-MONTH"><span class="nav-number">1.3.2.7.</span> <span class="nav-text">DAY_OF_MONTH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAY-OF-YEAR"><span class="nav-number">1.3.2.8.</span> <span class="nav-text">DAY_OF_YEAR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAY-OF-WEEK"><span class="nav-number">1.3.2.9.</span> <span class="nav-text">DAY_OF_WEEK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAY-OF-WEEK-IN-MONTH"><span class="nav-number">1.3.2.10.</span> <span class="nav-text">DAY_OF_WEEK_IN_MONTH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AM-PM"><span class="nav-number">1.3.2.11.</span> <span class="nav-text">AM_PM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HOUR"><span class="nav-number">1.3.2.12.</span> <span class="nav-text">HOUR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HOUR-OF-DAY"><span class="nav-number">1.3.2.13.</span> <span class="nav-text">HOUR_OF_DAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MINUTE"><span class="nav-number">1.3.2.14.</span> <span class="nav-text">MINUTE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SECOND"><span class="nav-number">1.3.2.15.</span> <span class="nav-text">SECOND</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MILLISECOND"><span class="nav-number">1.3.2.16.</span> <span class="nav-text">MILLISECOND</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZONE-OFFSET"><span class="nav-number">1.3.2.17.</span> <span class="nav-text">ZONE_OFFSET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DST-OFFSET"><span class="nav-number">1.3.2.18.</span> <span class="nav-text">DST_OFFSET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FIELD-COUNT"><span class="nav-number">1.3.2.19.</span> <span class="nav-text">FIELD_COUNT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SUNDAY"><span class="nav-number">1.3.2.20.</span> <span class="nav-text">SUNDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MONDAY"><span class="nav-number">1.3.2.21.</span> <span class="nav-text">MONDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TUESDAY"><span class="nav-number">1.3.2.22.</span> <span class="nav-text">TUESDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEDNESDAY"><span class="nav-number">1.3.2.23.</span> <span class="nav-text">WEDNESDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#THURSDAY"><span class="nav-number">1.3.2.24.</span> <span class="nav-text">THURSDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FRIDAY"><span class="nav-number">1.3.2.25.</span> <span class="nav-text">FRIDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SATURDAY"><span class="nav-number">1.3.2.26.</span> <span class="nav-text">SATURDAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JANUARY"><span class="nav-number">1.3.2.27.</span> <span class="nav-text">JANUARY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FEBRUARY"><span class="nav-number">1.3.2.28.</span> <span class="nav-text">FEBRUARY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MARCH"><span class="nav-number">1.3.2.29.</span> <span class="nav-text">MARCH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APRIL"><span class="nav-number">1.3.2.30.</span> <span class="nav-text">APRIL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAY"><span class="nav-number">1.3.2.31.</span> <span class="nav-text">MAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUNE"><span class="nav-number">1.3.2.32.</span> <span class="nav-text">JUNE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JULY"><span class="nav-number">1.3.2.33.</span> <span class="nav-text">JULY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AUGUST"><span class="nav-number">1.3.2.34.</span> <span class="nav-text">AUGUST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SEPTEMBER"><span class="nav-number">1.3.2.35.</span> <span class="nav-text">SEPTEMBER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OCTOBER"><span class="nav-number">1.3.2.36.</span> <span class="nav-text">OCTOBER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NOVEMBER"><span class="nav-number">1.3.2.37.</span> <span class="nav-text">NOVEMBER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DECEMBER"><span class="nav-number">1.3.2.38.</span> <span class="nav-text">DECEMBER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UNDECIMBER"><span class="nav-number">1.3.2.39.</span> <span class="nav-text">UNDECIMBER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AM"><span class="nav-number">1.3.2.40.</span> <span class="nav-text">AM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PM"><span class="nav-number">1.3.2.41.</span> <span class="nav-text">PM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ALL-STYLES"><span class="nav-number">1.3.2.42.</span> <span class="nav-text">ALL_STYLES</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SHORT"><span class="nav-number">1.3.2.43.</span> <span class="nav-text">SHORT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LONG"><span class="nav-number">1.3.2.44.</span> <span class="nav-text">LONG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fields"><span class="nav-number">1.3.2.45.</span> <span class="nav-text">fields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isSet"><span class="nav-number">1.3.2.46.</span> <span class="nav-text">isSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#time"><span class="nav-number">1.3.2.47.</span> <span class="nav-text">time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isTimeSet"><span class="nav-number">1.3.2.48.</span> <span class="nav-text">isTimeSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#areFieldsSet"><span class="nav-number">1.3.2.49.</span> <span class="nav-text">areFieldsSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor-Detail"><span class="nav-number">1.3.3.</span> <span class="nav-text">Constructor Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">Calendar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar-1"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">Calendar</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Detail"><span class="nav-number">1.3.4.</span> <span class="nav-text">Method Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getInstance"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">getInstance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getInstance-1"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">getInstance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getInstance-2"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">getInstance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getInstance-3"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">getInstance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getAvailableLocales"><span class="nav-number">1.3.4.5.</span> <span class="nav-text">getAvailableLocales</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#computeTime"><span class="nav-number">1.3.4.6.</span> <span class="nav-text">computeTime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#computeFields"><span class="nav-number">1.3.4.7.</span> <span class="nav-text">computeFields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getTime"><span class="nav-number">1.3.4.8.</span> <span class="nav-text">getTime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTime"><span class="nav-number">1.3.4.9.</span> <span class="nav-text">setTime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getTimeInMillis"><span class="nav-number">1.3.4.10.</span> <span class="nav-text">getTimeInMillis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeInMillis"><span class="nav-number">1.3.4.11.</span> <span class="nav-text">setTimeInMillis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">1.3.4.12.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#internalGet"><span class="nav-number">1.3.4.13.</span> <span class="nav-text">internalGet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set"><span class="nav-number">1.3.4.14.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-1"><span class="nav-number">1.3.4.15.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-2"><span class="nav-number">1.3.4.16.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-3"><span class="nav-number">1.3.4.17.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear"><span class="nav-number">1.3.4.18.</span> <span class="nav-text">clear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear-1"><span class="nav-number">1.3.4.19.</span> <span class="nav-text">clear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isSet-1"><span class="nav-number">1.3.4.20.</span> <span class="nav-text">isSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getDisplayName"><span class="nav-number">1.3.4.21.</span> <span class="nav-text">getDisplayName</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getDisplayNames"><span class="nav-number">1.3.4.22.</span> <span class="nav-text">getDisplayNames</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#complete"><span class="nav-number">1.3.4.23.</span> <span class="nav-text">complete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#equals"><span class="nav-number">1.3.4.24.</span> <span class="nav-text">equals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashCode"><span class="nav-number">1.3.4.25.</span> <span class="nav-text">hashCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#before"><span class="nav-number">1.3.4.26.</span> <span class="nav-text">before</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#after"><span class="nav-number">1.3.4.27.</span> <span class="nav-text">after</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compareTo"><span class="nav-number">1.3.4.28.</span> <span class="nav-text">compareTo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#add"><span class="nav-number">1.3.4.29.</span> <span class="nav-text">add</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#roll"><span class="nav-number">1.3.4.30.</span> <span class="nav-text">roll</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#roll-1"><span class="nav-number">1.3.4.31.</span> <span class="nav-text">roll</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeZone"><span class="nav-number">1.3.4.32.</span> <span class="nav-text">setTimeZone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getTimeZone"><span class="nav-number">1.3.4.33.</span> <span class="nav-text">getTimeZone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setLenient"><span class="nav-number">1.3.4.34.</span> <span class="nav-text">setLenient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isLenient"><span class="nav-number">1.3.4.35.</span> <span class="nav-text">isLenient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setFirstDayOfWeek"><span class="nav-number">1.3.4.36.</span> <span class="nav-text">setFirstDayOfWeek</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getFirstDayOfWeek"><span class="nav-number">1.3.4.37.</span> <span class="nav-text">getFirstDayOfWeek</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setMinimalDaysInFirstWeek"><span class="nav-number">1.3.4.38.</span> <span class="nav-text">setMinimalDaysInFirstWeek</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMinimalDaysInFirstWeek"><span class="nav-number">1.3.4.39.</span> <span class="nav-text">getMinimalDaysInFirstWeek</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isWeekDateSupported"><span class="nav-number">1.3.4.40.</span> <span class="nav-text">isWeekDateSupported</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getWeekYear"><span class="nav-number">1.3.4.41.</span> <span class="nav-text">getWeekYear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setWeekDate"><span class="nav-number">1.3.4.42.</span> <span class="nav-text">setWeekDate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getWeeksInWeekYear"><span class="nav-number">1.3.4.43.</span> <span class="nav-text">getWeeksInWeekYear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMinimum"><span class="nav-number">1.3.4.44.</span> <span class="nav-text">getMinimum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getMaximum"><span class="nav-number">1.3.4.45.</span> <span class="nav-text">getMaximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getGreatestMinimum"><span class="nav-number">1.3.4.46.</span> <span class="nav-text">getGreatestMinimum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getLeastMaximum"><span class="nav-number">1.3.4.47.</span> <span class="nav-text">getLeastMaximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getActualMinimum"><span class="nav-number">1.3.4.48.</span> <span class="nav-text">getActualMinimum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getActualMaximum"><span class="nav-number">1.3.4.49.</span> <span class="nav-text">getActualMaximum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clone"><span class="nav-number">1.3.4.50.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">1.3.4.51.</span> <span class="nav-text">toString</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

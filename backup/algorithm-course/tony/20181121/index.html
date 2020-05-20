@@ -96,21 +96,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://tortoiselala.github.com/about/index.html">
+  <meta name="description" content="contents2018/11/21 课程内容： 主要包括时间复杂度基础，输入输出，一个简单的算法。 算法复杂度分析在定性的分析时间复杂度时，通常我们会得到一个关于输入规模的函数。时间复杂度通常使用大$O$符号表述，该符号描述一个函数的渐进值。例如：对于一个输入规模为$n$的问题，分析得到的运行时间函数是$3n^2 + 2n + 10$，则它的渐进时间复杂度为$O(n^2)$。 为了计算时间复杂度">
+<meta property="og:type" content="website">
+<meta property="og:title" content="index">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/index.html">
 <meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="contents2018/11/21 课程内容： 主要包括时间复杂度基础，输入输出，一个简单的算法。 算法复杂度分析在定性的分析时间复杂度时，通常我们会得到一个关于输入规模的函数。时间复杂度通常使用大$O$符号表述，该符号描述一个函数的渐进值。例如：对于一个输入规模为$n$的问题，分析得到的运行时间函数是$3n^2 + 2n + 10$，则它的渐进时间复杂度为$O(n^2)$。 为了计算时间复杂度">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-20T08:17:07.230Z">
+<meta property="og:updated_time" content="2018-11-21T13:49:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="index">
+<meta name="twitter:description" content="contents2018/11/21 课程内容： 主要包括时间复杂度基础，输入输出，一个简单的算法。 算法复杂度分析在定性的分析时间复杂度时，通常我们会得到一个关于输入规模的函数。时间复杂度通常使用大$O$符号表述，该符号描述一个函数的渐进值。例如：对于一个输入规模为$n$的问题，分析得到的运行时间函数是$3n^2 + 2n + 10$，则它的渐进时间复杂度为$O(n^2)$。 为了计算时间复杂度">
 
 
 
 
 
 
-  <link rel="canonical" href="http://tortoiselala.github.com/about/"/>
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/"/>
 
 
 
@@ -120,7 +123,7 @@
   };
 </script>
 
-  <title>about | tortoiselala</title>
+  <title>index | tortoiselala</title>
   
 
 
@@ -223,7 +226,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -349,7 +352,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about<a href="https://github.com/tortoiselala/blog-srcabout/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+<h1 class="post-title" itemprop="name headline">index<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/20181121/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
 </h1>
 
@@ -357,6 +360,52 @@
   
   
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+    
+  </ul>
 
 
 </div>
@@ -369,7 +418,21 @@
       <div class="post-body">
         
         
-          
+          <h1 id="contents"><a href="#contents" class="headerlink" title="contents"></a>contents</h1><p>2018/11/21 课程内容：</p>
+<p>主要包括时间复杂度基础，输入输出，一个简单的算法。</p>
+<h2 id="算法复杂度分析"><a href="#算法复杂度分析" class="headerlink" title="算法复杂度分析"></a>算法复杂度分析</h2><p>在定性的分析时间复杂度时，通常我们会得到一个关于输入规模的函数。时间复杂度通常使用大$O$符号表述，该符号描述一个函数的渐进值。例如：对于一个输入规模为$n$的问题，分析得到的运行时间函数是$3n^2 + 2n + 10$，则它的渐进时间复杂度为$O(n^2)$。</p>
+<p>为了计算时间复杂度，通常情况下我们会估计算法的操作单元数量，并假设每个操作单元的运行时间是相同的。</p>
+<p>一般情况下，我们得到的是算法的<strong>最坏情况复杂度</strong>，记作$T(n)$。</p>
+<p>快速使用：</p>
+<p>大$O$符号：当一个函数只有一个<strong>渐进上界</strong>时，使用大$O$符号描述以下关系：</p>
+<p>对于给定函数$g(n)$，用$O(g(n))$来表示以下关系的集合：</p>
+<script type="math/tex; mode=display">
+O(g(n))=\{f(n):存在正常量c和n_0, 使得对于所有的n\geq n_0 ，有0 \leq f(n) \leq cg(n)\}</script><p>依据以上定义，很明显能够得知，该符号描述的是算法的最坏运行情况。</p>
+<p>一个例子：</p>
+<p>冒泡排序的时间复杂度分析：共需要进行n趟排序，每趟排序选择一个最大的或最小的元素，选择最大或最小的元素最多需要k次比较（k为剩余元素的数量 $1\leq k \leq n$）。所以，时间复杂度为$O(n^2)​$。</p>
+<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><p><a href="https://tortoiselala.github.io/algorithm-course/tony/20181121/input-and-output.html" target="_blank" rel="noopener">click here</a></p>
+<h2 id="高精度计算"><a href="#高精度计算" class="headerlink" title="高精度计算"></a>高精度计算</h2><p><a href="https://tortoiselala.github.io/algorithm-course/tony/20181121/bignum-arithmetic.html" target="_blank" rel="noopener">click here</a></p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
         
       </div>
       
@@ -378,6 +441,52 @@
     </div>
     
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+    
+  </ul>
 
 
     
@@ -412,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -448,6 +566,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#contents"><span class="nav-number">1.</span> <span class="nav-text">contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法复杂度分析"><span class="nav-number">1.1.</span> <span class="nav-text">算法复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入与输出"><span class="nav-number">1.2.</span> <span class="nav-text">输入与输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度计算"><span class="nav-number">1.3.</span> <span class="nav-text">高精度计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.4.</span> <span class="nav-text"> </span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -624,6 +759,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

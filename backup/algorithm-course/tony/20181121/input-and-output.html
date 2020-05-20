@@ -96,21 +96,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://tortoiselala.github.com/about/index.html">
+  <meta name="description" content="Input and Output在竞赛中，给出的所有数据都是通过标准输入流给的 （可以参考输入输出重定向,eg:your_program.exe &amp;lt; in.txt &amp;gt;out.txt） java语言封装了一个类可用于从不同的流数据中获取数据。 java.util.Scanner 类似于C/C++语言从控制台输入数据，Scanner可以充当输入流数据的扫描工具。类似与C++语言中的stdi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="input and output">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/input-and-output.html">
 <meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="Input and Output在竞赛中，给出的所有数据都是通过标准输入流给的 （可以参考输入输出重定向,eg:your_program.exe &amp;lt; in.txt &amp;gt;out.txt） java语言封装了一个类可用于从不同的流数据中获取数据。 java.util.Scanner 类似于C/C++语言从控制台输入数据，Scanner可以充当输入流数据的扫描工具。类似与C++语言中的stdi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-20T08:17:07.230Z">
+<meta property="og:updated_time" content="2018-11-20T22:59:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="input and output">
+<meta name="twitter:description" content="Input and Output在竞赛中，给出的所有数据都是通过标准输入流给的 （可以参考输入输出重定向,eg:your_program.exe &amp;lt; in.txt &amp;gt;out.txt） java语言封装了一个类可用于从不同的流数据中获取数据。 java.util.Scanner 类似于C/C++语言从控制台输入数据，Scanner可以充当输入流数据的扫描工具。类似与C++语言中的stdi">
 
 
 
 
 
 
-  <link rel="canonical" href="http://tortoiselala.github.com/about/"/>
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/input-and-output.html"/>
 
 
 
@@ -120,7 +123,7 @@
   };
 </script>
 
-  <title>about | tortoiselala</title>
+  <title>input and output | tortoiselala</title>
   
 
 
@@ -223,7 +226,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -349,7 +352,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about<a href="https://github.com/tortoiselala/blog-srcabout/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+<h1 class="post-title" itemprop="name headline">input and output<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/20181121/input-and-output.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
 </h1>
 
@@ -357,6 +360,59 @@
   
   
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/input-and-output.html/">INPUT-AND-OUTPUT.HTML</a></li>
+        
+      
+    
+  </ul>
 
 
 </div>
@@ -369,7 +425,15 @@
       <div class="post-body">
         
         
-          
+          <h1 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h1><p>在竞赛中，给出的所有数据都是通过标准输入流给的</p>
+<p>（可以参考输入输出重定向,eg:your_program.exe &lt; in.txt &gt;out.txt）</p>
+<p>java语言封装了一个类可用于从不同的流数据中获取数据。</p>
+<p>java.util.Scanner</p>
+<p>类似于C/C++语言从控制台输入数据，Scanner可以充当输入流数据的扫描工具。类似与C++语言中的stdin，java语言中的标准输入流使用System.in来标识。那么，我们便可以获取标准输入流的数据了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sample</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> N = scanner.nextInt();</span><br><span class="line">        string nextLine = scanner.getLine();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Scanner类提供了多种方法以获取输入，限定了严格的数据类型。其方法列表可以参考官方文档。</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html" target="_blank" rel="noopener">link</a></p>
+
         
       </div>
       
@@ -378,6 +442,59 @@
     </div>
     
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/input-and-output.html/">INPUT-AND-OUTPUT.HTML</a></li>
+        
+      
+    
+  </ul>
 
 
     
@@ -412,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -448,6 +574,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Input-and-Output"><span class="nav-number">1.</span> <span class="nav-text">Input and Output</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -624,6 +767,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

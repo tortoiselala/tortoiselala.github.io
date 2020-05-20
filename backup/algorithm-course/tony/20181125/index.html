@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="分治法在之前的插入排序中，我们使用了增量方法在已排序数组中赎当位置插入一个元素，产生另一个已排序数组。 这里我们介绍“分治法”，使用分治法设计的排序算法称为归并排序，其算法的最坏情况运行时间比插入排序要少得多。 分治法在很多问题上，我们往往可以将原问题看作是很多小规模（相对于原问题）的子问题组成的，那么在求解原问题的过程中，我们便可以通过求解小问题，间接的求解大问题。 分治法的基本思想:将原问题分">
+<meta property="og:type" content="website">
+<meta property="og:title" content="index">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/20181125/index.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="分治法在之前的插入排序中，我们使用了增量方法在已排序数组中赎当位置插入一个元素，产生另一个已排序数组。 这里我们介绍“分治法”，使用分治法设计的排序算法称为归并排序，其算法的最坏情况运行时间比插入排序要少得多。 分治法在很多问题上，我们往往可以将原问题看作是很多小规模（相对于原问题）的子问题组成的，那么在求解原问题的过程中，我们便可以通过求解小问题，间接的求解大问题。 分治法的基本思想:将原问题分">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-24T12:57:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="index">
+<meta name="twitter:description" content="分治法在之前的插入排序中，我们使用了增量方法在已排序数组中赎当位置插入一个元素，产生另一个已排序数组。 这里我们介绍“分治法”，使用分治法设计的排序算法称为归并排序，其算法的最坏情况运行时间比插入排序要少得多。 分治法在很多问题上，我们往往可以将原问题看作是很多小规模（相对于原问题）的子问题组成的，那么在求解原问题的过程中，我们便可以通过求解小问题，间接的求解大问题。 分治法的基本思想:将原问题分">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/20181125/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>index | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">index<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/20181125/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181125</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><p>在之前的插入排序中，我们使用了<strong>增量方法</strong>在已排序数组中赎当位置插入一个元素，产生另一个已排序数组。</p>
+<p>这里我们介绍“分治法”，使用分治法设计的排序算法称为归并排序，其算法的最坏情况运行时间比插入排序要少得多。</p>
+<h2 id="分治法-1"><a href="#分治法-1" class="headerlink" title="分治法"></a>分治法</h2><p>在很多问题上，我们往往可以将原问题看作是很多小规模（相对于原问题）的子问题组成的，那么在求解原问题的过程中，我们便可以通过求解小问题，间接的求解大问题。</p>
+<p><strong>分治法</strong>的基本思想:将原问题分解为几个规模较小但类似于原问题的子问题，递归的求解这些子问题，然后再合并这些子问题来建立原问题的解。</p>
+<p>分治模式在每层递归时都有三个步骤：</p>
+<ul>
+<li><strong>分解</strong>原问题为若干子问题，这些子问题是原问题的规模较小的实例。</li>
+<li><strong>解决</strong>这些子问题，递归地求解各子问题。然而，若子问题的规模足够小，则直接求解。</li>
+<li><strong>合并</strong>这些子问题成原问题的解</li>
+</ul>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p><strong>归并排序</strong>算法完全遵循分治模式。直观上其操作如下：</p>
+<ul>
+<li><p><strong>分解</strong>：分解待排序的n个元素的序列成各具$n/2$个元素的两个子序列。</p>
+</li>
+<li><p><strong>解决</strong>：使用归并排序递归地排序两个子序列。</p>
+</li>
+<li><p><strong>合并</strong>：合并两个已排序的子序列以 产生已排序的答案。</p>
+<p>当待排序的序列长度达到可分解的最小单元长度时，递归“开始回升”。</p>
+<p>归并排序算法的关键操作是“合并”步骤中两个已排序序列的合并。我们尝试设计一个$MERGE$来完成合并操作。</p>
+<p>假设数组$A[p \cdots q]$和$A[q + 1 \dots r]$为有序序列，$MERGE$需要合并这两个序列，得到一个新的有序序列。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MERGE(A, p, q, r)</span><br><span class="line">n_1 = q - p + <span class="number">1</span></span><br><span class="line">n_2 = r - q</span><br><span class="line">let L[<span class="number">1</span> ... n_1 + <span class="number">1</span>] and R[<span class="number">1</span> ... n_2 + <span class="number">1</span>] be <span class="keyword">new</span> arrays</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to n_1</span><br><span class="line">	L[i] = A[p + i - <span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span>( j = <span class="number">1</span> to n_2)</span><br><span class="line">	R[j] = A[q + j]</span><br><span class="line">L[n_1 + <span class="number">1</span>] = MAX_INT</span><br><span class="line">R[n_2 + <span class="number">1</span>] = MAX_INT</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">j = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> k = p to r</span><br><span class="line">	<span class="keyword">if</span> L[i] &lt;= R[j]</span><br><span class="line">		A[k] = L[i]</span><br><span class="line">		i = i + <span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		A[k] = R[j]</span><br><span class="line">		j = j + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>设计完成$MERGE$后，我们接下来的工作就容易很多了，仅仅需要划分子问题即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MERGE-SORT(A, begin, end)</span><br><span class="line">	<span class="keyword">if</span> begin &lt; end</span><br><span class="line">		mid = (begin + end)/<span class="number">2</span></span><br><span class="line">		MERGE-SORT(A, begin,mid)</span><br><span class="line">		MERGE-SORT(A, mid, end);</span><br><span class="line">		MERGE(A, begin, mid, end)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="归并排序复杂度分析"><a href="#归并排序复杂度分析" class="headerlink" title="归并排序复杂度分析"></a>归并排序复杂度分析</h2><p>当一个算法包含对自身的递归调用时，我们往往使用<strong>递归方程</strong>或<strong>递归式</strong>来描述其运行时间。对于一个一般性的分治算法，其递归方程如下：</p>
+<script type="math/tex; mode=display">
+T(n) = 
+\begin{cases}
+\Theta(1) & 若n\leq c\\
+aT(n/b) + D(n) + C(n) & 其他
+\end{cases}</script><p>该递归方程描述了这样的划分：将问题分解为a个子问题，当子问题规模足够小时（$n\leq c$），使用常量时间求解。分解为a个子问题，每个子问题的规模时原问题的$1/b$。分解问题成为子问题需要时间$D(n)$，合并子问题为原问题需要时间$C(n)$.</p>
+<p>对于归并排序：</p>
+<script type="math/tex; mode=display">
+T(n) = 
+\begin{cases}
+\Theta(1) & 若n = 1\\
+2T(n/2) + \Theta(n) & 其他
+\end{cases}</script><p>根据这个递推式，可以得到的结论是$T(n) = \Theta(n\, lgn)$.</p>
+<h1 id="分治策略"><a href="#分治策略" class="headerlink" title="分治策略"></a>分治策略</h1><p>归并排序中我们使用了分治策略，在这里我们提出一个分治策略的执行步骤：</p>
+<ul>
+<li><strong>分解</strong>$(Divide)$步骤将问题划分为一些子问题，子问题的形式与原问题一样，只是规模更小。</li>
+<li><strong>解决</strong>$(Conquer)$步骤递归的解决子问题。如果子问题的规模足够小，则停止递归，直接求解。</li>
+<li><strong>合并</strong>$(Combine)$步骤将子问题的解组合成原问题的解。</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>递归情况</strong>$(recursive\, \, case)$当子问题足够大，需要递归求解时。</p>
+<p><strong>基本情况</strong>$(base case)$当子问题足够小，不需要递归求解时，我们称递归已经“触底”。</p>
+<p><strong>递归式</strong>($recurrence$)：使用递归式可以很自然的描述分治算法的运行时间。$MERGE-SORT$过程的最坏运行时间$T(n)$：</p>
+<script type="math/tex; mode=display">
+T(n) = 
+\begin{cases}
+\Theta(1), & \text{若n  = 1}\\
+2T(n/2)+\Theta(n), & \text{若n>1}\\
+\end{cases}</script><p>求解该递归式可得</p>
+<script type="math/tex; mode=display">
+T(n) = \Theta(nlgn)</script><p>递归式有很多形式。对于不同的问题划分，可以得到不同的递归式。</p>
+<p>例如：每次将问题划分为$1/3$与$2/3$。假设分解与合并都是线性时间，我们会得到这样的递归式：</p>
+<script type="math/tex; mode=display">
+T(n) = T(2n/3) + T(n/3) + \Theta(n)</script><p>通过以上划分，我们得知：子问题的划分不一定是以原问题的固定比例划分的。例如：我们查找一个数列中的最小值的过程。如果使用递归方法，子问题的规模仅仅是比原问题的规模少一个元素。每次递归调用的花费时间再加下一层递归调用的时间，因此我们可以得到这样一个递归式：</p>
+<script type="math/tex; mode=display">
+T(n) = T(n - 1) + \Theta(1)</script><p>在这里，我们加上了$\Theta(1)$，我们之前提到了，每次递归调用的时间，这个时间可以认为是固定的，所以加上一个常数。</p>
+<p>求解递归表达式的方法：代入法，递归树。</p>
+<h2 id="最大子数组问题-Maximum-subarray-problem"><a href="#最大子数组问题-Maximum-subarray-problem" class="headerlink" title="最大子数组问题(Maximum subarray problem)"></a>最大子数组问题(Maximum subarray problem)</h2><p>输入：给定的一个数列&lt;$a_1, a_2, \cdots , a_n$&gt;</p>
+<p>输出：一个数字，代表在给定数列中一个连续的子数列之和最大值。</p>
+<p>问题来源：股票购买问题，得到一段时间内的股票价格基于前一天的涨跌序列，求得如果在该段时间内购买与抛售，何时买入，何时抛售，获得的收益最多。</p>
+<p>给定一段时间内的股票价格：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>天</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格</td>
+<td>100</td>
+<td>113</td>
+<td>110</td>
+<td>85</td>
+<td>105</td>
+<td>102</td>
+<td>86</td>
+<td>63</td>
+<td>81</td>
+<td>101</td>
+<td>94</td>
+<td>106</td>
+<td>101</td>
+<td>79</td>
+<td>94</td>
+<td>90</td>
+<td>97</td>
+</tr>
+<tr>
+<td>变化</td>
+<td></td>
+<td>13</td>
+<td>-3</td>
+<td>-25</td>
+<td>20</td>
+<td>-3</td>
+<td>-16</td>
+<td>-23</td>
+<td>18</td>
+<td>20</td>
+<td>-7</td>
+<td>12</td>
+<td>-5</td>
+<td>-22</td>
+<td>15</td>
+<td>-4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Approach-1-暴力求解"><a href="#Approach-1-暴力求解" class="headerlink" title="Approach 1:暴力求解"></a>Approach 1:暴力求解</h3><p>对于所有可能的结果，我们可以很容易列举出来，我们首先尝试这种方法。</p>
+<p>简单分析一下：买入时间定是在卖出时间之前。对于n个元素，共有$C_n^2$中组合，所以我们的计算规模是$\Theta(n^2)$，同之前一样，我们认为，处理一对组合花费的时间是常数。</p>
+<p><strong>问题变换</strong></p>
+<p>对于输入数据，我们不去考察每天的价格，而是考察每天的价格变化，第$i$天的价格定义为第$i$天价格与第$i-1$天价格差。如果称这个数组为$A$，这样我们就将问题转化为寻找$A$的和最大的非空连续子数组。这样的连续子数组成为<strong>最大子数组</strong>($maximum\, subarray$).在之后的计算中，你会发现，这种转化对于优化常量时间有帮助。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>-3</td>
+<td>-25</td>
+<td>20</td>
+<td>-3</td>
+<td>-16</td>
+<td>-23</td>
+<td>18</td>
+<td>20</td>
+<td>-7</td>
+<td>12</td>
+<td>-5</td>
+<td>-22</td>
+<td>15</td>
+<td>-4</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个值得注意的问题：最大子数组问题仅仅在数列中存在负值的时候才有价值，如果全部是非负整数，仅需要将所有元素加起来就行。</p>
+<p>如果我们将子问题的计算结果存储起来，之后的计算利用之前的计算结果可以使得每次子问题的和的计算时间为$O(1)$。</p>
+<h3 id="Approach-2-分治策略"><a href="#Approach-2-分治策略" class="headerlink" title="Approach 2:分治策略"></a>Approach 2:分治策略</h3><p>我们下面来思考如何使用分治策略求解该问题。分治意味着我们要将问题划分为子问题（无论子问题划分的形式），显然对于该问题最好的划分方法是尽量将数组划分为两个相等大小的子数组。也就是说，找到子数组的中央位置，比如$mid$，然后考虑子问题：$[low\cdots mid],[mid\cdots high]$。给出这样一个结论，对于这样的划分，任何一个子数组$[i \cdots j]$必然是以下三种情况之一：</p>
+<ul>
+<li>完全位于子数组$A[low \cdots mid]$中,因此$low \leq i \leq j \leq mid$.</li>
+<li>完全位于子数组$A[mid \cdots high]$中，因此$mid &lt; i \leq j \leq high$.</li>
+<li>跨越了中点，因此$low \leq i \leq mid \leq j \leq high$.</li>
+</ul>
+<p>显然，最大子数组必然是这些子数组治意之一。两个子问题依然是最大子数组问题，只不过问题规模是原问题的一半。我们只需要寻找跨越中点的最大子数组，然后在三者之中选取最大值。</p>
+<p>对于两个子问题来说求解并不难，所以现在的关键在于寻找到跨越中点的最大子序列。我们提到了跨越了中点的子数组的范围是有限制的，任何跨越中点的子数组都是由两个子数组$[i \cdots mid]$和$[mid+1 \cdots j]$组成，其中$low \leq i \leq mid\text{且}mid &lt; j \leq high$，因此我们仅需要找出$[i \cdots mid]$和$[mid+1 \cdots j]$的最大子数组，然后合并即可，这在线性时间内是可以做到的。给出这样一个伪代码描述：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)</span><br><span class="line">left-sum = INT_MIN;</span><br><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = mid downto low</span><br><span class="line">	sum  = sum + A[i]</span><br><span class="line">	<span class="keyword">if</span> sum &gt; left-sum</span><br><span class="line">		left-sum = sum;</span><br><span class="line">		max-left = i;</span><br><span class="line">right-sum = INT_MIN</span><br><span class="line">sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = mid + <span class="number">1</span> to high</span><br><span class="line">	sum = sum + A[j]</span><br><span class="line">		right-sum = sum</span><br><span class="line">		max-right = j</span><br><span class="line"><span class="keyword">return</span> (max-left, max-right, left-sum + right-sum)</span><br></pre></td></tr></table></figure>
+<p>该伪代码最终返回的是一个由左右边界以及最大和组成的用于描述跨越中点的最大数组的三元组。</p>
+<p>我们已经解决最大子数组问题最重要的一部分：跨越中点的最大子数组。下面给出完整的最大子数组求解方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">FIND-MAXIMUM-SUBARRAY(A, low, high)</span><br><span class="line"><span class="comment">//当该数组中仅有一个元素时，表示已经划分为最小单位</span></span><br><span class="line"><span class="keyword">if</span>(high == low)</span><br><span class="line">	<span class="keyword">return</span>(low, high, A[low])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	mid = (low + high)/<span class="number">2</span></span><br><span class="line">	(left-low, left-high, left-sum) = FIND-MAXIMUM-SUBARRAY(A, low, mid)</span><br><span class="line">	(right-low, right-high, right-sum) = FIND-MAXIMUM-SUBARRAY(A, mid + <span class="number">1</span>, high)</span><br><span class="line">	(cross-low, cross-high, cross-sum) = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)</span><br><span class="line">	<span class="keyword">if</span> left-sum &gt;= right-sum and left-sum &gt;= cross-sum</span><br><span class="line">		<span class="keyword">return</span> (left-low, left-high, left-sum)</span><br><span class="line">	elseif right-sum &gt;= left-sum and right-sum &gt;= cross-sum</span><br><span class="line">		<span class="keyword">return</span> (right-low, right-high, right-sum)</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> (cross-low, cross-high, cross-sum)</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：</p>
+<p>该算法运行的递归式</p>
+<script type="math/tex; mode=display">
+T(n) = 
+\begin{cases}
+\Theta(1) & 若n = 1\\
+2T(n/2) + \Theta(n) & 若n>1
+\end{cases}</script><p>题目：</p>
+<p>从codeforces前10页摘抄的关于divide and conquer的题目</p>
+<p><a href="https://codeforces.com/problemset/problem/1070/M" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1070/M</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1043/G" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1043/G</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1042/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1042/D</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1041/F" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1041/F</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1019/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1019/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1004/F" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1004/F</a></p>
+<p><a href="https://codeforces.com/problemset/problem/1000/F" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/1000/F</a></p>
+<p><a href="https://codeforces.com/problemset/problem/997/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/997/D</a></p>
+<p><a href="https://codeforces.com/problemset/problem/995/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/995/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/990/G" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/990/G</a></p>
+<p><a href="https://codeforces.com/problemset/problem/981/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/981/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/977/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/977/D</a></p>
+<p><a href="https://codeforces.com/problemset/problem/960/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/960/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/936/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/936/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/914/G" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/914/G</a></p>
+<p><a href="https://codeforces.com/problemset/problem/914/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/914/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/888/E" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/888/E</a></p>
+<p><a href="https://codeforces.com/problemset/problem/875/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/875/D</a></p>
+<p><a href="https://codeforces.com/problemset/problem/873/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/873/D</a></p>
+<p><a href="https://codeforces.com/problemset/problem/868/F" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/868/F</a></p>
+<p><a href="https://codeforces.com/problemset/problem/865/F" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/865/F</a></p>
+<p><a href="https://codeforces.com/problemset/problem/862/D" target="_blank" rel="noopener">https://codeforces.com/problemset/problem/862/D</a></p>
+<p>如果这个网站的检查机制不是特别好，针对于divide and conquer的题目可以在这里尝试练习一下</p>
+<p><a href="https://leetcode.com/problemset/all/?topicSlugs=divide-and-conquer" target="_blank" rel="noopener">https://leetcode.com/problemset/all/?topicSlugs=divide-and-conquer</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181125</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分治法"><span class="nav-number">1.</span> <span class="nav-text">分治法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分治法-1"><span class="nav-number">1.1.</span> <span class="nav-text">分治法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">1.2.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序复杂度分析"><span class="nav-number">1.3.</span> <span class="nav-text">归并排序复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分治策略"><span class="nav-number">2.</span> <span class="nav-text">分治策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大子数组问题-Maximum-subarray-problem"><span class="nav-number">2.2.</span> <span class="nav-text">最大子数组问题(Maximum subarray problem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Approach-1-暴力求解"><span class="nav-number">2.2.1.</span> <span class="nav-text">Approach 1:暴力求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Approach-2-分治策略"><span class="nav-number">2.2.2.</span> <span class="nav-text">Approach 2:分治策略</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

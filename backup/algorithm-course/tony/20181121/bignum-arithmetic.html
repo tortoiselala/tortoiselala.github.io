@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="高精度计算严格的来说，高精度计算并不算是一种算法，只是作为一种扩充的计算方法。先来看一下wiki上对于高精度计算的定义： 高精度计算是一种程序设计的算法。由于中央处理器的字长)限制，如32位CPU中一个整数最大只能取值4,294,967,295 $2^{32}$ 。 因此在进行更大范围的数值计算中，往往要采取模拟手段。通常通过分离字符的方法通过数字数组进行输入。通过数组倒序输出。通过模拟竖式计算进">
+<meta property="og:type" content="website">
+<meta property="og:title" content="bignum arithmetic">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/bignum-arithmetic.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="高精度计算严格的来说，高精度计算并不算是一种算法，只是作为一种扩充的计算方法。先来看一下wiki上对于高精度计算的定义： 高精度计算是一种程序设计的算法。由于中央处理器的字长)限制，如32位CPU中一个整数最大只能取值4,294,967,295 $2^{32}$ 。 因此在进行更大范围的数值计算中，往往要采取模拟手段。通常通过分离字符的方法通过数字数组进行输入。通过数组倒序输出。通过模拟竖式计算进">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-22T00:12:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bignum arithmetic">
+<meta name="twitter:description" content="高精度计算严格的来说，高精度计算并不算是一种算法，只是作为一种扩充的计算方法。先来看一下wiki上对于高精度计算的定义： 高精度计算是一种程序设计的算法。由于中央处理器的字长)限制，如32位CPU中一个整数最大只能取值4,294,967,295 $2^{32}$ 。 因此在进行更大范围的数值计算中，往往要采取模拟手段。通常通过分离字符的方法通过数字数组进行输入。通过数组倒序输出。通过模拟竖式计算进">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/20181121/bignum-arithmetic.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>bignum arithmetic | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">bignum arithmetic<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/20181121/bignum-arithmetic.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/bignum-arithmetic.html/">BIGNUM-ARITHMETIC.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="高精度计算"><a href="#高精度计算" class="headerlink" title="高精度计算"></a>高精度计算</h1><p>严格的来说，高精度计算并不算是一种算法，只是作为一种扩充的计算方法。先来看一下wiki上对于<strong>高精度计算</strong>的定义：</p>
+<p><strong>高精度计算</strong>是一种<a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">程序设计</a>的<a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">算法</a>。由于<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E8%99%95%E7%90%86%E5%99%A8" target="_blank" rel="noopener">中央处理器</a>的<a href="https://zh.wikipedia.org/wiki/%E5%AD%97_(%E8%AE%A1%E7%AE%97%E6%9C%BA" target="_blank" rel="noopener">字长</a>)限制，如32位CPU中一个整数最大只能取值4,294,967,295 $2^{32}$ 。 因此在进行更大范围的数值计算中，往往要采取模拟手段。通常通过分离字符的方法通过数字<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%BB%84" target="_blank" rel="noopener">数组</a>进行输入。通过数组倒序输出。通过模拟<a href="https://zh.wikipedia.org/w/index.php?title=%E7%AB%96%E5%BC%8F&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">竖式</a>计算进行计算。一般而言，主要模拟的是按位运算，可以用不同的<a href="https://zh.wikipedia.org/wiki/%E9%80%B2%E4%BD%8D%E5%88%B6" target="_blank" rel="noopener">进位制</a>达成不同的目的。</p>
+<p>在介绍完概念之后，我们需要注意的是，虽然在以前的信息学竞赛中出现过实现大数相乘的算法，但是毕竟只是很简单的模拟计算。所以这个问题很大可能性在你的竞赛生涯中是不会遇到的，即使遇到，你见到的题目可能也是使用相关算法去优化大数计算的时间复杂度（之后你会看到整数乘法的时间复杂度是$m \times n$）而不会要求你去实现该算法。我们虽然不会具体去实现它，但这仍然是最为基础的算法，是的，入门算法。</p>
+<p>可以看到的是，上述定义中关于高精度计算是指大数计算。那么既然提到精度的话，你可能会产生疑问：为什么不是浮点数的高精度计算呢？实际上，浮点数的高精度计算与大数的高精度计算并没有任何差别，计算方法是一致的，我们可以很容易将大数计算移植到浮点数计算上，只要你掌握手工计算方法。高精度计算的分类：</p>
+<ul>
+<li>高精度加法</li>
+<li>高精度减法</li>
+<li>高精度乘法</li>
+<li>高精度除法</li>
+</ul>
+<p>高精度计算一种最为普通的方法是：模拟手工竖式计算。</p>
+<h2 id="高精度加法"><a href="#高精度加法" class="headerlink" title="高精度加法"></a>高精度加法</h2><p>我们手工计算数据加法时，会使用如下的计算方法：</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+          & 1 & 2 \\
+        + & 3 & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+          & & 4 & 6
+    \end{matrix}
+}
+\quad</script><p>那么，我们设计大数加法即使用的是这种计算方法，首先不加证明的给出：若加数与被加数的位数分别为$m, n$位，则和的位数最多为$max(m, n)+1$位。</p>
+<p>下面给出一个特殊的例子来佐证这个结果：</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+          & 9 & 2 \\
+        + & 3 & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+          1 & 2 & 6
+    \end{matrix}
+}
+\quad</script><p>我们尝试给出所有的计算样例</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+          & 9 & 2 \\
+        + &   & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+        & & 9 & 6
+    \end{matrix}
+}
+\quad</script><p>对于该式子，我们依然使用相等位数的加法，如何处理？</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+          & 9 & 2 \\
+        + & 0 & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+        & & 9 & 6
+    \end{matrix}
+}
+\quad</script><p>对应的，我们将所有位置均填上合适的数字，就可以得到一个标准的加法表达式</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+        &   & 9 & 2 \\
+        & + & 0 & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+        & 0 & 9 & 6
+    \end{matrix}
+}
+\quad</script><p>高精度加法的运算特征：</p>
+<p>按位对齐，考虑进位。复杂要求，考虑符号。</p>
+<p>在这里，给出一些实现过程中需要考虑的情况：</p>
+<ul>
+<li>对齐问题：如何保证短数据对齐，提示：翻转加数与被加数</li>
+<li>进位问题：最后一位有进位怎么办，提示：记得检查最后一个进位</li>
+<li>符号问题：可能大数加法，输入的是负数如何处理？提示：首先检查符号（归类到输入合法性检查中）</li>
+<li>进制问题：可能需要实现任意进制的加法运算。</li>
+<li>输出格式问题：除了符号需要处理外，我们前面提到的是”可能“会达到最大位数，如果达不到呢？提示：前导0</li>
+</ul>
+<p>可以打开java的BigInteger看看实现方法。</p>
+<p>注：实际上在竞赛中需要实现的要比日常中我们实现的更简单，竞赛实现不同的要求，或许会要求各种类型（可能包括各种进制的相互转换以及相互计算）而不用考虑不合法输入或输入正确性检查。所以如果你想挑战自己，就尝试实现一个非常全面的，包括输入正确性检查，合法计算，以及合适的接口（从工程角度考虑）。</p>
+<h2 id="高精度减法"><a href="#高精度减法" class="headerlink" title="高精度减法"></a>高精度减法</h2><p>类似的，我们给出一个竖式减法的样例：</p>
+<script type="math/tex; mode=display">
+\frac{
+    \begin{matrix} 
+          & 5 & 6 \\
+        - & 3 & 4 \\ 
+    \end{matrix}
+}
+{
+    \begin{matrix} 
+          & & 1 & 2
+    \end{matrix}
+}
+\quad</script><p>类似的，我们给出竖式减法的运算特征：</p>
+<p>按位对齐，考虑借位。复杂输入，考虑符号。</p>
+<p>注：同大数相加一样，在执行减法的过程中，我们依然需要考虑对齐与借位的问题，减法的设计过程要比加法稍微复杂一点。但是我们可以做出一点工作使得设计过程更为顺畅。我们可以先实现一位减法，通过一位减数与被减数给出借位与差。</p>
+<p>在实现多位减法时，我们便可以组合一位减法。</p>
+<p>类似的，在加法中我们也可以这样做，但是我们没有，为什么？加法的设计过程较为简单。所以，我们在实际设计程序时，根据工程量的大小，挑选合适的步骤来解决问题。</p>
+<h2 id="高精度乘法"><a href="#高精度乘法" class="headerlink" title="高精度乘法"></a>高精度乘法</h2><p>类似的，给出一个竖式乘法的样例：</p>
+<script type="math/tex; mode=display">
+\frac{
+    \frac{
+        \begin{matrix} 
+             & & 5 & 6 \\
+       & \times & 3 & 4 \\ 
+    \end{matrix}
+    }
+    {
+        \begin{matrix} 
+              & 2 & 2 & 4\\
+            1 & 7 & 8\\
+        \end{matrix}
+    }
+    }{
+        \begin{matrix}
+           2 & 0 & 0 & 8
+        \end{matrix}
+    }
+    \quad
+\quad</script><p>竖式乘法的运算特征：</p>
+<p>按位相乘，部分积移位相加。积的最大位数为$m\times n$</p>
+<p>分析一下乘法的时间复杂度。</p>
+<p>可以分析时间复杂度$O(m \times n)$.</p>
+<p>类比于前面，我们在这里提出，使用模块化方法实现乘法，我们需要实现的模块如下：</p>
+<p>一位乘法：乘数(one bit)$\times$被乘数 (one bit)= 积(one bit) 与 进位(one bit)</p>
+<p>一位加法：进位+加数+被加数=和与进位</p>
+<p>多位加法：</p>
+<p>存在一些算法去优化大数乘法，后面会讲。</p>
+<h2 id="高精度除法"><a href="#高精度除法" class="headerlink" title="高精度除法"></a>高精度除法</h2><h3 id="高精除以低精"><a href="#高精除以低精" class="headerlink" title="高精除以低精"></a>高精除以低精</h3><h3 id="高精除以高精"><a href="#高精除以高精" class="headerlink" title="高精除以高精"></a>高精除以高精</h3><p>没有必要学习。</p>
+<p>题目链接大数相加<a href="http://noi.openjudge.cn/ch0106/10/" target="_blank" rel="noopener">link</a></p>
+<h1 id="Java-语言提供的大数计算"><a href="#Java-语言提供的大数计算" class="headerlink" title="$Java$语言提供的大数计算"></a>$Java$语言提供的大数计算</h1><p>在$Java$中有两个类用于$BigInteger$与$BigDecimal$分别表示大整数类与大浮点数类，这两个类存在于$java.math.^*$包中，我们来看看其文档</p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html" target="_blank" rel="noopener">class BigInteger</a></p>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html" target="_blank" rel="noopener">class BigDecimal</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181121</li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/bignum-arithmetic.html/">BIGNUM-ARITHMETIC.HTML</a></li>
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高精度计算"><span class="nav-number">1.</span> <span class="nav-text">高精度计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度加法"><span class="nav-number">1.1.</span> <span class="nav-text">高精度加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度减法"><span class="nav-number">1.2.</span> <span class="nav-text">高精度减法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度乘法"><span class="nav-number">1.3.</span> <span class="nav-text">高精度乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度除法"><span class="nav-number">1.4.</span> <span class="nav-text">高精度除法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高精除以低精"><span class="nav-number">1.4.1.</span> <span class="nav-text">高精除以低精</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高精除以高精"><span class="nav-number">1.4.2.</span> <span class="nav-text">高精除以高精</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-语言提供的大数计算"><span class="nav-number">2.</span> <span class="nav-text">$Java$语言提供的大数计算</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

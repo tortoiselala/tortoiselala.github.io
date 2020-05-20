@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="java.util.ArrayList类java.util.ArrayList 类提供了可调整大小的数组，并实现了List接口。ArrayList的特点：  实现了所有可选的列表操作，并且允许所有元素，包括空值null。  提供了一些方法来操作内部用来存储列表的数组的大小。  相较于LinkedList实现的常数因子较低。 类声明以下是java.util.ArrayList的类的声明： 123pu">
+<meta name="keywords" content="javadoc">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ArrayList">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/javadoc-and-notes/javadoc/util/arrayList/index.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="java.util.ArrayList类java.util.ArrayList 类提供了可调整大小的数组，并实现了List接口。ArrayList的特点：  实现了所有可选的列表操作，并且允许所有元素，包括空值null。  提供了一些方法来操作内部用来存储列表的数组的大小。  相较于LinkedList实现的常数因子较低。 类声明以下是java.util.ArrayList的类的声明： 123pu">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-19T23:05:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ArrayList">
+<meta name="twitter:description" content="java.util.ArrayList类java.util.ArrayList 类提供了可调整大小的数组，并实现了List接口。ArrayList的特点：  实现了所有可选的列表操作，并且允许所有元素，包括空值null。  提供了一些方法来操作内部用来存储列表的数组的大小。  相较于LinkedList实现的常数因子较低。 类声明以下是java.util.ArrayList的类的声明： 123pu">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/javadoc-and-notes/javadoc/util/arrayList/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ArrayList | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">ArrayList<a href="https://github.com/tortoiselala/blog-srcbackup/javadoc-and-notes/javadoc/util/arrayList/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/">JAVADOC-AND-NOTES</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/">JAVADOC</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/util/">UTIL</a></li>
+        
+      
+    
+      
+      
+        
+          <li>ARRAYLIST</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h2 id="java-util-ArrayList类"><a href="#java-util-ArrayList类" class="headerlink" title="java.util.ArrayList类"></a>java.util.ArrayList类</h2><p>java.util.ArrayList 类提供了可调整大小的数组，并实现了List接口。ArrayList的特点：</p>
+<ul>
+<li><p>实现了所有可选的列表操作，并且允许所有元素，包括空值null。</p>
+</li>
+<li><p>提供了一些方法来操作内部用来存储列表的数组的大小。</p>
+</li>
+<li><p>相较于LinkedList实现的常数因子较低。</p>
+<h3 id="类声明"><a href="#类声明" class="headerlink" title="类声明"></a>类声明</h3><p>以下是java.util.ArrayList的类的声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayList&lt;E&gt;</span><br><span class="line">	extends AbstractList&lt;E&gt;</span><br><span class="line">		implements List&lt;E&gt;, RandomAccess, Cloneable, Serializable</span><br></pre></td></tr></table></figure>
+<p>这里</p>
+<p>代表元素。例如，如果构建一个字符串数组列表，那么初始化为<code>ArrayList&lt;String&gt; stringList = new ArrayList&lt;String&gt;();</code>类构造函数</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>S.N.</th>
+<th>构造函数 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>ArrayList()</strong> 此构造函数用于创建一个空的列表，包含10个元素的初始容量。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>ArrayList(Collection&lt;? extends E&gt; c)</strong> 此构造函数用于创建一个包含指定集合的元素的列表。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ArrayList(int initialCapacity)</strong> 此构造函数以初始容量initialCapacity创建一个空列表。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>S.N.</th>
+<th>方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/add/" target="_blank" rel="noopener">boolean add(E e) </a>此方法将指定元素追加到此列表的末尾。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/add-ndex/" target="_blank" rel="noopener">void add(int index, E element) </a>此方法将在此列表中指定位置插入指定的元素。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/addall/" target="_blank" rel="noopener">boolean addAll(Collection c) </a>此方法会将指定集合中所有的元素添加到此列表的结尾，顺序由Coloection的迭代器返回的顺序决定。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/addall-index/" target="_blank" rel="noopener">boolean addAll(int index, Collection c) </a>此方法将指定集合中的所有元素按照指定位置插入此列表。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/clear/" target="_blank" rel="noopener">void clear() </a>此方法删除所有此列表中的元素。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/clone/" target="_blank" rel="noopener">Object clone() </a>这个方法返回当前ArrayList实例的浅复制。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/contains/" target="_blank" rel="noopener">boolean contains(Object o) </a>如果此列表包含指定的元素，此方法返回true。</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/ensureCapacity/" target="_blank" rel="noopener">void ensureCapacity(int minCapacity) </a>增加此ArrayList的容量。</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/get/" target="_blank" rel="noopener">E get(int index) </a>此方法返回的元素在此列表中的指定位置。</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/indexOf/" target="_blank" rel="noopener">int indexOf(Object o) </a>此方法返回指定元素的第一个匹配项的索引在此列表中，或者如果此列表中不包含该元素返回-1。</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/isEmpty/" target="_blank" rel="noopener">boolean isEmpty() </a>如果此列表不包含元素，此方法返回true。</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/lastIndexOf/" target="_blank" rel="noopener">int lastIndexOf(Object o) </a>此方法返回指定元素的最后一个匹配项的索引在此列表中，或者-1，如果此列表中不包含该元素。</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/removeIndex/" target="_blank" rel="noopener">E remove(int index) </a>此方法删除的元素在此列表中的指定位置。</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/removeObject/" target="_blank" rel="noopener">boolean remove(Object o) </a>此方法从该列表中首次出现的指定元素，如果它存在。</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/removeRange/" target="_blank" rel="noopener">protected void removeRange(int fromIndex, int toIndex) </a>此方法从该列表中删除所有的索引fromIndex（包括）与toIndex（不包括）之间的元素。</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/set/" target="_blank" rel="noopener">E set(int index, E element) </a>此方法取代在与指定元素在此列表中指定位置的元素。</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/size/" target="_blank" rel="noopener">int size() </a>此方法返回此列表中的元素数。</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/toArray/" target="_blank" rel="noopener">Object[] toArray() </a>此方法返回一个包含所有在此列表中正确的序列中元素的数组（从第一个到最后一个元素）。</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/toArrayTarget/" target="_blank" rel="noopener">T[] toArray(T[] a) </a>此方法返回一个包含所有在此列表中正确的序列中的元素（从第一个到最后一个元素）数组;返回数组的运行时类型是指定数组。</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="https://tortoiselala.github.io/Java/util/arrayList/trimToSize/" target="_blank" rel="noopener">void trimToSize() </a>此方法修整此ArrayList实例的是列表的当前大小的容量。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/">JAVADOC-AND-NOTES</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/">JAVADOC</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/javadoc-and-notes/javadoc/util/">UTIL</a></li>
+        
+      
+    
+      
+      
+        
+          <li>ARRAYLIST</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-util-ArrayList类"><span class="nav-number">1.</span> <span class="nav-text">java.util.ArrayList类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类声明"><span class="nav-number">1.1.</span> <span class="nav-text">类声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类方法"><span class="nav-number">1.2.</span> <span class="nav-text">类方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

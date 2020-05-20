@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="贪心策略(greedy algorithm)求解最优化问题的算法通常经过一系列的步骤，在每个步骤中面临多种选择。对于许多最优化问题，使用动态规划来求解最优解则显得有些复杂。实际上，某些问题使用贪心算法能够得到更好的效率。贪心算法$(greedy\, algorthm)$算法可以在每一步都做出看起来是”当时最佳的选择”。也就是说，贪心算法专心于在局部产生最优解，寄希望这样的算则能够导致全局的最优解。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="index">
+<meta property="og:url" content="http://tortoiselala.github.com/backup/algorithm-course/tony/20181127/index.html">
+<meta property="og:site_name" content="tortoiselala">
+<meta property="og:description" content="贪心策略(greedy algorithm)求解最优化问题的算法通常经过一系列的步骤，在每个步骤中面临多种选择。对于许多最优化问题，使用动态规划来求解最优解则显得有些复杂。实际上，某些问题使用贪心算法能够得到更好的效率。贪心算法$(greedy\, algorthm)$算法可以在每一步都做出看起来是”当时最佳的选择”。也就是说，贪心算法专心于在局部产生最优解，寄希望这样的算则能够导致全局的最优解。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/tortoiselala/tortoiselala.github.io/master/src/img/CUT-ROD-SOLUTION.jpg">
+<meta property="og:updated_time" content="2018-11-29T20:11:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="index">
+<meta name="twitter:description" content="贪心策略(greedy algorithm)求解最优化问题的算法通常经过一系列的步骤，在每个步骤中面临多种选择。对于许多最优化问题，使用动态规划来求解最优解则显得有些复杂。实际上，某些问题使用贪心算法能够得到更好的效率。贪心算法$(greedy\, algorthm)$算法可以在每一步都做出看起来是”当时最佳的选择”。也就是说，贪心算法专心于在局部产生最优解，寄希望这样的算则能够导致全局的最优解。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tortoiselala/tortoiselala.github.io/master/src/img/CUT-ROD-SOLUTION.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://tortoiselala.github.com/backup/algorithm-course/tony/20181127/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>index | tortoiselala</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tortoiselala</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">index<a href="https://github.com/tortoiselala/blog-srcbackup/algorithm-course/tony/20181127/index.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181127</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="贪心策略-greedy-algorithm"><a href="#贪心策略-greedy-algorithm" class="headerlink" title="贪心策略(greedy algorithm)"></a>贪心策略(greedy algorithm)</h1><p>求解最优化问题的算法通常经过一系列的步骤，在每个步骤中面临多种选择。对于许多最优化问题，使用动态规划来求解最优解则显得有些复杂。实际上，某些问题使用贪心算法能够得到更好的效率。<strong>贪心算法</strong>$(greedy\, algorthm)$算法可以在每一步都做出看起来是”当时最佳的选择”。也就是说，贪心算法专心于在局部产生最优解，寄希望这样的算则能够导致全局的最优解。</p>
+<p>贪心算法并不能保证得到最优解，但是某些问题确实可以求得最优解。</p>
+<p>我们可以利用贪心策略设计出很多非常好的算法，若：Dijkstra单源最短路径算法。</p>
+<p>贪心方法适用于这样一类最优化问题的求解：</p>
+<p>问题有n个输入，问题的解是由这n个输入的某个子集组成，而子集必须满足某些事先给定的条件。</p>
+<ul>
+<li>约束条件：子集必须满足的条件；</li>
+<li>可  行  解：满足约束条件的子集；可行解可能不唯一；</li>
+<li>目标函数：用来衡量可行解优劣的标准，一般以函数的形式给出；</li>
+<li>最  优  解：能够使目标函数取极值（极大或极小）的</li>
+<li>可行解。最优解也可能不唯一。</li>
+</ul>
+<h2 id="活动选择问题"><a href="#活动选择问题" class="headerlink" title="活动选择问题"></a>活动选择问题</h2><p>假定有一个$n$个活动的集合$S=\{a_1,a_2,…,a_n\}$，这些活动都要求使用同一资源(如演讲会场)，而这个资源在某个时刻只能供一个活动使用。每个活动$a_i$都有一个开始时间$s_i$和一个结束时间$f_i$，且$0≤s_i&lt;f_i&lt;∞$.</p>
+<p>若两个活动$a_i$和$a_j$满足[$s_i, f_i$]与区间$[s_j, f_j]$不重叠，则称它们是兼容的。</p>
+<p>活动选择问题就是从活动集合中选出最大兼容活动的集合。</p>
+<p>设活动已经按照结束时间单调递增排序：</p>
+<script type="math/tex; mode=display">
+f_1 \leq f_2 \leq f_3 \cdots \leq f_n</script><p>设有以下待安排的11个活动的开始时间和结束时间，并按结束时间的非减序排列如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$i$</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$S_i$</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>5</td>
+<td>3</td>
+<td>5</td>
+<td>6</td>
+<td>8</td>
+<td>8</td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr>
+<td>$f_i$</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>9</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>14</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+\{a_3,a_9,a_{11}\}
+\{a_1,a_4,a_8,a_11\}
+\{a_2,a_4,a_9,a_{11}\}
+\text{都是兼容的集合}</script><h3 id="活动选择问题的最优子结构"><a href="#活动选择问题的最优子结构" class="headerlink" title="活动选择问题的最优子结构"></a>活动选择问题的最优子结构</h3><p> 活动选择问题具有最优子结构：</p>
+<p>令$S_{ij}$表示在$a_i$结束之后开始且在$a_j$开始之前结束的那些活动的集合。设$A_{ij}$是$S_{ij}$的一个最大兼容活动集，并设$A_{ij}$包含活动$a_k$，Aik表示$A_{ij}$中$a_k$之前的活动子集，$A_{kj}$表示$A_{ij}$中$a_k$之后的活动子集。同时得到两个子问题：寻找$S_{ik}$的最大兼容活动集合和寻找$S_{kj}$的最大兼容活动集合。</p>
+<p>则必有$A_{ik}$是$S_{ik}$一个最大兼容活动子集，$A_{kj}$是$S_{kj}$一个最大兼容活动子集。而$A_{ij}= A_{ik}∪{a_k}∪Ak_{j} $。</p>
+<p>贪心算法：</p>
+<p>在贪心算法的每一步所做的局部最优选择就叫做贪心选择。</p>
+<p>活动选择问题的贪心选择：每次选择最早结束时间的活动加入集合$A$。</p>
+<p>首次选择的活动是$a_1$，其后选择的是结束时间最早且开始时间不早于前面已选择的最后一个活动的结束时间的活动 。</p>
+<p>当输入的活动已按结束时间的递增顺序排列，贪心算法只需$O(n)$的时间即可选择出来$n$个活动的最大兼容活动集合.</p>
+<p>在首次选择$a_1$后，下面寻找$a_1$结束后开始的活动。</p>
+<p>令$S_k={a_i∈S: s_i≥f_k}$，即在$a_k$结束之后开始的任务集合。</p>
+<p> 则在首次选择$a_1$后，$S_1$是接下来要求解的（唯一）子问题。</p>
+<p>最优子结构性：如果$a_1$在最优解中，那么原问题的最优解由活动$a_1$及子问题$S_1$的最优子解构成。</p>
+<p><strong>定理：</strong></p>
+<p>考虑任意非空子问题$S_k$，令$a_m$是$S_k$中结束时间最早的活动，则$a_m$必在$S_k$的某个最大兼容活动子集中.</p>
+<p>证明：</p>
+<p>令$A_k$是$S_k$的一个最大兼容活动子集，且$a_j$是$A_k$中结束最早的活动。若$a_j=a_m$，则得证。否则， $A_{k’}=A_k-{a_j}∪{a_m}$，且$A_{k’}$中的活动不相交。</p>
+<p>所以$A_{k’}$也是$S_k$的一个最大兼容活动子集，且包含$a_m$。定理得证。</p>
+<p><strong>所以:</strong>从$S_0$开始，反复选择结束时间最早的活动，重复这一过程，直至不再有剩余的兼容活动。所得的子集就是最大兼容活动集合</p>
+<p>.<strong>活动选择问题的贪心算法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RECURISVE-ACTIVITY-SELECTOR(s, f, k, n)</span><br><span class="line">m = k + 1</span><br><span class="line">while m &lt;= n and s[m] &lt; f[k]</span><br><span class="line">	m = m + 1</span><br><span class="line">if m&lt;= n</span><br><span class="line">	return &#123;am&#125; &#123;集合并符号&#125; RECURESIVE-ACTIVITY-SELECTOR(s, f, m, n)</span><br><span class="line">else</span><br><span class="line">	return 0</span><br></pre></td></tr></table></figure>
+<p>为了方便处理，引入一个虚拟活动$a_0$，其结束时间为$f_0 = 0$，求解问题，第一次调用为$RECURSIVE-ACTIVITY-SELECTOR(s, f,0, n)$.</p>
+<p><strong>非递归版本(迭代)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假定活动已经按照结束时间单调递增的顺序排列好</span></span><br><span class="line"><span class="comment">//集合A用于收集选出的活动。</span></span><br><span class="line"><span class="comment">//k对应最后一个加入A的活动，fk是A中活动的最大结束时间，若m的开始时间大于fk，则m就是下一个被选中的活动。</span></span><br><span class="line"><span class="comment">//算法的运行时间是O(n)。</span></span><br><span class="line"></span><br><span class="line">GREEDY-ACTIVITY-SELECTOR(s, f)</span><br><span class="line">n = s.length</span><br><span class="line">A = &#123;a_1&#125;</span><br><span class="line">k = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> m = <span class="number">2</span> to n</span><br><span class="line">	<span class="keyword">if</span> s[m] &gt;= f[k]</span><br><span class="line">		A = A &#123;集合并符号&#125; &#123;a_m&#125;</span><br><span class="line">		k = m</span><br><span class="line"><span class="keyword">return</span> A</span><br></pre></td></tr></table></figure>
+<h2 id="贪心算法原理"><a href="#贪心算法原理" class="headerlink" title="贪心算法原理"></a>贪心算法原理</h2><p>贪心算法通过做出一系列选择来求出问题的最优解。在每次决策中，做出当时看来是最佳的选择。这种启发式的策略并不能保证总能找到最优解，但对有些问题确实有效。</p>
+<p>贪心算法通常采用自顶向下的设计，做出一个选择，然后求解剩下的子问题</p>
+<p><strong>贪心求解的一般步骤</strong></p>
+<ol>
+<li>确定问题的最优子结构；</li>
+<li>每次对其作出一次选择；</li>
+<li>证明作出贪心选择后，原问题总是存在最优解，即安全；</li>
+<li>证明作出贪心选择后，剩余的子问题满足：其最优解与贪心选择组合即可得到原问题的最优解。</li>
+</ol>
+<p>贪心算法中<strong>贪心选择性质</strong>和<strong>最优子结构性</strong>是两个关键要素.</p>
+<ul>
+<li>贪心选择性质：可以通过做出局部最优（贪心）选择来构造全局最优解。</li>
+<li>最优子结构性质是能否应用动态规划和贪心方法的关键要素.</li>
+</ul>
+<p>Q:如何证明每个步骤贪心选择能生成全局最优解?</p>
+<p>A:通常先考查某个子问题的最优解，然后用贪心选择替换某个其它选择来修改此解，从而得到一个相似但更小的子问题,类似于上面定理的证明。</p>
+<h1 id="动态规划-dynamic-programming"><a href="#动态规划-dynamic-programming" class="headerlink" title="动态规划(dynamic programming)"></a>动态规划(dynamic programming)</h1><p>动态规划与分治策略相似，都是用过组合子问题的解来求解原问题。之前我们学习的分治方法，将原问题划分为互不相交的子问题来求解，递归的求解子问题，再组合子问题的解，得到原问题的解。与此不同的是，动态规划可用于求解子问题重叠的问题，即不同的子问题具有公共的子问题（子问题的子问题）。如果我们使用分治方法求解这个问题的话，我们会求解非常多的重复的子问题，这造成了资源的浪费。为了解决这一问题，动态规划是这样做的：对于求解出的子问题的解，使用数组存储下来。</p>
+<p>总结一下就是：</p>
+<p>动态规划是与<a href="https://tortoiselala.github.io/2018/10/24/Merge-Sort-Introduction-to-Algorithms/" target="_blank" rel="noopener">分治法</a>类似的一种计算方法，都是通过组合子问题的解来求解原问题。</p>
+<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构性质</strong>的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
+<p>动态规划方法通常用来求解<strong>最优化问题(optimization problem)</strong>。这类问题可以有很多可行解，每个解都有一个值，我们希望寻找具有最优值（最大值或最小值）的解（最大子数组问题）。</p>
+<p>注意：可能会有多个最优值。</p>
+<p>通常设计一个动态规划算法需要以下四个步骤：</p>
+<ol>
+<li>刻画一个最优解的结构特征</li>
+<li>递归地定义最优解的值</li>
+<li>计算最优解的值，通常采用自底向上的方法。</li>
+<li>利用计算出的信息构造一个最优解</li>
+</ol>
+<p>动态规划将一个大问题分解为小问题（子问题），再根据子问题的解以得出原问题的解，与分治法不同的是，动态规划方法尝试在计算过程中将子问题的解记录下来，以便下次遇到相同的子问题时可以直接获取答案。</p>
+<p>尝试总结分治法与动态规划适用范围的相同点与不同点。</p>
+<h2 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h2><p>动态规划在查找有<strong>重叠子问题</strong>的问题的解时有效。它将问题划分为子问题，分别求解并记录子问题的解，再将子问题的解组合起来。因此，动态规划在遇到具有相同子问题时不会耗费时间。</p>
+<p>动态规划只能应用于有<strong>最优子结构</strong>的问题。最优子结构的意思是局部最优解能够决定全局最优解（并不一定能满足，有时需要近似）。</p>
+<p>无后效性。即子问题的解一旦确定，就不再改变，不再受这之后、包含它的更大的问题的求解决策影响。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="钢条切割"><a href="#钢条切割" class="headerlink" title="钢条切割"></a>钢条切割</h3><p>某公司出售一段长度为i英寸的钢条的价格为Pi（i=1，2…单位：美元），下面给出了价格表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>长度$i$</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格$ p_i $</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">30</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>给定一段长度为$n$英寸的钢条与价格表$p_i(i = 1, 2, \cdot\cdot \cdot, n)$，求钢条切割方案，是的销售收益$r_n$最大。</p>
+<h4 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h4><p>钢条切割问题满足最优子结构($optimal\,substructure$)性质：问题的最优解由相关子问题的最优解组合而成，而这些子问题可以独立求解。</p>
+<h5 id="Approach-1：An-expression"><a href="#Approach-1：An-expression" class="headerlink" title="Approach 1：An expression"></a>Approach 1：An expression</h5><p>对于长度为$n$的钢条共有$2^{n-1}$中不同的切割方案，因为可以在距离钢条左侧$i(i = 1, 2, \cdot\cdot\cdot, n-1)$英寸处，我们总可以选择切割或不切割。如果一个最优解将钢条切割为$k$段，那么最优切割方案</p>
+<script type="math/tex; mode=display">
+n = i_1 + i_2 + \cdot\cdot\cdot + i_k</script><p>将钢条切割为长度分别为$ i_1, i_2, \cdot\cdot\cdot, i_k$的小段，得到最大收益</p>
+<script type="math/tex; mode=display">
+r_n = p_1 + p_2 + \cdot\cdot\cdot + p_n</script><p>更一般的，我们使用下面的公式来描述$r_n(n\geq1)$：</p>
+<script type="math/tex; mode=display">
+r_n = max(p_n, r_1 + r_{n-1}, r_2 + r_{n-2}, \cdot\cdot\cdot, r_{n_1} + r_1)</script><p>第一个参数$p_n$表示不切割，其他$n-1$个参数对应另外$n-1$中方案：对于每个$i = 1, 2, \cdot\cdot\cdot, n-1$，首先将钢条切割为长度为$i$和$n-i$的两段，接着求解这两段的最优切割收益$r_i$和$r_{n-i}$。选择$n$中方案中收益最大的作为最终切割方案。</p>
+<p>该问题可以使用递归求解，将问题分解为两部分，切割长度为$i$的钢条的收益加剩余的$n-i$长度的钢条的收益，查高度为$i$的收益是可以在线性时间内计算出来的，我们仅仅需要递归的求解剩余长度为$n-i$的钢条的最大收益。</p>
+<p>可以想一下，之前我们提到了寻找最大值（最小值）的递归版本，递归求解，每次仅从原问题中分解出一个单位，而这个问题中，我们分解的长度是$i,\, (0\leq i \leq n)$.复杂度？</p>
+<p>我们既然能够使用递归式描述该问题，肯定是能够写出该问题的递归解法。</p>
+<p>留作课后题，并尝试分析复杂度。</p>
+<p>给出伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CUT-ROD(p, n)</span><br><span class="line"><span class="keyword">if</span> n == <span class="number">0</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">q = MIN_INT</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to n</span><br><span class="line">	<span class="comment">//分解出长度为i的部分的收益为p[i],余下部分的收益需要递归求解</span></span><br><span class="line">	q = max(q, p[i]+CUT-ROD(p, n-i))</span><br><span class="line"><span class="keyword">return</span> q</span><br></pre></td></tr></table></figure>
+<p>递归树法求解该递归式。</p>
+<p><img src="https://raw.githubusercontent.com/tortoiselala/tortoiselala.github.io/master/src/img/CUT-ROD-SOLUTION.jpg" alt=""></p>
+<p>在该问题中，我们会发现，在求解子问题的时候，我们重复进行了很多不必要的计算（重复计算子问题的解），当n稍微大点，运行时间会显著增长。</p>
+<p>尝试证明:该算法的运行代价为$T(n) = 2^n$.</p>
+<p>注意：该算法仅能够算出最优收益是多少，但是并不能得知如何划分。在竞赛题目中，可能不仅会让你求出最优解，构造最优解。</p>
+<h5 id="Approach-2：Dynamic-Programming"><a href="#Approach-2：Dynamic-Programming" class="headerlink" title="Approach 2：Dynamic Programming"></a>Approach 2：Dynamic Programming</h5><p>在上面的递归版本的求解方法中，我们发现，求解子问题的过程耗费了大量的时间，那么考虑空间换时间，将已经求解出的子问题的解留作后用。</p>
+<p>该问题的第二个解法：</p>
+<p><strong>带备忘的自顶向下方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">MEMOIZED-CUT-ROD(p, n)</span><br><span class="line">let r[<span class="number">0</span>...n] be <span class="keyword">new</span> array</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">0</span> to n</span><br><span class="line">	r[i] = MAX_MIN</span><br><span class="line"><span class="keyword">return</span> MEMZED-CUT-ROD-AUX(p, n, r)</span><br><span class="line"></span><br><span class="line">MEM-OIZED-CUT-ROD-AUX(p, n, r)</span><br><span class="line"><span class="comment">//如果子问题的代价已经求解出来，则直接返回</span></span><br><span class="line"><span class="keyword">if</span> r[n] &gt;= <span class="number">0</span></span><br><span class="line">	<span class="keyword">return</span> r[n]</span><br><span class="line"><span class="comment">//当n==0时，钢条已经切割完毕</span></span><br><span class="line"><span class="keyword">if</span> n == <span class="number">0</span></span><br><span class="line">	q = <span class="number">0</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="comment">//否则递归求解</span></span><br><span class="line">	q = INT_MIN</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to n</span><br><span class="line">		q = max(q, p[i] + MEMIZED-CUT-ROD-AUX(p, n-i, r))</span><br><span class="line">r[n] = q</span><br><span class="line"><span class="keyword">return</span> q</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在实际实现中，你可能会遇到MIN_INT+MIN_INT，很显然会溢出，所以无穷小到底使用多少，值得注意。</p>
+<p>为了不使用递归，第三种解法：<br><strong>自底向上</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自底向上的版本较上一版本更为简单</span></span><br><span class="line">BOTTOM-UP-CUT-ROD(p, n)</span><br><span class="line">let r[<span class="number">0</span>...n] be <span class="keyword">new</span> array</span><br><span class="line">r[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to n</span><br><span class="line">	q = MIN_INT</span><br><span class="line">	<span class="keyword">for</span> j = <span class="number">1</span> to i</span><br><span class="line">	<span class="comment">//r[i]表示长度为i的钢条的最佳切割方案</span></span><br><span class="line">	<span class="comment">//该表达式从（0，n）到）（n,0）求解最大值</span></span><br><span class="line">    	q = max(q, p[j] + r[i-j])</span><br><span class="line">	r[i] = q</span><br><span class="line"><span class="keyword">return</span> r[n]</span><br></pre></td></tr></table></figure>
+<p><strong>java实现</strong>递归版本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">result</span><span class="params">(<span class="keyword">int</span>[] p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[p.length+<span class="number">1</span>];</span><br><span class="line">        r[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)&#123;</span><br><span class="line">            <span class="keyword">int</span> q = Integer.min;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= j; ++i)&#123;</span><br><span class="line">                q = max(q, p[i] + r[j-i]);</span><br><span class="line">            &#125;</span><br><span class="line">            r[j] = q;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Approach-3：重构-Approach-2"><a href="#Approach-3：重构-Approach-2" class="headerlink" title="Approach 3：重构 Approach 2"></a>Approach 3：重构 Approach 2</h5><p>重写算法，使得计算最优解的过程中能够记录下具体的切割方案。</p>
+<p>伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">EXTENDED-CUT-ROD(p,n)</span><br><span class="line">    <span class="comment">//s[i]表示切割方案，i表示长度为i的钢条</span></span><br><span class="line">    let r[<span class="number">0</span>...n] and s[<span class="number">0</span>...n] be a <span class="keyword">new</span> array</span><br><span class="line">	r[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> j = <span class="number">1</span> to n</span><br><span class="line">		q = INT_MIN</span><br><span class="line">		<span class="keyword">for</span> i = <span class="number">1</span> to j</span><br><span class="line">			<span class="keyword">if</span> q &lt; p[i] + r[j-i]</span><br><span class="line">				q =  p[i]+r[j-i]</span><br><span class="line">				s[j] = i</span><br><span class="line">		r[j] = q</span><br><span class="line">	<span class="keyword">return</span> r[n]</span><br></pre></td></tr></table></figure>
+<p>打印切割方案的伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PRINT-CUT-ROD-SOLUTION(s,n)</span><br><span class="line">	<span class="keyword">while</span> n&gt;<span class="number">0</span></span><br><span class="line">        <span class="comment">//向前回溯</span></span><br><span class="line">		print s[n]</span><br><span class="line">		n = n - s[n]</span><br></pre></td></tr></table></figure>
+<h3 id="矩阵链乘法"><a href="#矩阵链乘法" class="headerlink" title="矩阵链乘法"></a>矩阵链乘法</h3><p>矩阵链乘法是可用动态规划解决的最佳化问题。</p>
+<h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>给定一个$n$个矩阵的序列（矩阵链） &lt; $ A_1, A_2, \cdot\cdot\cdot, A_n $&gt; ，我们希望计算它们的乘积</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+A_1A_2\cdots A_3
+\label{eq:公式1}
+\end{equation}</script><p>为了计算公式$\eqref {eq:公式1}$，我们可以先用括号明确计算次序，然后利用标准矩阵相乘算法进行计算。矩阵乘法是满足结合律的，因此任何加括号的方法都会得到相同的计算结果。</p>
+<p>我们称具有如下性质的矩阵乘积链为<strong>完全括号化的(</strong>$fully\, parenthesized$)：它是单一矩阵，或者是两个完全括号化的矩阵乘积链的积，且已外加括号。例如对于4个矩阵的序列，有如下完全括号化的方法：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+(A_1(A_2A_3A_4)))\\
+(A_1((A_2A_3)A_4))\\
+((A_1A_2)(A_3A_4))\\
+((A_1A_2A_3))A_4)\\
+(((A_1A_2)A_3)A_4)\\
+\label{eq:公式2}
+\end{equation}</script><p>对矩阵链加括号的方法会对乘积运算的代价产生巨大影响。两个矩阵相乘的代价取决于相乘的两个矩阵的矩阵规模，若矩阵$A, B$的规模分别为$p\times q, q\times r$，则计算矩阵乘积的代价由进行的标量乘法所决定，即：$pqr$.</p>
+<p>矩阵 $ A_i $ 的规模为 $ p_{i-1} \times p_i （1\leq i \leq n）$，求完全括号化方案，使得计算乘积 $ A_1, A_2, \cdot\cdot\cdot, A_n $ 所需标量乘法次数最少。</p>
+<h4 id="问题求解-1"><a href="#问题求解-1" class="headerlink" title="问题求解"></a>问题求解</h4><h5 id="Approach-1：递归解法"><a href="#Approach-1：递归解法" class="headerlink" title="Approach 1：递归解法"></a>Approach 1：递归解法</h5><p>使用符号$A_{i, \cdot\cdot\cdot j}(i\leq j)$表示$A_iA_{i+1}\cdot\cdot\cdot A_j$乘积的结果矩阵。令$m[i,j]$表示计算矩阵$A_{i, \cdot\cdot\cdot j}(i\leq j)$所需的标量乘法次数的最小值，那么原问题的解-计算$A_{1, \cdot\cdot\cdot n}$所需的最低代价就是$m[1, n]$。</p>
+<p>进行如下的对于$m[i, j]$的递归定义。对于$i = j$时的平凡问题，矩阵链只包含唯一的矩阵$A_{i, \cdot\cdot\cdot i} = A_i$，因此不需要做任何的标量乘法运算。对于所有的$i = 1, 2\cdots, n m[i, j] = 0$。当$i&lt;j$时可以使用最优子结构来计算$m[i,j]$。</p>
+<p>计算$m[i, j]$:假设$A_iA_{i+1}\cdot\cdot\cdot A_j$的最优括号化方案的分割点在矩阵$A_k$和$A_{k+1}$之间，其中$i\leq k&lt;j$。那么，$,[i, j]$就等于计算$A_{i, \cdot\cdot\cdot, k}$和$A_{k+1, \cdot\cdot\cdot, j}$的代价加上两个相乘的代价的最小值。因此可以得到</p>
+<script type="math/tex; mode=display">m[i, j] = m[i, k] + m[k + 1, j] + p_{i-1}p_kp_j</script><p>以上公式是在假设$k$已知的情况下推导出来的，在此基础上，对$k$进行限制。$k$只有$j-i$种可能。因此得到下面公式：</p>
+<script type="math/tex; mode=display">
+m[i, j] =
+\begin{cases} 
+0 
+\atop  
+min_{i\leq k< j}\{m[i, k] + m[k + 1, j] + p_{i-1}p_kp_j\}
+\end{cases} { 如果i = j \atop  如果 i<j}</script><p>类似于<a href="https://tortoiselala.github.io/2018/11/02/%E9%92%A2%E6%9D%A1%E5%88%87%E5%89%B2-Introduction-to-Algorithms/" target="_blank" rel="noopener">钢条切割问题</a>我们做出补充来为我们提供足够的信息知道，如何构造最优解。我们提供$s[i, j]$来存储$k$值。</p>
+<h5 id="Approach-2：自底向上的方法"><a href="#Approach-2：自底向上的方法" class="headerlink" title="Approach 2：自底向上的方法"></a>Approach 2：自底向上的方法</h5><p>伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MATRIX-CHAN-ORDER(p)</span><br><span class="line">	n = p.length - <span class="number">1</span></span><br><span class="line">	let m[<span class="number">1</span>..n-<span class="number">1</span>, <span class="number">1</span>..n] and s[<span class="number">1</span>..n-<span class="number">1</span>, <span class="number">2</span>..n] be <span class="keyword">new</span> tables</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">1</span> to n</span><br><span class="line">		m[i, i] = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> l = <span class="number">2</span> to n</span><br><span class="line">		<span class="keyword">for</span> i = <span class="number">1</span> to n - l + <span class="number">1</span></span><br><span class="line">			j = i + l -<span class="number">1</span></span><br><span class="line">			m[i, j] = MAX_INT</span><br><span class="line">			<span class="keyword">for</span> k = i to j - <span class="number">1</span></span><br><span class="line">				q = m[i, k] + m[k + <span class="number">1</span>, j] + p[i-<span class="number">1</span>]*p[k]*p[j]</span><br><span class="line">			<span class="keyword">if</span> q &lt; m[i, j]</span><br><span class="line">				m[i, j] = q</span><br><span class="line">				s[i, j] = k</span><br></pre></td></tr></table></figure>
+<h3 id="背包问题-Knapsack-problem"><a href="#背包问题-Knapsack-problem" class="headerlink" title="背包问题(Knapsack problem)"></a>背包问题(Knapsack problem)</h3><h4 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h4><p>给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高</p>
+<h4 id="问题分类"><a href="#问题分类" class="headerlink" title="问题分类"></a>问题分类</h4><p><strong>0-1背包问题</strong></p>
+<p>给定一组多个（物品，每种物品都有自己的重量和价值（，在限定的总重量/总容量（![C]内，选择其中若干个（也即每种物品可以选0个或1个），设计选择方案使得物品的总价值最高。</p>
+<p>形式化的定义：</p>
+<p>给定正整数、给定正整数，求解0-1规划问题：</p>
+<script type="math/tex; mode=display">
+max \sum^{n}_{i = 1}{x_iv_i}, s.t.\\
+\sum^{n}_{i = 1}\leq C,\, x\in \{0,1\}</script><p><strong>分数背包问题</strong></p>
+<h4 id="问题求解-2"><a href="#问题求解-2" class="headerlink" title="问题求解"></a>问题求解</h4><p>0-1背包问题</p>
+<p>定义子问题 $P(i, W)$ 为：在前 个物品$i$中挑选总重量不超过$W$的物品，每种物品至多只能挑选1个，使得总价值最大；这时的最优值记作$m(i, W)$ ，其中 $1 \leq i \leq n$，<script type="math/tex">1 \leq W \leq C</script>  。</p>
+<p>考虑第$i$个物品，无外乎两种可能：选，或者不选。</p>
+<ul>
+<li>不选的话，背包的容量不变，改变为问题$P(i-1, W)$; </li>
+<li>选的话，背包的容量变小，改变为问题$P(i -1, W-W_i)$。</li>
+</ul>
+<p>最优方案就是比较这两种方案，哪个会更好些：</p>
+<script type="math/tex; mode=display">
+m(i, W) = max\{ m(i-1, W), m(i -1, W-W_i) +v_i\}</script><p>《图片》</p>
+<p>得到</p>
+<script type="math/tex; mode=display">
+m(i,W)=
+
+\begin{cases}
+        0 & if\, i = 0 \\
+        0 & if\, W = 0 \\
+        m(i - 1, W) & if(w_i > W) \\
+        max\{m(i - 1, W), v_i + m(i - 1, W - w_i)\} & otherwise\\
+\end{cases}</script><p>写出代码求解。</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/">BACKUP</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/">ALGORITHM-COURSE</a></li>
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          <li><a href="/backup/algorithm-course/tony/">TONY</a></li>
+        
+      
+    
+      
+      
+        
+          <li>20181127</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tortoiselala</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#贪心策略-greedy-algorithm"><span class="nav-number">1.</span> <span class="nav-text">贪心策略(greedy algorithm)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#活动选择问题"><span class="nav-number">1.1.</span> <span class="nav-text">活动选择问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#活动选择问题的最优子结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">活动选择问题的最优子结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪心算法原理"><span class="nav-number">1.2.</span> <span class="nav-text">贪心算法原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划-dynamic-programming"><span class="nav-number">2.</span> <span class="nav-text">动态规划(dynamic programming)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用范围"><span class="nav-number">2.1.</span> <span class="nav-text">适用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#钢条切割"><span class="nav-number">2.2.1.</span> <span class="nav-text">钢条切割</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题求解"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">问题求解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-1：An-expression"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">Approach 1：An expression</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-2：Dynamic-Programming"><span class="nav-number">2.2.1.2.2.</span> <span class="nav-text">Approach 2：Dynamic Programming</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-3：重构-Approach-2"><span class="nav-number">2.2.1.2.3.</span> <span class="nav-text">Approach 3：重构 Approach 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵链乘法"><span class="nav-number">2.2.2.</span> <span class="nav-text">矩阵链乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述-1"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题求解-1"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">问题求解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-1：递归解法"><span class="nav-number">2.2.2.2.1.</span> <span class="nav-text">Approach 1：递归解法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Approach-2：自底向上的方法"><span class="nav-number">2.2.2.2.2.</span> <span class="nav-text">Approach 2：自底向上的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背包问题-Knapsack-problem"><span class="nav-number">2.2.3.</span> <span class="nav-text">背包问题(Knapsack problem)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述-2"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分类"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">问题分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题求解-2"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">问题求解</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tortoiselala</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
